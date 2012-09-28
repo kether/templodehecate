@@ -20,7 +20,7 @@ GTdH ha sido instalado en servidores compartidos de coste reducido previamente y
 
 ## Instalación
 
-*ADVERTENCIA: En este momento no existe un sistema de instalación y configuración sencillos y/o automatizado por lo que requiere ciertos conocimientos de YAML y de configuración de servidores. A continuación se explican todos los pasos para instalarlo manualmente.*
+*ADVERTENCIA: En este momento no existe un sistema de instalación y configuración sencillos y/o automatizado por lo que requiere ciertos conocimientos de YAML y de configuración de servidores. A continuación se explican todos los pasos para instalarlo manualmente (en progreso...).*
 
 Sigue estos pasos en orden para hacer una instalación limpia de **GTdH**.
 
