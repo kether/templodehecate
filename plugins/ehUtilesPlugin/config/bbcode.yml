@@ -1,0 +1,33 @@
+rules:
+  header_1:
+    name:             h1
+    params:
+      simple_start:   <h1>
+      simple_end:     </h1>
+      class:          inline
+      allow_in:       [listitem, block, columns, inline]
+  
+  header_2:
+    name:             h2
+    params:
+      simple_start:   <h2>
+      simple_end:     </h2>
+      class:          inline
+      allow_in:       [listitem, block, columns, inline]
+  
+  header_3:
+    name:             h3
+    params:
+      simple_start:   <h3>
+      simple_end:     </h3>
+      class:          inline
+      allow_in:       [listitem, block, columns, inline]
+      
+  youtube:
+    name:             youtube
+    params:
+      mode:           1 #BBCODE_MODE_CALLBACK
+      method:         [ehUtilesCadena, formatearYoutubeBBCAHTML]
+      class:          block
+      allow_in:       [block, inline]
+      

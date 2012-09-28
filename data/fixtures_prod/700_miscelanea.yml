@@ -1,0 +1,52 @@
+tdhAsociacionTipo:
+  tdh_asociacion_tipo_asociacion:
+    nombre:           Asociacion
+  tdh_asociacion_tipo_club:
+    nombre:           Club
+  tdh_asociacion_tipo_grupo:
+    nombre:           Grupo
+  tdh_asociacion_tipo_comunidad_web:
+    nombre:           Comunidad web
+
+tdhConsultaTipo:
+  conulta_tipo_tecnico:
+    nombre:         Problemas técnicos
+  consulta_tipo_propuesta:
+    nombre:         Propuestas
+    
+tdhAnuncioTipo:
+  anuncio_tipo_skyscraper_horizontal:
+    nombre:         'Skyscraper horizontal'
+    anchura:        728
+    altura:         90
+    multiple:       false
+    rotativo:       true
+    codigo_alternativo:   |
+      <script type="text/javascript"><!--
+      google_ad_client = "ca-pub-3289559288367124";
+      /* 728x90, para TdH */
+      google_ad_slot = "9282844001";
+      google_ad_width = 728;
+      google_ad_height = 90;
+      //-->
+      </script>
+      <script type="text/javascript"
+      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+      </script>
+    
+  anuncio_tipo_iconico:
+    nombre:         'Icónico'
+    anchura:        42
+    altura:         42
+    multiple:       true
+    codigo_alternativo:   '<img src="/images/assets/sponsor.png" alt="Tu publicidad aquí" />'
+    
+tdhFeedExterno:
+  feed_externo_fsa:
+    nombre:         'Frikis Anónimos S.A.'
+    url_feed:       http://frikisreconocidossa.wordpress.com/feed/
+    url_web:        http://frikisreconocidossa.wordpress.com
+  feed_extermp_lmde: 
+    nombre:         'La Marca del Este'
+    url_feed:       http://feeds.feedburner.com/AventurasEnLaMarcaDelEste
+    url_web:        http://www.lamarcadeleste.com/

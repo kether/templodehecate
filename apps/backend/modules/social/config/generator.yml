@@ -1,0 +1,38 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           tdhEnvioSocialPendiente
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tdh_envio_social_pendiente
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  
+        programado_para:    { label: Programado }
+        url:                { label: URL }
+        servicio:           { label: Red social }
+      list:    
+        title:              Lista de envíos pendientes
+        display:            [programado_para, servicio, nombre, mensaje]
+        object_actions:
+          _edit:            ~
+          _delete:          ~
+          enviar:           { label: 'Enviar ahora', action: 'enviarAhora' }
+      filter: 
+        display:            [programado_para, servicio, nombre, url]
+      form:    ~
+      edit:    
+        title:              Editar envío
+        actions:  
+          _delete:          ~
+          _list:            ~
+          _save:            ~
+          enviar:          { label: 'Enviar ahora', action: 'enviarAhora' }
+      new:     
+        title:              Nuevo envío a una red social

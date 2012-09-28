@@ -1,0 +1,500 @@
+@CHARSET "UTF-8";
+
+/* General */
+.eh_foro_clearfix {
+  clear: both;
+}
+
+#eh_foro_form_responder {
+  display: none;
+}
+
+/* Amigar */
+.eh_foro_amigar a span { display: none; }
+.eh_foro_amigar a { width: 22px; height: 22px; display: inline-block; }
+.eh_foro_amigar .seguir_on { background: transparent url('../images/friend-on.png') no-repeat 0 0; }
+.eh_foro_amigar .seguir_off { background: transparent url('../images/friend-off.png') no-repeat 0 0; }
+
+.eh_foro_mensaje .eh_foro_amigar { 
+  position: relative; 
+  float: right;
+}
+
+.eh_foro_mensaje .eh_foro_amigar a { opacity: 0.5; }
+.eh_foro_mensaje .eh_foro_amigar a:hover { opacity: 1.0; }
+
+/* Perfil detallado de los usuarios */
+#eh_foro_perfil {
+  margin-top: 15px;
+}
+
+#eh_foro_perfil .eh_foro_columna { float: left; }
+#eh_foro_perfil .eh_foro_columna_1 { width: 150px; text-align: center; }
+#eh_foro_perfil .eh_foro_columna_2 { width: 780px; }
+
+#eh_foro_perfil h1 {
+  font: normal 26px Arial, Verdana;
+  margin: 0 0 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+#eh_foro_perfil .eh_foro_detalles {
+  clear: right;
+}
+
+#eh_foro_perfil .eh_foro_detalles  li {
+  height: 30px;
+  font-size: 14px;
+  margin-bottom: 1px;
+}
+
+#eh_foro_perfil .eh_foro_nota {
+  font: normal 10px Verdana;
+  color: #666;
+}
+
+#eh_foro_perfil .eh_foro_label {
+  height: 30px;
+  line-height: 30px;
+  width: 175px;
+  background-color: #ecd5d8;
+  display: e1ebf2;
+  float: left;
+  padding: 0 10px 0 10px;
+  margin-right: 1px;
+}
+
+#eh_foro_perfil .eh_foro_field {
+  float: left;
+  height: 30px;
+  line-height: 30px;
+  width: 564px;
+  padding: 0 10px 0 10px;
+  background-color: #e1ebf2;
+}
+
+.eh_foro_firma_perfil {
+  margin: 0 auto;
+  width: 758px;
+  padding: 10px;
+  border: 1px solid #aaa;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.eh_foro_firma_perfil h3 {
+  font: normal 10px Verdana;
+  color: #888;
+  margin-bottom: 5px;
+}
+
+.eh_foro_opciones_perfil li {
+  float: right;
+  font: normal 10px Verdana;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+#eh_foro_perfil .eh_foro_conectado {
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  font: normal 10px Verdana;
+  padding-left: 16px;
+  height: 16px;
+  line-height: 16px;
+  width: 80px;
+  margin: 0 auto;
+  color: #555;
+  text-align: left;
+}
+
+#eh_foro_perfil .eh_foro_online  { background: #e1ebf2 url(../images/user-online.png) no-repeat 10px 7px; padding: 0 10px 0 30px; width: 544px; }
+#eh_foro_perfil .eh_foro_offline { background: #e1ebf2 url(../images/user-offline.png) no-repeat 10px 7px; padding: 0 10px 0 30px; width: 544px; }
+
+/* NPI */
+#eh_foro_encabezado {
+  color: #4c5d77;
+  margin: 10px 0 10px 0;
+}
+
+#eh_foro_encabezado h1 { 
+  font: normal 22px Arial;
+  margin: 0 0 0 0; 
+  color: #263d5d;
+}
+
+#eh_foro_navegador {
+  font: normal 11px Verdana;
+}
+
+.eh_foro_tabla {
+  background-color: #e1ebf2;
+  margin: 10px 0 10px 0;
+}
+
+.eh_foro_tabla table {
+ width: 910px;
+ margin: 0 auto;
+ color: #4c5d77;
+}
+
+.eh_foro_round span.eh_foro_top,
+.eh_foro_round span.eh_foro_bottom {
+   width: 100%;
+   height: 10px; /* El alto debe ser la mitad de alto de la imagen GIF */
+   display: block;
+}
+
+.eh_foro_round span.eh_foro_top {
+   background: url('../images/left-corner-white.png') top left no-repeat; 
+}
+.eh_foro_round span.eh_foro_bottom {
+   background: url('../images/left-corner-white.png') bottom left no-repeat;
+}
+.eh_foro_round span.eh_foro_top span,
+.eh_foro_round span.eh_foro_bottom span{
+   width: 10px; /* De acuerdo al tamaño de la imagen PNG */
+   height: 10px; /*De acuerdo al tamaño de la imagen PNG */
+   float: right;
+   font-size: 10px; /* Esto es para IE6, que no respeta el height del span si el tamaño de letra es mayor a este  */
+}
+.eh_foro_round span.eh_foro_top span {
+   background:url('../images/right-corner-white.png') top right no-repeat;
+}
+.eh_foro_round span.eh_foro_bottom span {
+   background:url('../images/right-corner-white.png') bottom right no-repeat;
+}
+
+.eh_foro_tabla th {
+  text-align: left;
+  font: bold 14px Arial, Verdana;
+  padding: 10px 0 5px 0;
+  border-bottom: 2px solid #263d5d;
+  color: #000; 
+}
+
+.eh_foro_tabla tr.par td {
+  background-color: #d3e0e9;
+}
+
+.eh_foro_tabla td {
+  padding: 5px 0 5px 0;
+  border-bottom: 1px solid #fff;
+  vertical-align: middle;
+}
+
+/* Opciones */
+.eh_foro_opciones {
+  text-align: right;
+  font: normal 10px Verdana;
+  height: 20px;
+  line-height: 20px;
+  color: #4c5d77;
+  padding: 0 10px 0 10px;
+}
+
+/* Páginación */
+.eh_foro_paginas {  
+  float: left;
+  height: 20px;
+  line-height: 20px;
+}
+
+.eh_foro_paginas a {
+  padding: 1px 2px 1px 2px;
+  border: 1px solid #b4bac0;
+  background-color: #ecedee;
+  color: #32517d;
+  text-decoration: none;
+}
+
+.eh_foro_paginas a:hover {
+  background-color: #32517d;
+  color: #fff;
+  border: 1px solid #1f324e;
+}
+
+/* Lista de tablones (página principal) */
+#eh_foro_lista_tablones th.eh_foro_seccion  { padding-left: 10px; }
+#eh_foro_lista_tablones td.eh_foro_leido    { width: 70px; text-align: center; }
+
+#eh_foro_lista_tablones td.eh_foro_tablon h3 { font-size: bold 13px Arial; }
+
+#eh_foro_lista_tablones td.eh_foro_ultimo_mensaje, 
+#eh_foro_lista_tablones th.eh_foro_ultimo_mensaje {
+  width: 245px;
+  padding-left: 10px;
+}
+
+#eh_foro_lista_tablones td.eh_foro_temas, 
+#eh_foro_lista_tablones td.eh_foro_respuestas,
+#eh_foro_lista_tablones th.eh_foro_temas, 
+#eh_foro_lista_tablones th.eh_foro_respuestas {
+  width: 110px;
+  text-align: center;
+}
+
+#eh_foro_lista_tablones td.eh_foro_ultimo_mensaje,
+#eh_foro_lista_tablones td.eh_foro_temas, 
+#eh_foro_lista_tablones td.eh_foro_respuestas {
+  border-left: 1px solid #fff;
+}
+
+#eh_foro_conectados {
+  margin-top: 20px;
+  font: normal 11px Verdana;
+  color: #4c5d77;
+}
+
+#eh_foro_conectados .eh_foro_registrados { margin-top: 3px; }
+#eh_foro_conectados .eh_foro_registrados li { float: left; margin-right: 7px; }
+
+#eh_foro_conectados h2 {
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 5px;
+  font: bold 11px Arial;
+  text-transform: uppercase;
+  color: #710607;
+}
+
+#eh_foro_lista_tablones .eh_foro_subtablones {
+  font: normal 11px Arial, serif;
+}
+
+/* Lista de temas de un tablón */
+#eh_foro_lista_temas td.eh_foro_leido,
+#eh_foro_lista_temas td.eh_foro_staff {
+  width: 40px;
+  text-align: center;
+}
+
+#eh_foro_lista_temas td.eh_foro_respuestas,
+#eh_foro_lista_temas td.eh_foro_visto,
+#eh_foro_lista_temas th.eh_foro_respuestas,
+#eh_foro_lista_temas th.eh_foro_visto {
+  width: 75px;
+  text-align: center;
+}
+
+#eh_foro_lista_temas td.eh_foro_ultima_respuesta, 
+#eh_foro_lista_temas th.eh_foro_ultima_respuesta {
+  width: 190px;
+  padding-left: 10px;
+}
+
+#eh_foro_lista_temas th.eh_foro_autor {
+  width: 110px;
+}
+
+/* Lista de mensajes */
+.eh_foro_mensaje {
+  background-color: #e1ebf2;
+  margin: 5px 0 5px 0;
+}
+
+.eh_foro_mensaje_contenedor {
+  margin: 0 10px 0 10px;
+}
+
+.eh_foro_mensaje .eh_foro_usuario {
+  float: right;
+  width: 120px;
+  padding-left: 10px;
+  border-left: 1px solid #fff;
+  font: normal 10px Verdana;
+  color: #4c5d77;
+}
+
+.eh_foro_mensaje .eh_foro_usuario .eh_foro_conexion {
+  float: left;
+  height: 16px;
+  width: 5px;
+  background-color: #4c5d77;
+  margin-right: 5px;
+}
+
+.eh_foro_mensaje .eh_foro_conexion_si .eh_foro_conexion { background-color: #185400; }
+
+.eh_foro_mensaje .eh_foro_usuario h2 { 
+  float: left; 
+  line-height: 16px;
+}
+
+.eh_foro_mensaje .eh_foro_conexion_si h2 { color: #185400; }
+
+.eh_foro_mensaje .eh_foro_usuario .eh_foro_informacion { clear: left; padding-top: 10px; }
+
+.eh_foro_mensaje_contenedor .eh_foro_firma {
+  border-top: 1px solid #fff;
+  margin-top: 10px;
+  padding-top: 5px;
+  margin-right: 140px;
+  color: #4c5d77;
+  font: normal 11px Arial;
+}
+
+.eh_foro_mensaje .eh_foro_pie {
+  clear: both;
+  margin-right: 140px;
+}
+
+.eh_foro_mensaje .eh_foro_cabecera {
+  margin-right: 140px;
+  color: #4c5d77;
+  margin-bottom: 10px;
+  font: normal 11px Arial;
+}
+
+.eh_foro_mensaje .eh_foro_cabecera h2 a {
+  font: bold 16px Arial, Verdana;
+  color: #8b0606;
+}
+
+/* Cuerpo de los mensajes */
+.eh_foro_mensaje .eh_foro_cuerpo {
+  margin-right: 140px;
+  font: normal 14px Arial, Verdana;
+}
+
+.eh_foro_mensaje .eh_foro_cuerpo p { margin: 5px 0 10px 0; }
+
+.eh_foro_mensaje .eh_foro_cuerpo h1 { font-size: 140%; }
+.eh_foro_mensaje .eh_foro_cuerpo h2 { font-size: 125%; }
+.eh_foro_mensaje .eh_foro_cuerpo h3 { font-size: 110%; }
+
+.eh_foro_mensaje .eh_foro_cuerpo ul { margin: 5px 0 10px 0; }
+.eh_foro_mensaje .eh_foro_cuerpo li { margin: 3px 0 2px 20px; list-style: disc outside; }
+
+.eh_foro_mensaje .eh_foro_cuerpo iframe.video { width: 480px; height: 360px; margin: 0 auto 0 auto; display: block; }
+.eh_foro_mensaje .eh_foro_cuerpo img { margin: 0 auto 0 auto; display: block; max-width: 480px; }
+.eh_foro_mensaje .eh_foro_cuerpo img.bbcode_smiley { display: inline-block; margin: 0; }
+
+.eh_foro_mensaje .eh_foro_adjuntos {
+  margin: 15px 10px 13px 10px;
+}
+
+.eh_foro_mensaje .eh_foro_adjuntos li {
+  background: transparent url('../images/btn-download-attach.png') no-repeat 0 0;
+  padding-left: 20px;
+  margin-bottom: 2px;
+}
+
+.eh_foro_mensaje .eh_foro_cuerpo .bbcode_quote_head { display: none; }
+
+/* Citas */ 
+.eh_foro_mensaje .eh_foro_cuerpo .bbcode_quote_body,
+.eh_foro_mensaje .eh_foro_cuerpo blockquote {
+  padding: 0 10px 0 10px;
+  border-left: 3px solid #8b0606;
+  color: #4c5d77;
+}
+
+.eh_foro_mensaje .eh_foro_cuerpo .bbcode_quote_body { margin: 15px 20px 0 20px; }
+.eh_foro_mensaje .eh_foro_cuerpo .bbcode_quote_body .bbcode_quote_body { margin: 15px 5px 0 5px; }
+
+.eh_foro_mensaje .eh_foro_cuerpo blockquote { margin: 10px 20px 0 20px; }
+.eh_foro_mensaje .eh_foro_cuerpo blockquote blockquote {  margin: 10px 5px 0 5px; }
+
+/* Color mensajes y botoneras */
+.eh_foro_mensaje .eh_foro_mensaje_par {
+  background-color: #d3e0e9;
+}
+
+.eh_foro_mensaje .eh_foro_botonera {
+  float: right;
+}
+
+.eh_foro_mensaje .eh_foro_botonera a { opacity: 0.5; }
+.eh_foro_mensaje .eh_foro_botonera a:hover { opacity: 1.0; }
+
+/* Editar mensajes */
+form.eh_foro_formulario {
+  margin-top: 15px;
+}
+
+form.eh_foro_formulario legend {
+  font: normal 22px Arial;
+  color: #4c5d77;
+  margin-bottom: 5px;
+}
+
+.eh_foro_editar_cuerpo, .eh_foro_editar_asunto {
+  background-color: #e1ebf2;
+  width: 720px;
+  margin-bottom: 5px;
+}
+
+.eh_foro_editar_cuerpo textarea {
+  background-color: #e1ebf2;
+  border: none;
+  font: normal 14px Arial;
+  margin-left: 10px;
+  width: 700px; 
+}
+
+form#eh_foro_editar_tema .eh_foro_editar_cuerpo textarea,
+form#eh_foro_mensaje_privado .eh_foro_editar_cuerpo textarea { height: 224px; }
+
+form#eh_foro_editar_respuesta .eh_foro_editar_cuerpo textarea { height: 269px; }
+
+.eh_foro_editar_cuerpo .eh_foro_markup {
+  height: 25px;
+  margin: 0 10px 5px 10px;
+  line-height: 25px;
+  border-bottom: 1px solid #fff;
+}
+
+.eh_foro_editar_cuerpo .eh_foro_markup a {
+  padding: 2px;
+}
+
+.eh_foro_editar_asunto input {
+  background-color: #e1ebf2;
+  border: none;
+  font: bold 14px Arial;
+  margin-left: 10px;
+  width: 700px;
+  height: 15px;
+} 
+
+.eh_foro_editar_opciones {
+  float: right;
+  background-color: #ecd5d8;
+  width: 205px;
+}
+
+.eh_foro_editar_opciones ul {
+  margin: 0 10px 0 10px;
+  height: 300px; 
+}
+
+input#eh_foro_hilo_mensaje_nombre_invitado {
+  width: 178px;
+  border: 1px solid #999;
+  margin-bottom: 10px;
+  font: normal 12px Arial;
+}
+
+/* Mensajes privados */
+form#eh_foro_mensaje_privado .eh_foro_editar_cuerpo textarea { height: 255px; }
+
+.eh_foro_privados .eh_foro_leido,
+.eh_foro_privados .eh_foro_borrar { width: 50px; text-align: center; }
+.eh_foro_privados .eh_foro_asunto { text-align: left; }
+.eh_foro_privados .eh_foro_remitente, .eh_foro_privados .eh_foro_destinatario { text-align: left; width: 150px; }
+.eh_foro_privados .eh_foro_fecha { text-align: left; width: 190px; }
+
+/* Lista de perfiles */
+#eh_foro_lista_amigos .eh_foro_avatar {
+  width: 80px;
+  text-align: center;
+}
+
+#eh_foro_lista_amigos .eh_foro_amigar_lista_amigos {
+  width: 40px;
+  text-align: center;
+}
+
+#eh_foro_lista_amigos .eh_foro_nombreusuario {
+  font: normal 11px Arial;
+}

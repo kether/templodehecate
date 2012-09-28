@@ -1,0 +1,38 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           tdhCriticaCaptura
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tdh_critica_captura
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: 
+        _delete:           { credentials: [[superadministrator, administrador, criticas]] }
+        critica:           { label: Editar crítica, action: critica }
+      fields:  ~
+      list:    
+        title:             Capturas de críticas
+        display:           [=fichero, comentario, tam_peq, tam_med, tam_gra]
+        actions:           []
+        fields:            { tam_peq: { label: '¿Pequeño?' }, tam_med: { label: '¿Mediano?' }, tam_gra: { label: '¿Grande?' } }
+        object_actions:
+          _edit:           ~
+          _delete:         ~
+          critica:         ~
+      filter:  ~
+      form:    ~
+      edit:    
+        title:             Editar captura
+        actions:
+          _delete:         ~
+          _list:           ~
+          _save:           ~
+          critica:         ~
+      new:     
+        title:             Nueva captura para crítica

@@ -1,0 +1,103 @@
+/**
+ * Hoja de estilo para formularios estándar de ehForoPlugin.
+ *
+ * @copyright Pablo Floriano
+ * @file ehforo.formularios.css
+ */
+@CHARSET "UTF-8";
+
+/* Título y texto resumen del formulario */
+.eh_foro_formulario h1 {
+  font: normal 20px Arial, Verdana;
+  border-bottom: 1px solid #ccc;
+  margin: 20px 0 15px 0;
+}
+
+.eh_foro_formulario .eh_foro_descripcion {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.eh_foro_formulario legend {
+  font: normal 18px Arial, Verdana;
+}
+
+/* Lista de campos */
+.eh_foro_formulario .eh_foro_field, .eh_foro_formulario .eh_foro_checkbox, .eh_foro_formulario .eh_foro_submit { margin: 2px 0 3px 0; clear: left; }
+
+/* Formato de campos */
+.eh_foro_formulario .eh_foro_field input[type=text],
+.eh_foro_formulario .eh_foro_field input[type=password],
+.eh_foro_formulario .eh_foro_field textarea {
+  width: 350px;
+  font: normal 14px Arial, Verdana;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin: 1px;
+}
+
+.eh_foro_formulario .eh_foro_field input[type=text]:focus,
+.eh_foro_formulario .eh_foro_field input[type=password]:focus,
+.eh_foro_formulario .eh_foro_field select:focus,
+.eh_foro_formulario .eh_foro_field textarea:focus {
+  border: 2px solid #182a42;
+  margin: 0;
+  background-color: #faffbd;
+}
+
+.eh_foro_formulario .eh_foro_field select {
+  font: normal 14px Arial, Verdana;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin: 1px;
+}
+
+.eh_foro_formulario .eh_foro_field textarea {
+  height: 150px;
+}
+
+.eh_foro_formulario .eh_foro_label {
+  float: left;
+  width: 220px;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.eh_foro_formulario .eh_foro_label label {
+  font: bold 12px Arial;
+}
+
+.eh_foro_formulario .eh_foro_label .eh_foro_help {
+  font: normal 11px Arial;
+  color: #666;
+}
+
+.eh_foro_formulario .eh_foro_checkbox, .eh_foro_formulario .eh_foro_submit { padding-left: 230px; }
+
+.eh_foro_formulario .eh_foro_submit {
+  font: normal 10px Arial;
+}
+
+/* Errores */
+.eh_foro_formulario ul.error_list { margin: 2px 0 10px 230px; }
+
+  .eh_foro_formulario ul.error_list li {
+    font-size: 11px;
+    color: #7a1818;
+  }
+  
+/* Lista de opciones alternativas */
+.eh_foro_alternativas { margin-top: 15px; }
+
+.eh_foro_alternativas li { 
+  font-size: 12px;
+  margin-bottom: 2px;
+  padding-left: 20px;
+  background: transparent url('../images/bulletgray.png') no-repeat 0 0;
+}
+
+/* Campos específicos */
+.eh_foro_avatar_actual {
+  text-align: center;
+  margin-bottom: 15px;
+}

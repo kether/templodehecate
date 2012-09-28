@@ -1,0 +1,272 @@
+connection:             <?php echo sfConfig::get('app_eh_foro_plugin_connection', 'doctrine') ?> 
+options:                { type: INNODB, collate: utf8_unicode_ci, charset: utf8 }
+  
+ehForoSeccion:
+  actAs:
+    Sluggable:          { fields: [nombre], canUpdate: true }
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    estado_oculto:      { type: boolean, notnull: true, default: false }
+    ordinal:            { type: integer(3), notnull: true, default: 0 }
+    nombre:             { type: string(255), notnull: true }
+    descripcion:        { type: string(255), notnull: true }
+  
+ehForoTablon:
+  actAs:
+    Sluggable:          { fields: [nombre], canUpdate: true }
+    ehForoForeignKeyBackBehavior:
+      fields:           [tablon_id]
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    estado_oculto:                  { type: boolean, notnull: true, default: false }
+    estado_restringido_hilos:       { type: boolean, notnull: true, default: false }
+    estado_restringido_respuestas:  { type: boolean, notnull: true, default: false }
+    ordinal:            { type: integer, notnull: true, default: 0 }
+    nombre:             { type: string(255), notnull: true }
+    descripcion:        { type: string(255), notnull: true }
+    num_subtablones:    { type: integer(3), notnull: true, default: 0 }
+    num_hilos:          { type: integer(3), notnull: true, default: 0 }
+    num_mensajes:       { type: integer(3), notnull: true, default: 0 }
+    uri_icon:           { type: string(255), notnull: true, default: '' }
+    ultimo_hilo_id:     { type: integer(4) }
+    seccion_id:         { type: integer(4), notnull: true }
+    tablon_id:          { type: integer(4) }
+  relations:
+    UltimoHilo:         { onDelete: SET NULL, class: ehForoHilo, local: ultimo_hilo_id, foreign: id, foreignType: one, foreignAlias: Tablon }
+    Seccion:            { onDelete: CASCADE, class: ehForoSeccion, local: seccion_id, foreign: id, foreignAlias: Tablones }
+    Visibles:           { onDelete: CASCADE, class: ehAuthUser, refClass: ehForoVisible, local: foro_id, foreign: usuario_id, foreignAlias: VisiblesTablones }
+    TablonPadre:        { onDelete: CASCADE, class: ehForoTablon, local: tablon_id, foreign: id, foreignAlias: Subtablones }
+  
+ehForoHilo:
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    estado_oculto:      { type: boolean, notnull: true, default: false }
+    estado_cerrado:     { type: boolean, notnull: true, default: false }
+    estado_staff:       { type: boolean, notnull: true, default: false }   # en el foro hay mensaje(s) del Staff
+    estado_pinchado:    { type: boolean, notnull: true, default: false }   # el hilo está pinchado como prioritario
+    estado_general:     { type: boolean, notnull: true, default: false }   # este hilo se verá en todos los tablones del foro
+    estado_seccion:     { type: boolean, notnull: true, default: false }   # este hilo se ve en todos los tablones de la misma sección
+    leido:              { type: integer(3), notnull: true, default: 0 }       # veces que ha sido leído el hilo
+    respuestas:         { type: integer(3), notnull: true, default: 0 }   # caché de respuestas que hay en el hilo
+    tablon_id:          { type: integer(4), notnull: true }
+    primer_mensaje_id:  { type: integer(4) }
+    ultimo_mensaje_id:  { type: integer(4) }
+  relations:
+    Tablon:             { onDelete: CASCADE, class: ehForoTablon, local: tablon_id, foreign: id, foreignAlias: Hilos }
+    PrimerMensaje:      { onDelete: SET NULL, class: ehForoMensaje, local: primer_mensaje_id, foreign: id, foreignType: one, foreignAlias: Hilo }
+    UltimoMensaje:      { onDelete: SET NULL, class: ehForoMensaje, local: ultimo_mensaje_id, foreign: id, foreignType: one, foreignAlias: Hilo }
+    
+ehForoMensaje:
+  actAs:
+    Timestampable:      ~
+    Sluggable:          { fields: [asunto], canUpdate: true, unique: true }
+    ehForoMarkupToHtmlBehavior:
+      field:            'cuerpo'
+      target:           'cuerpo_html'
+      byMethods:        true
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    estado_activo:      { type: boolean, notnull: true, default: true }        # ~activo
+    tiene_adjuntos:     { type: boolean, notnull: true, default: false }       # ~NO_EXISTIA
+    estado_staff:       { type: boolean, notnull: true, default: false }       # ¿Es un mensajes del 'staff'?
+    nombre_invitado:    { type: string(255), notnull: true, default: '' }
+    ip:                 { type: string(255), notnull: true, default: '127.0.0.1' }
+    asunto:             { type: string(255), notnull: true, default: '' }
+    html:               { type: boolean, notnull: true, default: false }       # ¿Se admite HTML?
+    bbcode:             { type: boolean, notnull: true, default: true }        # ¿Se parsea el mensaje para BBCode?
+    nl2br:              { type: boolean, notnull: true, default: true }        # ¿Se añaden <br />'s al final de cada línea?
+    emoticonos:         { type: boolean, notnull: true, default: true }        # ¿Se parsea el mensaje para mostrar emoticonos?
+    markdown:           { type: boolean, notnull: true, default: false }       # ¿Parseamos el mensaje para que se muestren en HTML los tags Markdown? ~NO_EXISTIA
+    firma:              { type: boolean, notnull: true, default: true }        # ¿Mostramos la firma en este mensaje?
+    karma:              { type: integer(3), notnull: true, default: 0 }
+    visible_desde:      { type: timestamp, notnull: true }                     # ~NO_EXISTIA
+    hilo_id:            { type: integer(4) }
+    usuario_id:         { type: integer(4) }
+  relations:
+    Hilo:               { onDelete: CASCADE, class: ehForoHilo, local: hilo_id, foreign: id, foreignAlias: Mensajes }
+    Usuario:            { onDelete: SET NULL, class: ehAuthUser, local: usuario_id, foreign: id, foreignAlias: Mensajes }
+    
+ehForoPerfil:
+  actAs:
+    Timestampable:      { created: { disabled: true } }
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    sexo:               { type: enum, values: [Varón, Mujer, Desconocido], notnull: true, default: 'Desconocido' }          # 1 = varón, 0 = hembra
+    fecha_nacimiento:   { type: date }
+    nick:               { type: string(255), notnull: true, default: '' }
+    uri_avatar:         { type: string(255), notnull: true, default: '' }          
+    residencia:         { type: string(255), notnull: true, default: '' }                  # ~direccion
+    email:              { type: string(255), notnull: true }
+    web:                { type: string(255), notnull: true, default: '' }
+    notificaciones:     { type: boolean, notnull: true, default: true }
+    num_mensajes:       { type: integer(3), notnull: true, default: 0 }
+    pais:               { type: string(10), notnull: true, default: 'ES' }
+    idioma:             { type: string(10), notnull: true, default: 'es' }
+    zona_horaria:       { type: string(64), notnull: true, default: 'Europe/Madrid' }
+    firma:              { type: string(1000), notnull: true, default: '' }
+    karma:              { type: integer, notnull: true, default: 0 }
+    usuario_id:         { type: integer(4), notnull: true }
+  relations:
+    Usuario:            { onDelete: CASCADE, class: ehAuthUser, local: usuario_id, foreign: id, foreignType: one, foreignAlias: Perfil }
+
+ehForoAmigo:
+  options:
+    symfony:
+      form:             false
+      filter:           false
+  actAs:
+    Timestampable:      ~
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    invitante_id:       { type: integer(4), notnull: true }
+    invitado_id:        { type: integer(4), notnull: true }
+  relations:
+    Invitante:          { onDelete: CASCADE, class: ehAuthUser, local: invitante_id, foreign: id, foreignAlias: Invitados }
+    Invitado:           { onDelete: CASCADE, class: ehAuthUser, local: invitado_id, foreign: id, foreignAlias: Invitantes }
+    
+ehForoTablonModerador:
+  options:
+    symfony:
+      form:             false
+      filter:           false
+  columns:
+    usuario_id:         { type: integer(4), notnull: true, primary: true }
+    tablon_id:          { type: integer(4), notnull: true, primary: true }
+  relations:
+    Usuario:            { onDelete: CASCADE, class: ehAuthUser, local: usuario_id, foreign: id }
+    Tablon:             { onDelete: CASCADE, class: ehForoTablon, local: tablon_id, foreign: id }
+  
+ehForoVisible:
+  options:
+    symfony:
+      form:             false
+      filter:           false
+  columns:
+    usuario_id:         { type: integer(4), notnull: true, primary: true }
+    foro_id:            { type: integer(4), notnull: true, primary: true }
+    
+ehForoLeidoHilo:
+  columns:
+    usuario_id:         { type: integer(4), notnull: true, primary: true }
+    hilo_id:            { type: integer(4), notnull: true, primary: true }
+    read_at:            { type: timestamp, notnull: true }
+  relations:
+    Usuario:            { onDelete: CASCADE, class: ehAuthUser, local: usuario_id, foreign: id, foreignAlias: HilosLeidos }
+    Hilo:               { onDelete: CASCADE, class: ehForoHilo, local: hilo_id, foreign: id, foreignAlias: Leidos }
+  
+ehForoLeidoTablon:
+  columns:
+    usuario_id:         { type: integer(4), notnull: true, primary: true }
+    tablon_id:          { type: integer(4), notnull: true, primary: true }
+    read_at:            { type: timestamp, notnull: true }
+  relations:
+    Usuario:            { onDelete: CASCADE, class: ehAuthUser, local: usuario_id, foreign: id, foreignAlias: TablonesLeidos }
+    Tablon:             { onDelete: CASCADE, class: ehForoTablon, local: tablon_id, foreign: id, foreignAlias: Leidos }
+  
+ehForoGrupo:
+  actAs:
+    Sluggable:          { fields: [nombre], canUpdate: true, unique: true }
+    ehForoMarkupToHtmlBehavior: ~
+    Timestampable:      ~
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    nombre:             { type: string(255), notnull: true }
+    es_restringido:     { type: boolean, notnull: true, default: false }       # Sólo pueden asignar este grupo los administradores
+  relations:
+    Usuarios:           { class: ehAuthUser, refClass: ehForoGrupoUsuario, foreignAlias: Grupos, local: grupo_id, foreign: usuario_id, onDelete: CASCADE }
+    Tablones:           { class: ehForoTablon, refClass: ehForoStaffTablon, foreignAlias: Grupos, local: grupo_id, foreign: tablon_id, onDelete: CASCADE }
+  
+ehForoGrupoUsuario:
+  options:
+    symfony:
+      form:             false
+      filter:           false
+  columns:
+    grupo_id:           { type: integer(4), notnull: true, primary: true }
+    usuario_id:         { type: integer(4), notnull: true, primary: true }
+  relations:
+    Grupo:              { onDelete: CASCADE, class: ehForoGrupo, local: grupo_id, foreign: id }
+    Usuario:            { onDelete: CASCADE, class: ehAuthUser, local: usuario_id, foreign: id }
+  
+ehForoStaffTablon:
+  options:
+    symfony:
+      form:             false
+      filter:           false
+  columns:
+    grupo_id:           { type: integer(4), notnull: true, primary: true }
+    tablon_id:          { type: integer(4), notnull: true, primary: true }
+  relations:
+    Grupo:              { onDelete: CASCADE, class: ehForoGrupo, local: grupo_id, foreign: id }
+    Tablon:             { onDelete: CASCADE, class: ehForoTablon, local: tablon_id, foreign: id }
+  
+ehForoMensajePrivado:
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    estado_leido:       { type: boolean, notnull: true, default: false }
+    estado_borrado_procedencia:     { type: boolean, notnull: true, default: false }
+    estado_borrado_destino:         { type: boolean, notnull: true, default: false }
+    estado_notificacion:            { type: boolean, notnull: true, default: false }
+    mensaje_id:         { type: integer(4) }
+    usuario_destino_id: { type: integer(4), notnull: true }
+  relations:
+    Mensaje:            { onDelete: CASCADE, class: ehForoMensaje, local: mensaje_id, foreignType: one, foreign: id, foreignAlias: MensajePrivado }
+    Destinatario:       { onDelete: CASCADE, class: ehAuthUser, local: usuario_destino_id, foreign: id, foreignAlias: MensajesPrivados }
+
+ehForoHiloSeguimiento:
+  options:
+    symfony:
+      form:             false
+      filter:           false
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    es_persistente:     { type: boolean, notnull: true, default: false }
+    hilo_id:            { type: integer(4), notnull: true }
+    usuario_id:         { type: integer(4), notnull: true }
+  relations:
+    Usuario:            { onDelete: CASCADE, class: ehAuthUser, local: usuario_id, foreign: id, foreignAlias: HiloSeguimientos }
+    Hilo:               { onDelete: CASCADE, class: ehForoHilo, local: hilo_id, foreign: id, foreignAlias: Seguimientos }
+    
+ehForoKarma:
+  actAs:
+    Timestampable:      { updated: { disabled: true } }
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    mensaje_id:         { type: integer(4), notnull: true }
+    usuario_id:         { type: integer(4), notnull: true }
+    puntos:             { type: integer, notnull: true, default: 0 }
+  relations:
+    Mensaje:            { onDelete: CASCADE, class: ehForoMensaje, local: mensaje_id, foreign: id, foreignAlias: RegistrosKarma }
+    Usuario:            { onDelete: CASCADE, class: ehAuthUser, local: usuario_id, foreign: id, foreignAlias: RegistrosKarma }
+    
+ehForoAdjuntoTipo:
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    nombre:             { type: string(255), notnull: true }
+    url:                { type: string(255), notnull: true }
+    dir:                { type: string(255), notnull: true }
+  
+ehForoAdjunto:
+  actAs:                [Timestampable]
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    mensaje_id:         { type: integer(4), notnull: true }
+    tipo_id:            { type: integer(4), notnull: true }
+    nombre:             { type: string(255), notnull: true }
+    nombre_fichero:     { type: string(255), notnull: true, default: '' }
+    numero_descargas:   { type: integer, notnull: true, default: 0 }
+  relations:
+    Mensaje:            { onDelete: CASCADE, class: ehForoMensaje, local: mensaje_id, foreign: id, foreignAlias: Adjuntos }
+    Tipo:               { onDelete: CASCADE, class: ehForoAdjuntoTipo, local: tipo_id, foreign: id, foreignAlias: Adjuntos }
+    
+ehForoUsuarioActivo:
+  actAs:
+    Timestampable:      { created: { disabled: true } }
+  columns:
+    ip:                 { type: string(128), notnull: true, primary: true }
+    usuario_id:         { type: integer(4) }
+    modulo:             { type: string(128), notnull: true }
+    accion:             { type: string(128), notnull: true }
+    agent:              { type: string(255), notnull: true }
+  relations:
+    Usuario:            { onDelete: CASCADE, class: ehAuthUser, local: usuario_id, foreign: id, foreignType: one, foreignAlias: UsuarioActivo }

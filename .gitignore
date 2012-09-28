@@ -1,0 +1,23 @@
+# ficheros de configuración
+/config/app.yml
+/config/databases.yml
+/config/rsync_exclude.txt
+/config/settings.yml
+
+# ficheros de proyecto
+.buildpath
+.project
+.settings
+.svn
+
+# ficheros miscelanea
+*.bat
+Thumbs.db
+/web/backend_dev.php
+/web/frontend_cache.php
+/web/frontend_dev.php
+/web/frontend_staging.php
+/web/.htaccess
+
+# directorios
+/data/fixtures

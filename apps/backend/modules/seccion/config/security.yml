@@ -1,0 +1,3 @@
+default:
+  credentials:  [['juegos', 'superadministrator', 'administrador']]
+  

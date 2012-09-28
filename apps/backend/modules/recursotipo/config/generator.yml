@@ -1,0 +1,27 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           tdhRecursoTipo
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tdh_recurso_tipo
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  
+        descripcion:
+          label:    'Descripción'
+      list:    
+        title:      Tipos de recursos
+        display:    [=nombre, descripcion]
+      filter:  ~
+      form:    ~
+      edit:    
+        title:      Editar tipo de recurso
+      new:     
+        title:      Nuevos tipo de recurso

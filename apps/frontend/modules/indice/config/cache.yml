@@ -1,0 +1,14 @@
+#portada:
+#  enabled:  true
+
+feed:
+  enabled:  true
+  
+_juegosPopulares:
+  enabled:  true
+
+_foro:
+  enabled:  true
+  
+_portada:
+  enabled:  true

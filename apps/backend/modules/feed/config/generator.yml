@@ -1,0 +1,26 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           tdhFeedExterno
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tdh_feed
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  
+        url_feed:          { label: 'URL del feed' }
+      list:    
+        title:             Lista de medios feed
+        display:           [=nombre, url_feed]
+      filter:  ~
+      form:    ~
+      edit:    
+        title:             Editar medio «%%nombre%%»
+      new:     
+        title:             Nuevo medio feed

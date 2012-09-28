@@ -1,0 +1,72 @@
+tdhGenero:
+  tdh_genero_fantasia_medieval: { nombre: Fantasía medieval }
+  tdh_genero_terror:            { nombre: Terror }
+  tdh_genero_ciencia_ficcion:   { nombre: Ciencia ficción }
+
+tdhEditor:
+  tdh_editor_atlas_games:       { nombre: Atlas Games, web: "http://www.atlas-games.com" }
+  tdh_editor_white_wolf:        { nombre: White Wolf, web: "http://www.white-wolf.com" }
+  tdh_editor_edge_ent:          { nombre: Edge Entertainment, web: "http://www.edgeent.com"}
+  tdh_editor_wizards:           { nombre: Wizards of the Coast, web: "http://www.wizards.com"}
+
+tdhSeccionTipo:
+  tdh_seccion_tipo_rol:         { nombre: Rol }
+  tdh_seccion_tipo_estrategia:  { nombre: Estrategia }
+  tdh_seccion_tipo_cartas_coleccionables:      { nombre: Cartas coleccionables }
+  tdh_seccion_tipo_cine:        { nombre: Cine, es_juego: false }
+
+tdhHojaDeEstilo:
+  tdh_estilo_mago:              { title: "Mago El Despertar", filename: 'mago', content: "h1 { color: blue; }" }
+
+tdhSeccion:
+  tdh_seccion_ars_magica:
+    nombre:         "Ars Magica"
+    descripcion:    "Juego de rol en la Europa Mítica"
+    url:            http://arsmagica-dev.templodehecate.com/arsmagica_dev.php
+    estado_activa:  true
+    Tipo:           tdh_seccion_tipo_rol
+    Genero:         tdh_genero_fantasia_medieval
+    Editor:         tdh_editor_atlas_games
+    Tablon:         eh_foro_tablon_generico
+    
+  tdh_seccion_mago_despertar:
+    nombre:         "Mago: El Despertar"
+    descripcion:    "Esto es el poder. Esto es la magia. Con ellas reharás el mundo."
+    estado_activa:  true
+    Tipo:           tdh_seccion_tipo_rol
+    Genero:         tdh_genero_terror
+    Editor:         tdh_editor_white_wolf
+    Tablon:         eh_foro_tablon_generico
+    HojasDeEstilo:  [tdh_estilo_mago]
+    
+  tdh_seccion_vampiro_el_requiem:
+    nombre:         "Vampiro: El Réquiem"
+    descripcion:    "Los vampiros chupan la sangre en el réquiem."
+    estado_activa:  true
+    Tipo:           tdh_seccion_tipo_rol
+    Genero:         tdh_genero_terror
+    Editor:         tdh_editor_white_wolf
+    Tablon:         eh_foro_tablon_generico
+    
+  tdh_seccion_dungeons_and_dragons:
+    nombre:         "Dungeons & Dragons"
+    descripcion:    "El primer juego de rol del mundo."
+    estado_activa:  true
+    Tipo:           tdh_seccion_tipo_rol
+    Genero:         tdh_genero_fantasia_medieval
+    Editor:         tdh_editor_wizards
+    Tablon:         eh_foro_tablon_generico
+    
+tdhPopular:
+  tdh_popular_vampiro_el_requiem:
+    visitas:        10
+    fecha:          <?php echo date("'Y-m-d'", time()-86400)."\n" ?>
+    Seccion:        tdh_seccion_vampiro_el_requiem
+  tdh_popular_dungeons_and_dragons:
+    visitas:        20
+    fecha:          <?php echo date("'Y-m-d'", time()-86400)."\n" ?>
+    Seccion:        tdh_seccion_dungeons_and_dragons
+  tdh_popular_mago_despertar:
+    visitas:        5
+    fecha:          <?php echo date("'Y-m-d'", time()-86400)."\n" ?>
+    Seccion:        tdh_seccion_mago_despertar

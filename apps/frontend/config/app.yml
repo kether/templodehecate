@@ -1,0 +1,19 @@
+# Valores por defecto para todos los entornos
+all:      ~
+          
+
+# Configuración en producción
+prod:     ~
+  
+# Configuración en desarrollo
+dev:      
+  .configuracion:
+    eh_foro_plugin:    
+      permiso_post_invitados:         true
+      permiso_new_thread_invitados:   true
+
+# Configuración de prueba sin caché
+staging:  ~
+
+# Configuración en test
+test:     ~

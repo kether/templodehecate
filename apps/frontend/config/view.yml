@@ -1,0 +1,12 @@
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        %APP_NOMBRE%
+    keywords:     %APP_PALABRAS_CLAVE%
+    robots:       index, follow
+    generator:    Generador de Templo de Hécate
+
+  has_layout:     true
+  layout:         layout

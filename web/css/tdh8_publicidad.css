@@ -1,0 +1,54 @@
+/**
+ * Hoja de estilo para los apartados de promociones
+ *
+ * @author Pablo Floriano
+ * @copyright 2012 Estudio Hécate
+ */
+@CHARSET "UTF-8";
+
+#tdh_anuncio_contratar h1 {
+  font: normal 22px Arial, Verdana;
+  background-color: #3c5f9f;
+  line-height: 58px;
+  padding: 0 10px 0 10px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+#tdh_anuncio_contratar form {
+  padding-top: 10px;
+}
+
+#tdh_anuncio_pagar h2 {
+  font: normal 18px Arial, Verdana;
+  background-color: #6b6b6b;
+  line-height: 48px;
+  padding: 0 10px 0 10px;
+  color: #fff;
+  margin: 15px 0 10px 0;
+}
+
+#tdh_anuncio_pagar li {
+  text-align: center;
+}
+
+#tdh_precios {
+  width: 200px;
+  margin: 0 auto;
+}
+
+#tdh_precios li {
+  background-color: #eee;
+  border-top: 1px solid #fefefe;
+  border-bottom: 1px solid #cccccc;
+  padding: 5px 10px 5px 10px;
+  font: normal 12px Arial;
+  
+}
+
+#tdh_precios li h2 {
+  font: bold 16px Arial;
+  margin-bottom: 3px;
+}
+
+#tdh_precios li .tdh_dimensiones { color: #6b6b6b; }

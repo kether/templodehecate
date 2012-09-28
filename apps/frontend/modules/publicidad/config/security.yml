@@ -1,0 +1,8 @@
+formulario:
+  is_secure: true
+  
+pagar:
+  is_secure: true
+  
+ipn:
+  is_secure: false

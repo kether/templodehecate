@@ -1,0 +1,29 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           ehForoSeccion
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          eh_foro_seccion
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: 
+        _delete:            { credentials: superadministrator }
+      fields:  
+        ordinal:            { label: Orden }
+        estado_oculto:      { label: ¿Oculto? }
+      list:    
+        title:              Lista de secciones
+        display:            [ordinal, estado_oculto, =nombre]
+      filter:  
+        display:            [estado_oculto, nombre]
+      form:    ~
+      edit:    
+        title:              Editar sección «%%nombre%%»
+      new:     
+        title:              Nueva sección

@@ -1,0 +1,109 @@
+inicio:
+  nombre:     'Inicio'
+  uri:        '@homepage'
+  valido:
+    inicio:     'indice/portada'
+
+usuarios:
+  nombre:     'Usuarios'
+  uri:        '@eh_auth_user'
+  valido:
+    ehAuthUser:         'usuario/*'
+    ehAuthCredential:   'ehAuthCredential/*'
+  submenus:
+    cuentas:            { nombre: Cuentas, uri: '@eh_auth_user' }
+    credenciales:       { nombre: Credenciales, uri: '@eh_auth_credential_ehAuthCredential' }
+    
+foro:
+  nombre:       'Foro'   
+  uri:          '@tdh_foro'
+  submenus:
+    secciones:  { nombre: Secciones, uri: '@eh_foro_seccion', desripcion: 'Editar y añadir secciones en el foro.' }
+    tablones:   { nombre: Tablones, uri: '@eh_foro_tablon', desripcion: 'Editar y añadir tablones/foros.' }
+  valido:
+    foro:       'indice/foro'
+    seccion:    'ehForoAdminSeccion/*'
+    tablon:     'ehForoAdminTablon/*'
+
+global:
+  nombre:       'Global'
+  uri:          '@tdh_global'
+  submenus:
+    menu:               { nombre: Menú, uri: '@tdh_menu', descripcion: 'Edición de menús y submenús especiales para la web.' }
+    secciones:          { nombre: Secciones, uri: '@tdh_seccion', descripcion: 'Las secciones son los apartados de los juegos (o equivalentes) para dividir la web.' }
+    seccion_tipos:      { nombre: Tipo de secciones, uri: '@tdh_seccion_tipo', descripcion: 'El tipo o categoría de sección para las secciones.' }
+    hojaestilo:         { nombre: Hojas de estilo, uri: '@tdh_hoja_de_estilo', descripcion: 'Para crear o editar hojas de estilo CSS virtuales para las secciones u otros apartados.' }
+    popular:            { nombre: Populares, uri: '@tdh_popular', descripcion: 'Modificar los parámetros de popularidad de las secciones.' }
+    licencia:           { nombre: Licencias, uri: '@tdh_licencia', descripcion: 'Lista y modifica clases de licencias, como copyright y creative commons' }    
+    contacto:           { nombre: Tipos de contacto, uri: '@tdh_consulta_tipo', descripcion: 'Modifica las clases de contacto y los usuarios asociados a ella' }
+  valido:
+    global:             'indice/global'
+    seccion:            'seccion/*'
+    seccion_tipo:       'secciontipo/*'
+    hojaestilo:         'hojaestilo/*'
+    menu:               'menu/*'
+    popular:            'popular/*'
+    licencia:           'licencia/*'
+    contacto:           'consultatipo/*'
+
+publicidad:
+  nombre:       'Publicidad'
+  uri:          '@tdh_anuncio'
+  submenus:
+    anuncio:            { nombre: Publicidad, uri: '@tdh_anuncio', descripcion: 'Añadir y modificar la publicidad del sitio web.' }
+    anuncio_tipos:      { nombre: Tipos de anuncio, uri: '@tdh_anuncio_tipo', descripcion: 'Gestionar las clases de publicidad.' }
+    anuncio_pagos:      { nombre: Pagos, uri: '@tdh_anuncio_pago', descripcion: 'Muestra la lista de pagos de los patrocinadores.' }
+  valido:
+    anuncio:            'anuncio/*'
+    anuncio_tipo:       'anunciotipo/*'
+    
+contenidos:
+  nombre:       'Contenidos'
+  uri:          '@tdh_contenidos'
+  submenus:
+    articulos:          { nombre: Artículos, uri: '@tdh_articulo', descripcion: 'Añade, suprime y modifica artículos de caracter general.' }
+    noticias:           { nombre: Noticias, uri: '@tdh_noticia', descripcion: 'Añade, suprime y modifica noticias (noticias puras).' }
+    feeds:              { nombre: Feeds de medios, uri: '@tdh_feed', descripcion: 'Gestiona los feeds de medios externos al sitio.' }
+    eventos:            { nombre: Eventos, uri: '@tdh_evento', descripcion: 'Añade, suprime y modifica eventos de la agenda.' }
+    criticas:           { nombre: Críticas, uri: '@tdh_critica', descripcion: 'Añade, suprime y modifica críticas/reseñas.' }
+    capturas:           { nombre: Capturas para críticas, uri: '@tdh_critica_captura', descripcion: 'Gestiona las capturas de imágenes para las críticas.' }
+    videos:             { nombre: Vídeos para críticas, uri: '@tdh_critica_video', descripcion: 'Gestiona las videos para las críticas.' }
+    editor:             { nombre: Editores, uri: '@tdh_editor', descripcion: 'Editar y crear nuevos editores para los apartados o juegos.' }
+    genero:             { nombre: Géneros, uri: '@tdh_genero', descripcion: 'Género artístico (cifi, fantasía, etc.) al que pertenece un juego o sección.' }
+    recursos:           { nombre: Recursos, uri: '@tdh_recurso', descripcion: 'Añade, suprime y modifica recursos (módulos, ayudas, guías, etc.)' }
+    recursotipo:        { nombre: Tipos de recurso, uri: '@tdh_recurso_tipo', descripcion: 'Lista y modifica los tipos de recursos' }
+    sociales:           { nombre: Envíos sociales, uri: '@tdh_envio_social_pendiente', descripcion: 'Lista y modificación de envíos a redes sociales pendientes.' }
+  valido:
+    contenidos:         'indice/contenidos'
+    articulos:          'articulo/*'
+    noticias:           'noticia/*'
+    feeds:              'feed/*'
+    eventos:            'evento/*'
+    criticas:           'critica/*'
+    capturas:           'captura/*'
+    videos:             'video/*'
+    recursos:           'recurso/*'
+    editor:             'editor/*'
+    genero:             'genero/*'
+    licencia:           'recursotipo/*'
+    sociales:           'social/*'
+
+sorteos:
+  nombre:               'Sorteos'
+  uri:                  '@tdh_sorteos'
+  submenus:
+    sorteos:            { nombre: 'Sorteos', uri: '@tdh_sorteo', descripcion: 'Gestión de sorteos en la web.' }
+    condiciones:        { nombre: 'Condiciones', uri: '@tdh_sorteo_condicion', descripcion: 'Seguimientos y me gustas para participar en un sorteo.' }
+    participantes:      { nombre: 'Participantes', uri: '@tdh_sorteo_participante', descripcion: 'Participantes de un sorteo.' }
+  valido:
+    sorteo:             'indice/sorteos'
+    sorteos:            'sorteo/*'
+    participantes:      'sorteoparticipante/*'
+    condiciones:        'sorteocondicion/*'
+
+boletin:
+  nombre:               'Boletín'
+  uri:                  '@tdh_boletin'
+  valido:
+    boletin:            'boletin/*'
+    

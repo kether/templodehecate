@@ -1,0 +1,34 @@
+/**
+ * Hoja de estilo para la caja del plugin del foro
+ *
+ * @author Pablo Floriano
+ * @copyright 2011 Estudio Hécate
+ */
+@CHARSET "UTF-8";
+
+/* Plugin del Foro */
+#tdh_foro_plugin {
+  background-color: #6b6b6b;
+  padding: 10px;
+}
+
+#tdh_foro_plugin h2 {
+  font: bold 14px Arial, serif;
+  padding: 0 2px 3px 2px;
+  color: #fff;
+}
+
+#tdh_foro_plugin li {
+  border-bottom: 1px solid #6b6b6b;
+  padding: 2px 4px 2px 4px;
+  font: normal 11px Arial;
+  color: #606060;
+}
+
+#tdh_foro_plugin li a {
+  color: #3c3c3c;
+}
+
+#tdh_foro_plugin li.par   { background-color: #e0e0e0; }
+#tdh_foro_plugin li.impar { background-color: #cfcfcf; }
+#tdh_foro_plugin li:hover { background-color: #ececec; }

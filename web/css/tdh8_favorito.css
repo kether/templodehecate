@@ -1,0 +1,19 @@
+/**
+ * Para las estrellas de favoritos
+ * 
+ * @copyright Pablo Floriano
+ * @file tdh8_favorito.css
+ */
+@CHARSET "UTF-8";
+
+.tdh_favorito a span { display: none; }
+
+.tdh_favorito a {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+
+.tdh_favorito a.tdh_si_favorito,
+.tdh_favorito a.tdh_no_favorito:hover { background-image: url('../images/btns/favorito_on.png'); }
+.tdh_favorito a.tdh_no_favorito { background-image: url('../images/btns/favorito_off.png'); }

@@ -1,0 +1,29 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           tdhEditor
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tdh_editor
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        web:                { label: 'Sitio web' }
+        created_at:         { label: 'Creado', date_format: "dd/MM/yy" }
+        updated_at:         { label: 'Actualizado', date_format: "dd/MM/yy" }
+      list:    
+        title:              Lista de editores
+        display:            [=nombre, web, created_at, updated_at]
+      filter:  
+        display:            [nombre, web]
+      form:    ~
+      edit:    
+        title:              Modificar editor %%nombre%%
+      new:     
+        title:              Nuevo editor

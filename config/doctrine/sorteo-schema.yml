@@ -1,0 +1,73 @@
+connection:             doctrine 
+options:                { type: 'INNODB', collate: 'utf8_unicode_ci', charset: 'utf8' }
+
+# Sorteos
+tdhSorteo:
+  actAs:
+    ehUtilesMarkupToHtmlBehavior:
+      field:            'descripcion'
+      target:           'descripcion_html'
+      parsers:
+        html:           false
+        markdown:       true
+    Timestampable:      ~
+    Sluggable:          { fields: [nombre], canUpdate: true, unique: true }
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    estado_visible:     { type: boolean, notnull: true, default: 1 }
+    estado_abierto:     { type: boolean, notnull: true, default: 1 }
+    nombre:             { type: string(255), notnull: true, default: '' }
+    entradilla:         { type: string(255), notnull: true, default: '' }
+    aclaraciones:       { type: string(2000), notnull: true, default: '' }
+    # pregunta:           { type: string(255), notnull: true, default: '' }
+    mensaje:            { type: string(255), notnull: true, default: '' }
+    desde:              { type: timestamp, notnull: true }
+    hasta:              { type: timestamp, notnull: true }
+    sufijo:             { type: string(255), notnull: true, default: '' }
+    url:                { type: string(255), notnull: true, default: '' }
+    semilla:            { type: integer(4), notnull: true, default: 0 }
+    participantes_min:  { type: integer(3), notnull: true, default: '1' }
+    participantes_max:  { type: integer(3), notnull: true, default: '0' }
+    participantes_num:  { type: integer(3), notnull: true, default: '0' }
+    
+tdhSorteoParticipante:
+  actAs:
+    Timestampable:      ~
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    ip:                 { type: string(255), notnull: true, default: '0.0.0.0' }
+    numero:             { type: integer(4), notnull: true, default: 0 }
+    nombre:             { type: string(255), notnull: true, default: '' }
+    token:              { type: string(255), notnull: true, default: '' }
+    email:              { type: string(255), notnull: true, default: '' }
+    domicilio:          { type: string(255), notnull: true, default: '' }
+    comentario:         { type: string(255), notnull: true, default: '' }
+    tipo:               { type: enum, notnull: true, values: ['facebook', 'twitter'], default: 'twitter' }
+    sorteo_id:          { type: integer(4), notnull: true }
+  relations:
+    Sorteo:             { onDelete: 'CASCADE', class: 'tdhSorteo', local: 'sorteo_id', foreign: 'id', foreignAlias: 'Participantes' }
+    Usuario:            { onDelete: 'CASCADE', class: 'ehAuthUser', refClass: 'tdhSorteoUsuario', foreignAlias: 'Participante', local: 'participante_id', foreign: 'usuario_id' }
+  indexes:
+    participante:
+      fields:           [email, sorteo_id, token]
+      type:             unique
+    
+tdhSorteoCondicion:
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    nombre:             { type: string(255), notnull: true, default: '' }
+    url:                { type: string(255), notnull: true, default: '' }
+    propietario:        { type: string(255), notnull: true, default: '' }
+    tipo:               { type: enum, notnull: true, values: ['facebook', 'twitter'], default: 'twitter' }
+    sorteo_id:          { type: integer(4), notnull: true }
+  relations:
+    Sorteo:             { onDelete: 'CASCADE', class: 'tdhSorteo', local: 'sorteo_id', foreign: 'id', foreignAlias: 'Condiciones' }
+    
+tdhSorteoUsuario:
+  options:
+    symfony:
+      form:             false
+      filter:           false
+  columns:
+    usuario_id:         { type: integer(4), notnull: true, primary: true }
+    participante_id:    { type: integer(4), notnull: true, primary: true }

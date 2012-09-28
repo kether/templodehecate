@@ -1,0 +1,28 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           tdhSorteoCondicion
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tdh_sorteo_condicion
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  
+        url:            { label: 'URL' }
+        propietario:    { label: 'Identidad' }
+      list:    
+        title:          'Lista de condiciones para sorteos'
+        display:        [sorteo, tipo, =nombre, propietario, url]
+        table_method:      retrieveBackendList
+      filter:  ~
+      form:    ~
+      edit:
+        title:          'Editar condición %%nombre%%'
+      new:
+        title:          'Nueva condición'

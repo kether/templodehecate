@@ -1,0 +1,9 @@
+all:
+  storage:
+    param:
+      session_name: 'templodehecate'
+      
+  request:
+    param:
+      formats:
+        vcs:         'text/x-vcalendar'

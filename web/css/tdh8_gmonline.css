@@ -1,0 +1,55 @@
+/**
+ * Hoja de estilo para GMOnline de Templo de Hécate v8
+ *
+ * @copyright Pablo Floriano
+ * @file tdh8_gmoline.css
+ */
+@CHARSET "UTF-8";
+
+#eh_gmo_indice h1 {
+  font: normal 24px Arial;
+  margin-bottom: 5px;
+  background-color: #6b6b6b;
+  color: #fff;
+  padding: 5px 10px 5px 10px;
+}
+
+.eh_gmo_lista_indice li.eh_gmo_elemento {
+  min-height: 50px;
+  margin: 1px 0 1px 0;
+  padding: 10px;
+}
+
+.eh_gmo_lista_indice li.eh_gmo_elemento:hover { border: 1px solid #cd0a0b; padding: 9px; } 
+.eh_gmo_lista_indice li.par { background-color: #e0e0e0; }
+.eh_gmo_lista_indice li.impar { background-color: #cecece; }
+
+.eh_gmo_lista_indice .eh_gmo_detalles li { margin: 0 5px 0 0; padding: 0; float: left; }
+
+.eh_gmo_lista_indice h2 {
+  font: normal 18px Arial;
+}
+
+#eh_gmo_personajes_personales .eh_gmo_retrato {
+  float: right;
+  width: 50px;
+  height: 50px;
+}
+
+#eh_gmo_personajes_personales .eh_gmo_detalles {
+  width: 200px;
+}
+
+#eh_gmo_indice .eh_gmo_detalles {
+  font: normal 11px Verdana, Arial;
+  color: #353535;
+}
+
+#eh_gmo_indice .eh_gmo_entradilla {
+  clear: both;
+}
+
+/* Lista de partidas personales */
+#eh_gmo_partidas_personales {
+  margin-top: 20px;
+}

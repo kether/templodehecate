@@ -1,0 +1,47 @@
+prod:
+  logger:
+    class:   sfNoLogger
+    param:
+      level:   err
+      loggers: ~
+
+cli:
+  controller:
+    class: sfConsoleController
+  request:
+    class: sfConsoleRequest
+  response:
+    class: sfConsoleResponse
+
+test:
+  storage:
+    class: sfSessionTestStorage
+    param:
+#      session_path: %SF_TEST_CACHE_DIR%/sessions
+
+  response:
+    class: sfWebResponse
+    param:
+      send_http_headers: false
+
+all:
+  mailer:
+    param:
+      delivery_strategy:  spool
+      spool_class:        Swift_DoctrineSpool
+      spool_arguments:    [tdhMailMensaje, mensaje]
+      transport:
+        class:            Swift_MailTransport
+        param:
+          host:       localhost
+          port:       25
+          encryption: ~
+          username:   ~
+          password:   ~
+        
+  routing:
+    class: sfPatternRouting
+    param:
+      generate_shortest_url:            true
+      extra_parameters_as_query_string: true
+      

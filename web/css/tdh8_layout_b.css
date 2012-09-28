@@ -1,0 +1,24 @@
+/**
+ * Disposición del layout de contenidos sin la columna extra y con la columna
+ * contenidos más grande para dar mayor espacio al listado.
+ * 
+ * @copyright Pablo Floriano
+ * @file tdh8_layout_b.css
+ */
+@CHARSET "UTF-8";
+
+/* Contenido principal a la izquierda; anchura: 652px */
+#tdh_contenido {
+  margin: 0 278px 0 0;
+  width: 652px;
+}
+
+/* Columna de navegación a la derecha; anchura: 268px */
+#tdh_navegacion {
+  float: left;
+  width: 268px;
+  margin-left: -268px;
+}
+
+/* Anulamos esta columna, no se verá */
+#tdh_extra { display: none; }

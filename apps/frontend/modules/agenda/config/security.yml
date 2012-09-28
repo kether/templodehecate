@@ -1,0 +1,5 @@
+apuntados:
+  is_secure: true
+
+nuevoEvento:
+  is_secure: true

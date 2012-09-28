@@ -1,0 +1,26 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           tdhConsultaTipo
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tdh_consulta_tipo
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    
+        title:      Tipos de consultas
+        display:    [=nombre]
+      filter:  
+        display:   [nombre]
+      form:    ~
+      edit:    
+        title:      Editar «%%nombre%%»
+      new:     
+        title:      Nuevo tipo de consulta

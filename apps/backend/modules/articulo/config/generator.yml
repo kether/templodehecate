@@ -1,0 +1,31 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           ehForoHilo
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tdh_articulo
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  
+        id:                { label: 'ID' }
+        _asunto:           { label: 'Asunto' }
+        _aprobado:          { label: '¿Aprobado?' }
+      list:    
+        table_method:      retrieveBackendArticulo
+        title:             Listado de artículos
+        display:           [=id, _aprobado, =_asunto]
+      filter:  
+        class:             false
+      form:    
+        class:             tdhAdminArticuloForm
+      edit:    
+        title:             Editar artículo
+      new:     
+        title:             Nuevo artículo

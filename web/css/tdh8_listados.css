@@ -1,0 +1,200 @@
+/**
+ * Hoja de estilo para los listados de contenidos
+ * 
+ * @copyright Pablo Floriano
+ * @file tdh8_listados.css
+ */
+@CHARSET "UTF-8";
+
+/**
+ * Disposición del layout de contenidos sin la columna extra y con la columna
+ * contenidos más grande para dar mayor espacio al listado.
+ */
+@import 'tdh8_layout_b.css';
+@import 'tdh8_favorito.css';
+
+/*
+ * Formato básico de la lista
+ */
+.tdh_contenido_lista { 
+  font: normal 14px Arial;
+}
+
+.tdh_contenido_lista h1 {
+  font: normal 22px Arial, Verdana;
+  background-color: #3c5f9f;
+  line-height: 58px;
+  padding: 0 10px 0 10px;
+  color: #fff;
+}
+
+.tdh_contenido_lista ul { margin-top: 10px; }
+
+.tdh_contenido_lista li {
+  min-height: 50px;
+  padding: 5px;
+  border-bottom: 1px dotted #c8c8c8;
+}
+
+.tdh_contenido_lista li:hover { background-color: #eaeaea; } 
+
+.tdh_contenido_lista li h2 { font: bold 16px Arial; }
+.tdh_contenido_lista li h2 a { text-decoration: none; }
+.tdh_contenido_lista li .tdh_detalles { width: 494px; }
+
+.tdh_contenido_lista li .tdh_captura {
+  float: right;
+  margin-left: 5px;
+}
+
+.tdh_contenido_lista li .tdh_captura a img { border: 1px solid #444444; }
+
+.tdh_contenido_lista li li, 
+.tdh_contenido_lista li li:hover { background: none; border: none; padding: 0; margin: 0; min-height: 0; }
+
+.tdh_contenido_lista .tdh_detalles .tdh_info {
+  color: #646464;
+  font: normal 11px Arial, serif;
+}
+
+.tdh_contenido_lista .tdh_detalles .tdh_info .tdh_valor {
+  color: #4d4d4d;
+}
+
+.tdh_paginar_contenido { margin-top: 15px; }
+
+/*
+ * Sólo recursos 
+ */
+#tdh_recurso_lista li h1 { float: left; height: 24px; line-height: 24px; }
+
+#tdh_recurso_lista li h2 { 
+  font: normal 18px Arial, serif;
+  line-height: 24px;
+}
+
+#tdh_recurso_lista li h2 img { vertical-align: middle; }
+
+#tdh_recurso_lista .tdh_ficha { 
+  color: #545454;
+  margin-bottom: 5px;
+  font-size: 12px;
+  height: 16px;
+}
+
+#tdh_recurso_lista .tdh_ficha li { line-height: 16px; float: left; margin-right: 10px; }
+#tdh_recurso_lista .tdh_ficha li img { vertical-align: middle; }
+
+#tdh_recurso_lista .tdh_entradilla {
+  font-size: 12px;
+}
+
+/*
+ * Sólo juegos
+ */
+#tdh_seccion_lista h1 {
+  font: normal 22px Arial, Verdana;
+  background-color: #3c5f9f;
+  line-height: 58px;
+  padding: 0 10px 0 10px;
+  color: #fff;
+}
+
+#tdh_seccion_lista .tdh_abecedario {
+  font: bold 12px Arial, Verdana;
+  background-color: #6b6b6b;
+  padding: 5px 10px 5px 10px;
+  color: #fff;
+}
+
+#tdh_seccion_lista .tdh_abecedario a {
+  color: #fff;
+}
+
+#tdh_seccion_lista .tdh_lista li {
+  padding: 20px 10px 20px 10px;
+  border-bottom: 1px dotted #c8c8c8;
+}
+
+#tdh_seccion_lista .tdh_lista li:hover {
+  background-color: #eaeaea;
+}
+
+#tdh_seccion_lista .tdh_lista li .tdh_imagen {
+  float: left;
+  width: 158px;
+}
+
+#tdh_seccion_lista .tdh_lista li .tdh_imagen img { border: 1px solid #000; }
+
+#tdh_seccion_lista .tdh_lista li .tdh_datos {
+  float: left;
+  width: 470px;
+}
+
+#tdh_seccion_lista .tdh_lista li h2 a {
+  font: normal 18px Arial, serif;
+  color: #9d2727;
+  text-decoration: none;
+}
+
+#tdh_seccion_lista .tdh_lista li .tdh_informacion { font: normal 11px Arial, serif; color: #777777; }
+#tdh_seccion_lista .tdh_lista li .tdh_informacion a { color: #777777; text-decoration: none; font-weight: bold; }
+#tdh_seccion_lista .tdh_lista li .tdh_descripcion {
+  margin: 5px 0 5px 0;
+}
+
+/* Sólo críticas */
+#tdh_critica_lista .tdh_detalles { 
+  width: 480px;
+  float: left;
+}
+
+#tdh_critica_lista .tdh_captura {
+  float: left;
+  width: 75px;
+  text-align: center;
+}
+
+#tdh_critica_lista .tdh_nota {
+  background-color: #fff;
+  font: normal 24px Arial, serif;
+  color: #9d2727;
+  float: left;
+  width: 75px;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  border: 1px solid #c8c8c8;
+}
+
+/* Sólo eventos */
+#tdh_evento_lista .tdh_fecha {
+  display: inline-block;
+  color: #9d2727;
+  font: normal 11px Arial, serif;
+}
+
+#tdh_evento_lista .tdh_fecha {
+  background-color: #fff;
+  width: 45px;
+  height: 43px;
+  text-align: center;
+  float: right;
+  font-weight: bold;
+  color: #000;
+  border: 1px solid #000;
+}
+
+#tdh_evento_lista .tdh_fecha .tdh_mes { background-color: #9d2727; color: #fff; padding: 2px 0 2px 0; height: 16px; }
+#tdh_evento_lista .tdh_fecha .tdh_dia { font-size: 16px; height: 15px; }
+
+#tdh_evento_lista .tdh_localizacion { font: normal 11px Arial, serif; color: #727272; }
+
+/* Favoritos */
+#tdh_seccion_lista .tdh_lista li .tdh_favorito { float: right; }
+#tdh_recurso_lista .tdh_favorito_contenedor { float: left; width: 29px; height: 24px; }
+
+#tdh_medios .tdh_descripcion {
+  display: none;
+}

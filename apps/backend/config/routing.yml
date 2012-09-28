@@ -1,0 +1,333 @@
+tdh_envio_social_pendiente:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                tdhEnvioSocialPendiente
+    module:               social
+    prefix_path:          /social
+    column:               id
+    with_wildcard_routes: true
+
+# Sorteos
+tdh_sorteo_participante:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                tdhSorteoParticipante
+    module:               sorteoparticipante
+    prefix_path:          /sorteoparticipante
+    column:               id
+    with_wildcard_routes: true
+
+tdh_sorteo_condicion:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                tdhSorteoCondicion
+    module:               sorteocondicion
+    prefix_path:          /sorteocondicion
+    column:               id
+    with_wildcard_routes: true
+
+tdh_sorteo:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                tdhSorteo
+    module:               sorteo
+    prefix_path:          /sorteo
+    column:               id
+    with_wildcard_routes: true
+
+# Consultas/contacto
+tdh_consulta_tipo:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                tdhConsultaTipo
+    module:               consultatipo
+    prefix_path:          /consultatipo
+    column:               id
+    with_wildcard_routes: true
+
+tdh_recurso_tipo:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                tdhRecursoTipo
+    module:               recursotipo
+    prefix_path:          /recursotipo
+    column:               id
+    with_wildcard_routes: true
+
+# Licencias
+tdh_licencia:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                tdhLicencia
+    module:               licencia
+    prefix_path:          /licencia
+    column:               id
+    with_wildcard_routes: true
+
+# Artículos
+tdh_articulo:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ehForoHilo
+    module:               articulo
+    prefix_path:          /articulo
+    column:               id
+    with_wildcard_routes: true
+
+eh_auth_user:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ehAuthUser
+    module:               usuario
+    prefix_path:          /usuario
+    column:               id
+    with_wildcard_routes: true
+
+# Publicidad
+tdh_anuncio_tipo:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                tdhAnuncioTipo
+    module:               anunciotipo
+    prefix_path:          /anunciotipo
+    column:               id
+    with_wildcard_routes: true
+
+tdh_anuncio:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                tdhAnuncio
+    module:               anuncio
+    prefix_path:          /anuncio
+    column:               id
+    with_wildcard_routes: true
+
+tdh_anuncio_pago:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                tdhAnuncioPago
+    module:               anunciopago
+    prefix_path:          /anunciopago
+    column:               id
+    with_wildcard_routes: true
+
+# ehForoPlugin adminitrator
+eh_foro_tablon:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ehForoTablon
+    module:               ehForoAdminTablon
+    prefix_path:          /ehForoAdminTablon
+    column:               id
+    with_wildcard_routes: true
+
+eh_foro_seccion:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ehForoSeccion
+    module:               ehForoAdminSeccion
+    prefix_path:          /ehForoAdminSeccion
+    column:               id
+    with_wildcard_routes: true
+
+# Miscelánea
+tdh_evento:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ehForoHilo
+    module:               evento
+    prefix_path:          /evento
+    column:               id
+    with_wildcard_routes: true
+
+tdh_recurso:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ehForoHilo
+    module:               recurso
+    prefix_path:          /recurso
+    column:               id
+    with_wildcard_routes: true
+
+tdh_critica_captura:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                tdhCriticaCaptura
+    module:               captura
+    prefix_path:          /captura
+    column:               id
+    with_wildcard_routes: true
+
+tdh_critica_video:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                tdhCriticaVideo
+    module:               video
+    prefix_path:          /video
+    column:               id
+    with_wildcard_routes: true
+
+tdh_critica:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ehForoHilo
+    module:               critica
+    prefix_path:          /critica
+    column:               id
+    with_wildcard_routes: true
+
+tdh_noticia:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ehForoHilo
+    module:               noticia
+    prefix_path:          /noticia
+    column:               id
+    with_wildcard_routes: true
+
+tdh_feed:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                tdhFeedExterno
+    module:               feed
+    prefix_path:          /feed
+    column:               id
+    with_wildcard_routes: true
+
+tdh_editor:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                tdhEditor
+    module:               editor
+    prefix_path:          /editor
+    column:               id
+    with_wildcard_routes: true
+
+tdh_genero:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                tdhGenero
+    module:               genero
+    prefix_path:          /genero
+    column:               id
+    with_wildcard_routes: true
+
+tdh_popular:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                tdhPopular
+    module:               popular
+    prefix_path:          /popular
+    column:               id
+    with_wildcard_routes: true
+
+tdh_hoja_de_estilo:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                tdhHojaDeEstilo
+    module:               hojaestilo
+    prefix_path:          /hojaestilo
+    column:               id
+    with_wildcard_routes: true
+
+tdh_seccion_tipo:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                tdhSeccionTipo
+    module:               secciontipo
+    prefix_path:          /secciontipo
+    column:               id
+    with_wildcard_routes: true
+
+tdh_menu:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                tdhMenu
+    module:               menu
+    prefix_path:          /menu
+    column:               id
+    with_wildcard_routes: true
+
+tdh_seccion:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                tdhSeccion
+    module:               seccion
+    prefix_path:          /seccion
+    column:               id
+    with_wildcard_routes: true
+
+# Menús
+tdh_global:
+  url:      /global
+  param:    { module: indice, action: global }
+
+tdh_contenidos:
+  url:      /contenidos
+  param:    { module: indice, action: contenidos }
+
+tdh_foro:
+  url:      /foro
+  param:    { module: indice, action: foro }
+  
+tdh_publicidad:
+  url:      /publicidad
+  param:    { module: indice, action: publicidad }
+  
+tdh_sorteos:
+  url:      /sorteos
+  param:    { module: indice, action: sorteos }
+
+# ehAuthPlugin
+eh_auth_signin:
+  url:      /usuario/autenticar
+  param:    { module: indice, action: signin }
+
+eh_auth_signout:
+  url:      /usuario/salir
+  param:    { module: indice, action: signout }
+
+eh_auth_credential_ehAuthCredential:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ehAuthCredential
+    module:               ehAuthCredential
+    prefix_path:          ehAuthCredential
+    column:               id
+    with_wildcard_routes: true
+
+#eh_auth_user_ehAuthUser:
+#  class: sfDoctrineRouteCollection
+#  options:
+#    model:                ehAuthUser
+#    module:               ehAuthUser
+#    prefix_path:          ehAuthUser
+#    column:               id
+#    with_wildcard_routes: true
+
+# Herramientas
+app_limpiar_cache:
+  url:      /app/limpiar-cache
+  param:    { module: indice, action: limpiarCache }
+
+app_cambiar_estado:
+  url:      /app/cambiar-estado/:clean
+  param:    { module: indice, action: cambiarEstadoAplicacion, clean: 1 }
+
+tdh_boletin:
+  url:      /boletines
+  param:    { module: boletin, action: formulario }
+  
+tdh_boletin_enviar:
+  url:      /boletines/enviar
+  param:    { module: boletin, action: enviar }
+  
+tdh_boletin_vaciar:
+  url:      /boletines/vaciar
+  param:    { module: boletin, action: vaciar }
+
+# default rules
+homepage:
+  url:   /
+  param: { module: indice, action: portada }
+  

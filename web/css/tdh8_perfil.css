@@ -1,0 +1,169 @@
+/**
+ * Hoja de estilo para el muro del perfil de los usuarios
+ *
+ * @author Pablo Floriano
+ * @copyright 2011 Estudio Hécate
+ */
+@CHARSET "UTF-8";
+@import 'tdh8_layout_c.css';
+
+#tdh_muro h1 {
+  font: normal 22px Arial;
+  background-color: #3c5f9f;
+  line-height: 58px;
+  padding: 0 10px 0 10px;
+  color: #fff;
+}
+
+#tdh_muro #tdh_informacion {
+  font: normal 11px Tahoma;
+  /*background-color: #6b6b6b;*/
+  padding: 5px 10px 5px 10px;
+  color: #6b6b6b;
+}
+
+#tdh_muro #tdh_informacion a,
+#tdh_muro #tdh_informacion span,
+#tdh_actividad .tdh_informacion a,
+#tdh_actividad .tdh_informacion span {
+  background: transparent no-repeat 0 1px; 
+  padding-left: 14px;
+  color: #6b6b6b;
+  margin-right: 5px;
+}
+
+#tdh_muro #tdh_informacion .web { background-image: url('../images/dots/home.gif'); }
+#tdh_muro #tdh_informacion .sexo { background-image: url('../images/dots/person.gif'); }
+#tdh_muro #tdh_informacion .suscripcion { background-image: url('../images/dots/calendar.gif'); }
+#tdh_muro #tdh_informacion .comentarios,
+#tdh_actividad .tdh_informacion .comentarios { background-image: url('../images/dots/comment.gif'); }
+#tdh_muro #tdh_informacion .pais { background-image: url('../images/dots/globe.gif'); }
+
+/* Juegos favoritos */
+#tdh_juegos_favoritos_muro {
+  padding: 10px 5px 10px 5px;
+}
+
+#tdh_juegos_favoritos_muro li a {
+  display: block;
+  float: left;
+  margin: 0 2px 0 2px;
+}
+
+/* Actividades */
+#tdh_actividad {
+  clear: left;
+  padding-top: 10px;
+}
+
+#tdh_actividad h2 {
+  font: normal 18px Arial;
+}
+
+#tdh_actividad li {
+  font: normal 11px Tahoma;
+  border-top: 1px solid #d8d8d8; 
+  padding: 10px 5px 10px 5px;
+}
+
+  #tdh_actividad li:hover { background-color: #eee; }
+
+#tdh_actividad .tdh_informacion {
+  color: #6b6b6b;
+}
+
+/* Avatar y menu */
+#tdh_extra {
+  border-right: 1px solid #d8d8d8;
+}
+
+#tdh_avatar_perfil {
+  text-align: right;
+  padding-right: 9px; 
+}
+
+#tdh_extra .tdh_menu { margin-top: 15px; }
+
+#tdh_extra .tdh_menu li { font: normal 11px Tahoma; padding: 3px 5px 3px 20px; line-height: 16px; height: 16px; }
+
+#tdh_extra .tdh_menu li a.tdh_vincular { display: none; background: transparent url('../images/btns/chain_link_break.png') no-repeat 0 1px; padding-right: 15px; width: 16px; height: 13px; }
+#tdh_extra .tdh_menu li a.tdh_vincular span { display: none; }
+#tdh_extra .tdh_menu li.twitter:hover a.tdh_vincular { display: inline-block; }
+#tdh_extra .tdh_menu li.facebook:hover a.tdh_vincular { display: inline-block; }
+
+#tdh_extra .tdh_menu li:hover {
+  background-color: #eee;
+}
+
+/* Biblioteca */
+#tdh_biblioteca h2 {
+  margin: 5px 0 5px 0;
+  font: bold 14px Arial;
+  color: #fff;
+}
+
+  #tdh_biblioteca h2 a { 
+    color: #fff; 
+    display: block; 
+    padding: 5px 10px 5px 10px; 
+    background-color: #6b6b6b;
+    text-decoration: none;
+  }
+
+#tdh_biblioteca ul { margin: 0 10px 0 10px; }
+
+#tdh_biblioteca li {
+  clear: left;
+  padding-top: 5px;
+}
+
+#tdh_biblioteca li .tdh_portada {
+  float: left;
+  margin-right: 5px;
+  width: 30px;
+}
+
+#tdh_biblioteca li .tdh_informacion {
+  float: left;
+  color: #6b6b6b;
+  font: normal 11px Arial;
+  width: 213px;
+}
+
+/* Amigar al usuario */
+.tdh_amigar {
+  position: relative;
+  float: right;
+  top: -14px;
+  right: 10px;
+}
+
+.tdh_amigar a span { display: none; }
+
+.tdh_amigar a { width: 22px; height: 22px; display: inline-block; }
+.tdh_amigar .seguir_on { background: transparent url('../ehDoctrineForoPlugin/images/friend-on.png') no-repeat 0 0; }
+.tdh_amigar .seguir_off { background: transparent url('../ehDoctrineForoPlugin/images/friend-off.png') no-repeat 0 0; }
+
+.tdh_amigos {
+  border-top: 1px solid #d8d8d8;
+  margin-top: 15px;
+  padding: 15px 20px 0 0;
+  font: normal 11px Tahoma;
+}
+
+.tdh_amigos li { clear: left; }
+
+.tdh_amigos h2 {
+  font: normal 18px Arial;
+  margin-bottom: 10px;
+}
+
+.tdh_amigos .tdh_avatar { 
+  float: left;
+  width: 60px;
+}
+
+.tdh_amigos .tdh_nombre {
+  padding-top: 5px;
+  float: left;
+}

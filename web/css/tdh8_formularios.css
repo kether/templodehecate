@@ -1,0 +1,115 @@
+/**
+ * Hoja de estilo para formularios estándar dentro de la web de Templo de Hécate v8.
+ * 
+ * Nota que los formularios pueden usar jQuery UI para darles un formato mucho más rico.
+ *
+ * @copyright Pablo Floriano
+ * @file tdh8_formularios.css
+ */
+@CHARSET "UTF-8";
+
+/* Tema de jQuery UI para los formularios y otros */
+@import "blitzer/jquery-ui.css";
+
+#ui-datepicker-div { display: none; } /* Corrección */
+
+/* Título y texto resumen del formulario */
+.tdh_formulario h1 {
+  font: normal 20px Arial, Verdana;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+.tdh_formulario p { margin: 3px 0 7px 0; }
+
+.tdh_formulario .tdh_descripcion {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.tdh_formulario legend {
+  font: normal 18px Arial, Verdana;
+}
+
+/* Lista de campos */
+.tdh_formulario .tdh_campo, .tdh_formulario .tdh_checkbox, .tdh_formulario .tdh_submit { margin: 2px 0 3px 0; clear: both; min-height: 30px; }
+
+/* Formato de campos */
+.tdh_formulario input[type=text],
+.tdh_formulario input[type=password] {
+  width: 250px;
+  font: normal 14px Arial, Verdana;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin: 1px;
+}
+
+.tdh_formulario select {
+  border: 1px solid #ccc;
+  font: normal 14px Arial, Verdana;
+  padding: 5px;
+  margin: 1px;
+}
+
+.tdh_formulario option {
+  padding: 0 6px 0 6px;
+  font: normal 14px Arial, Verdana;
+}
+
+.tdh_formulario textarea {
+  border: 1px solid #ccc;
+  font: normal 14px Arial, Verdana;
+  padding: 5px;
+  margin: 1px;
+  width: 400px;
+  height: 175px;
+}
+
+.tdh_formulario input[type=text]:focus,
+.tdh_formulario input[type=password]:focus,
+.tdh_formulario textarea:focus,
+.tdh_formulario select:focus {
+  border: 2px solid #182a42;
+  margin: 0;
+  background-color: #dee9f9;
+}
+
+.tdh_formulario .tdh_label {
+  float: left;
+  width: 160px;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.tdh_formulario .tdh_label label {
+  font: bold 12px Arial;
+}
+
+.tdh_formulario .tdh_label .tdh_help {
+  font: normal 11px Arial;
+  color: #666;
+}
+
+.tdh_formulario .tdh_checkbox, .tdh_formulario .tdh_submit, .tdh_formulario .tdh_image_form { padding-left: 170px; }
+
+.tdh_formulario .tdh_submit {
+  font: normal 10px Arial;
+}
+
+/* Errores */
+.tdh_formulario ul.error_list { margin: 2px 0 10px 170px; }
+
+  .tdh_formulario ul.error_list li {
+    font-size: 11px;
+    color: #7a1818;
+  }
+
+/* Lista de opciones alternativas */
+.tdh_alternativas { margin-top: 15px; }
+
+.tdh_alternativas li { 
+  font-size: 12px;
+  margin-bottom: 2px;
+  padding-left: 20px;
+  background: transparent url('../images/btns/bulletblue.png') no-repeat -2px -2px;
+}

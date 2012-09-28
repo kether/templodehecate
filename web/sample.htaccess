@@ -1,0 +1,18 @@
+Options +FollowSymLinks +ExecCGI
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  
+  # Si el panel de control tiene su propio subdominio descomenta estas líneas y cambia "^miadmin\.midominio\..*" por tu subdominio
+  # RewriteCond %{REQUEST_FILENAME} !-f
+  # RewriteCond %{HTTP_HOST} ^admin\.midominio\..*
+  # RewriteRule ^(.*)$ backend.php [QSA,L]
+  
+  # we check if the .html version is here (caching)
+  RewriteRule ^$ index.html [QSA]
+  RewriteRule ^([^.]+)$ $1.html [QSA]
+  RewriteCond %{REQUEST_FILENAME} !-f
+
+  # no, so we redirect to our front web controller
+  RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>

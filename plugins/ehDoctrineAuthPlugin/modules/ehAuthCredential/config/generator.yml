@@ -1,0 +1,28 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           ehAuthCredential
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          eh_auth_credential_ehAuthCredential
+    with_propel_route:     1
+    i18n_catalogue:        eh_auth_plugin
+
+    config:
+      actions: ~
+      fields:
+        id:                { label: ID }
+      list:
+        title:             Permission list
+        display:           [=name, created_at]
+      filter:
+        display:           [name]
+      form:
+        class:             ehAuthCredentialAdminForm
+      edit:
+        title:             Editing permission "%%name%%"
+      new:
+        title:             New permission

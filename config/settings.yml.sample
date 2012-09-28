@@ -1,0 +1,5 @@
+all:
+  .settings:
+    default_timezone:       Europe/Madrid   # Selección de zona horaria: http://www.php.net/manual/en/timezones.php
+    default_culture:        es              # Cultura por defecto, por ejemplo: en (inglés), es (español), etc.
+    i18n:                   true            # Recomendado no tocar

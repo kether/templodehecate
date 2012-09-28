@@ -1,0 +1,75 @@
+/**
+ * Hoja de estilo para las reseñas/críticas
+ *
+ * @author Pablo Floriano
+ * @copyright 2011 Estudio Hécate
+ */
+@CHARSET "UTF-8";
+@import 'tdh8_valoracion.css';
+
+#tdh_critica_portada,
+#tdh_critica_seccion {
+  text-align: center;
+  margin-bottom: 5px;
+  font: bold 12px Arial;
+}
+
+.tdh_contenido .tdh_captura
+{
+  background-color: #e6e6e6;
+  padding: 9px;
+  margin-bottom: 10px;
+}
+
+.tdh_contenido .tdh_captura .tdh_captura_comentario {
+  font: normal 10px Verdana;
+  color: #5c5c5c;
+}
+
+#tdh_critica_portada img { border: 1px solid #cdcdcd; padding: 5px; }
+
+#tdh_critica_ficha_tecnica {
+  border-top: 1px dotted #6b6b6b;
+  padding-top: 5px;
+  text-align: left;
+}
+
+#tdh_critica_ficha_tecnica li {
+  font-size: 11px;
+}
+
+#tdh_critica_ficha_tecnica li a,
+#tdh_critica_ficha_tecnica li span.tdh_dato { color: #606060; }
+#tdh_critica_ficha_tecnica li span.tdh_idioma { text-transform: capitalize; }
+
+/* Capturas y videos */
+#tdh_critica_capturas,
+#tdh_critica_videos {
+  width: 652px;
+}
+
+#tdh_critica_capturas h1 a,
+#tdh_critica_videos h1 a {
+  display: block;
+  font: normal 22px Arial, Verdana;
+  background-color: #3c5f9f;
+  line-height: 58px;
+  padding: 0 10px 0 10px;
+  color: #fff;
+  text-decoration: none;
+}
+
+#tdh_critica_capturas #tdh_galeria {
+  margin-top: 10px;
+}
+
+#tdh_critica_videos li {
+  background-color: #6b6b6b;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+#tdh_critica_videos li h3 {
+  font: normal 12px Arial, serif;
+  color: #fff;
+}

@@ -1,0 +1,38 @@
+ehForoHilo:
+  tdh_hilo_evento_1:
+    Tablon:             eh_foro_tablon_generico
+  tdh_hilo_evento_2:
+    Tablon:             eh_foro_tablon_generico
+
+ehForoMensaje:
+  tdh_mensaje_evento_1:
+    asunto:             Jornadas en KetherLandia
+    cuerpo:             Nos lo pasaremos todos bien en las jornadas ketherianas.
+    Usuario:            admin
+    Hilo:               tdh_hilo_evento_1
+  tdh_mensaje_evento_2:
+    asunto:             Estreno de Avatar II
+    cuerpo:             Por fin llega la secuela de James Cameron.
+    Usuario:            admin
+    Hilo:               tdh_hilo_evento_2
+
+tdhEvento:
+  tdh_evento_1:
+    estado_aprobado:    true
+    fecha_inicio:       "2011-12-25"
+    fecha_fin:          "2011-12-26"
+    direccion:          Calle de los Olivos, 6
+    localidad:          Torres de la Alameda
+    region:             Madrid
+    pais:               España
+    latitud:            0
+    longitud:           0
+    Hilo:               tdh_hilo_evento_1
+    Apuntados:          [admin]
+  tdh_evento_2:
+    estado_aprobado:    true
+    fecha_inicio:       "2011-06-08"
+    fecha_fin:          "2011-06-09"
+    pais:               Estados Unidos
+    Hilo:               tdh_hilo_evento_2
+    

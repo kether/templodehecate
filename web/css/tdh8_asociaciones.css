@@ -1,0 +1,47 @@
+/**
+ * Hoja de estilo para asociaciones y búsqueda de amigos
+ * 
+ * @copyright Pablo Floriano
+ * @file tdh8_asociaciones.css
+ */
+@CHARSET "UTF-8";
+
+/**
+ * Disposición del layout de contenidos sin la columna extra y con la columna
+ * contenidos más grande para dar mayor espacio al listado.
+ */
+@import 'tdh8_layout_b.css';
+
+.tdh_asociaciones h1 {
+  font: normal 22px Arial, Verdana;
+  background-color: #3c5f9f;
+  line-height: 58px;
+  padding: 0 10px 0 10px;
+  color: #fff;
+}
+
+#tdh_lista_asociaciones h2 a {
+  font: normal 18px Arial, serif;
+  color: #9d2727;
+  text-decoration: none;
+}
+
+#tdh_lista_asociaciones li {
+  min-height: 50px;
+  padding: 10px 15px 10px 15px;
+  border-bottom: 1px dotted #c8c8c8;
+}
+
+  #tdh_lista_asociaciones li .tdh_icono {
+    float: left;
+    width: 50px;
+  }
+  
+  #tdh_lista_asociaciones li .tdh_informacion { float: left; }
+
+#tdh_lista_asociaciones .tdh_situacion { font: normal 10px Verdana, Arial; color: #666; }
+#tdh_lista_asociaciones .tdh_detalles { font: normal 10px Verdana, Arial; }
+
+#tdh_lista_asociaciones li:hover {
+  background-color: #eaeaea;
+}

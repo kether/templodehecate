@@ -1,0 +1,32 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           tdhHojaDeEstilo
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tdh_hoja_de_estilo
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  
+        title:              { label: 'Título' }
+        media:              { help: 'Si es para screen, projection, print o all' }
+        content:            { label: 'Contenido', help: 'El cuerpo del código CSS' }
+        filename:           { label: 'Fichero', help: 'Nombre del fichero que tendrá el CSS virtual' }
+        created_at:         { label: 'Creado', date_format: "dd/MM/yy" }
+        updated_at:         { label: 'Actualizado', date_format: "dd/MM/yy" }
+      list:    
+        title:              Hojas de estilo
+        display:            [=title, =filename, media, created_at, updated_at]
+      filter:  
+        display:            [title, media]
+      form:    ~
+      edit:    
+        title:              Editar la hoja de estilo de %%title%%
+      new:     
+        title:              Nueva hoja de estilo

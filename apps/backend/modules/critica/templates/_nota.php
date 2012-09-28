@@ -1,0 +1,1 @@
+<?php echo $eh_foro_hilo->getCritica()->getNota() ?>

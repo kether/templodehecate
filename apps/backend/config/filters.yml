@@ -1,0 +1,12 @@
+rendering: ~
+security:
+  class:    ehAuthBasicSecurityFilter
+  
+# insert your own filters here
+ehAuthPluginRemember:
+  class:    ehAuthBasicFilter
+
+cache:     ~
+common:
+  class: sfCommonFilter
+execution: ~

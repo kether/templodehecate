@@ -1,0 +1,5 @@
+favorito:
+  is_secure: true
+
+nuevaNoticia:
+  is_secure: true

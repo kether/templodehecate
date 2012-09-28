@@ -1,0 +1,1 @@
+<?php $sf_context->getResponse()->setTitle('Grupos • '.ehForoConfig::getStatic('nombre')) // title ?>

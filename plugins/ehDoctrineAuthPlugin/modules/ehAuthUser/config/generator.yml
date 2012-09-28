@@ -1,0 +1,30 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           ehAuthUser
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          eh_auth_user_ehAuthUser
+    with_propel_route:     1
+    i18n_catalogue:        eh_auth_plugin
+
+    config:
+      actions: ~
+      fields:
+        id:                { label: ID }
+        last_ip_address:   { label: Last IP }
+        is_super_admin:    { credentials: superadministrator }
+      list:
+        title:             User list
+        display:           [id, =username, is_active, is_super_admin, last_ip_address, last_login, created_at]
+      filter:
+        display:           [username, is_active, is_super_admin]
+      form:
+        class:             ehAuthUserAdminForm
+      edit:
+        title:             Edit user "%%username%%"
+      new:
+        title:             New user

@@ -1,0 +1,112 @@
+/**
+ * Hoja de estilo para el calendario
+ * 
+ * Disposición del layout de contenidos sin la columna extra y con la columna
+ * contenidos más grande para dar mayor espacio al listado.
+ * 
+ * @copyright Pablo Floriano
+ * @file tdh8_calendario.css
+ */
+@CHARSET "UTF-8";
+
+/* Contenido principal a la izquierda; anchura: 652px */
+#tdh_contenido {
+  margin: 0 278px 0 0;
+  width: 652px;
+}
+
+.tdh_paginar_contenido { margin-top: 15px; }
+
+/* Columna de navegación a la derecha; anchura: 268px */
+#tdh_navegacion {
+  float: left;
+  width: 268px;
+  margin-left: -268px;
+}
+
+/* Anulamos esta columna, no se verá */
+#tdh_extra { display: none; }
+
+/* Calendario */
+#tdh_calendario_marco {
+  background: #d3e0e9 url('../images/loader_calendario.gif') no-repeat center center; 
+}
+
+#tdh_calendario table {
+  width: 651px;
+  border-collapse: separate;
+  border-spacing: 1px;
+  background-color: #fff;
+}
+
+#tdh_calendario table th, #tdh_calendario table td {
+  padding: 5px;
+}
+
+#tdh_calendario table td {
+  background-color: #e1ebf2;
+  height: 85px;
+  width: 83px;
+}
+
+#tdh_calendario table th {
+  padding: 10px 5px 10px 5px;
+  text-align: center;
+  background-color: #d3e0e9;
+  font: bold 14px Arial;
+}
+
+  #tdh_calendario table th.eh_calendar_month { font-size: 18px; text-transform: capitalize; }
+  #tdh_calendario table td.eh_calendar_day_now { background-color: #ffbdbd; }
+
+#tdh_calendario .eh_calendar_field_day {
+  text-align: right;
+  color: #4c5d77;
+  font: normal 10px Arial;
+}
+
+#tdh_calendario .eh_calendar_event a {
+  display: block;
+  /*background-color: #fff;*/
+  padding: 3px;
+  text-decoration: none;
+  font: normal 11px Arial;
+  margin-top: 2px;
+  
+  /* Bordes redondeados con CSS3 */
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+/* Enlaces mes siguiente y anterior */
+#tdh_calendario_navegador {
+  background-color: #d3e0e9;
+  height: 25px;
+  margin: 0 2px 0 1px;
+  padding: 5px 10px 5px 10px;
+  text-transform: uppercase;
+  font: bold 11px Arial;
+}
+
+#tdh_calendario_navegador .tdh_anterior a {
+  display: block;
+  float: left;
+  line-height: 25px;
+}
+
+#tdh_calendario_navegador .tdh_siguiente a {
+  display: block;
+  float: right;
+  line-height: 25px;
+}
+
+/* Estilos de eventos */
+.eh_calendar_style_1 a { background-color: #5d2626; color: #dea9a9; } /* Fondo rojo oscuro, fuente rojo claro */
+.eh_calendar_style_2 a { background-color: #263d5d; color: #a4b9d6; } /* Fondo azul oscuro, fuente azul claro */
+.eh_calendar_style_3 a { background-color: #f0ecc2; color: #5f5700; } /* Fondo amarillo claro, fuente amarillo oscuro */
+.eh_calendar_style_4 a { background-color: #095f00; color: #caffc5; } /* Fondo verde oscuro, fuente verde claro */
+.eh_calendar_style_5 a { background-color: #5c0059; color: #ffd1fd; } /* Fondo violeta oscuro, fuente violeta claro */
+.eh_calendar_style_6 a { background-color: #a7def8; color: #043146; } /* Fondo verdoso claro, fuente verde oscura */
+.eh_calendar_style_7 a { background-color: #ffc0c1; color: #7b1215; } /* Fondo rojo claro, fuente rojo oscuro */
+.eh_calendar_style_8 a { background-color: #ffd1f7; color: #71005d; } /* Fondo rosa claro, fuente rosa oscuro */

@@ -1,0 +1,1 @@
+<a href="mailto:<?php echo $eh_auth_user->getPerfil()->getEmail() ?>"><?php echo $eh_auth_user->getPerfil()->getEmail() ?></a>

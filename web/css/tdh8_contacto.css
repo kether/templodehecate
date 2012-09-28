@@ -1,0 +1,61 @@
+/**
+ * Hoja de estilo para el formulario de contacto con los administradores
+ *
+ * @author Pablo Floriano
+ * @copyright 2011 Estudio Hécate
+ */
+@CHARSET "UTF-8";
+
+@import 'tdh8_layout_b.css';
+@import 'tdh8_formularios.css';
+
+#tdh_consulta h1 {
+  font: normal 22px Arial, Verdana;
+  background-color: #3c5f9f;
+  line-height: 58px;
+  padding: 0 10px 0 10px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+#tdh_consulta {
+  font: normal 14px Arial;
+}
+
+.tdh_descripcion h2 {
+  background-color: #6b6b6b;
+  color: #fff;
+  padding: 5px 10px 5px 10px;
+  font: normal 125% Arial;
+}
+
+.tdh_descripcion p {
+  padding: 5px 10px 5px 10px;
+}
+
+.tdh_descripcion {
+  margin-bottom: 15px;
+}
+
+.tdh_descripcion .tdh_fecha {
+  font: normal 11px Arial;
+  padding: 5px 10px 0 10px;
+  color: #6b6b6b;
+}
+
+#tdh_consulta_respuestas {
+  margin: 0 10px 0 10px;
+  font: normal 11px Tahoma;
+}
+
+#tdh_consulta_respuestas li { 
+  padding: 10px;
+  background-color: #eee;
+  clear: left;
+  border-top: 1px solid #fefefe;
+  border-bottom: 1px solid #cccccc;
+}
+
+#tdh_consulta_respuesta {
+  margin-top: 15px;
+}

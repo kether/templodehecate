@@ -1,0 +1,10 @@
+default:
+  is_secure: true
+  credentials: [['colaborador', 'superadministrator', 'administrador']] 
+  
+signin:
+  is_secure: false
+  
+signout:
+  is_secure: false
+  

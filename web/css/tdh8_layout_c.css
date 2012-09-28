@@ -1,0 +1,23 @@
+/**
+ * Estilo para mostar el contenido de ésta forma: columna pequeña (192px), columna grande (480px), columna mediana (268px)
+ *
+ * @copyright Pablo Floriano
+ * @file tdh8_layout_c.css
+ */
+@CHARSET "UTF-8";
+
+#tdh_contenido {
+  margin: 0 278px 0 202px;
+}
+  
+#tdh_navegacion {
+  float: left;
+  width: 268px;
+  margin-left: -268px;
+}
+
+#tdh_extra {
+  float: left;
+  width: 192px;
+  margin-left: -930px;
+}

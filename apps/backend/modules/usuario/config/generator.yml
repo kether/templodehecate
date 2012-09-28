@@ -1,0 +1,39 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           ehAuthUser
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          eh_auth_user
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: 
+        _delete:           [superadministrator]
+      fields:  
+        id:                { label: 'ID' }
+        username:          { label: 'Usuario' }
+        nick:              { label: 'Seudónimo' }
+        pais:              { label: 'País' }
+        email:             { label: 'Correo electrónico' }
+        is_active:         { label: '¿Activo?' }
+        is_super_admin:    { label: '¿Super administrador?' }
+        last_ip_address:   { label: 'Última IP' }
+        last_login:        { label: 'Último login', date_format: "dd/MM/yy HH:mm" }
+        created_at:        { label: 'Creado', date_format: "dd/MM/yy" }
+      list:
+        title:             Perfiles de usuario
+        display:           [=id, is_active, =nick, username, _email, _pais, last_ip_address, last_login, created_at]
+        table_method:      retrieveBackendList
+      filter:
+        display:           [username, nick, email, is_active, is_super_admin]
+      form:    
+        class:             tdhAdminUsuarioForm
+      edit:    
+        title:             Editar usuario «%%username%%»
+      new:     
+        title:             Nuevo usuario

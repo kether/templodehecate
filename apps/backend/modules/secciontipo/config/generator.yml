@@ -1,0 +1,27 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           tdhSeccionTipo
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tdh_seccion_tipo
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  
+        es_juego:             { label: '¿Juego?', help: '¿Es un juego este tipo de sección?' }
+      list:    
+        title:              Tipos de sección
+        display:            [es_juego, =nombre]
+      filter:  
+        display:            [nombre, es_juego]
+      form:    ~
+      edit:    
+        title:              Editar tipo %%nombre%%
+      new:     
+        title:              Nuevo tipo de sección

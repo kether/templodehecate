@@ -1,0 +1,40 @@
+/**
+ * Hoja de estilo de notificaciones
+ *
+ * @author Pablo Floriano
+ * @copyright 2011 Estudio Hécate
+ */
+@CHARSET "UTF-8";
+
+#tdh_notificaciones {
+  margin-bottom: 10px;
+  display: none;
+  cursor: pointer;
+}
+
+#tdh_notificaciones span { 
+  display: block; 
+  padding: 10px 15px 10px 40px; 
+  color: #fff; 
+  font: normal 14px Arial, serif; 
+}
+
+#tdh_notificaciones .tdh_notificacion_exito {
+  background: #dfedc0 url('../images/notificaciones/exito.png') no-repeat 15px center;
+  color: #4a6411;
+}
+
+#tdh_notificaciones .tdh_notificacion_error {
+  background: #ffdede url('../images/notificaciones/error.png') no-repeat 15px center;
+  color: #c20f0f;
+}
+
+#tdh_notificaciones .tdh_notificacion_nota {
+  background: #fff6de url('../images/notificaciones/nota.png') no-repeat 15px center;
+  color: #e68a3b;
+}
+
+#tdh_notificaciones .tdh_notificacion_info {
+  background: #fff6de url('../images/notificaciones/info.png') no-repeat 15px center;
+  color: #e68a3b;
+}

@@ -1,0 +1,43 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           ehForoHilo
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tdh_noticia
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: 
+        _delete:           { credentials: superadministrator }
+      fields:  
+        id:                { label: 'ID' }
+        _asunto:           { label: 'Asunto' }
+        seccion:           { label: 'Sección' }
+        aprobado:          { label: '¿Aprobada?' }
+        destacado:         { label: '¿Destacada?' }
+      list:    
+        table_method:      retrieveBackendNoticia
+        display:           [=id, _aprobado, _destacado, =_asunto, _seccion]
+        title:             Listado de noticias
+        object_actions:
+          _edit:           ~
+          _delete:         ~
+          mostrar:          { label: Examinar, action: examinar }
+      filter:  
+        class:             false
+      form:    
+        class:             tdhAdminNoticiaForm
+      edit:    
+        title:             Editar noticia
+        actions:  
+          _delete:          ~
+          _list:            ~
+          _save:            ~
+          mostrar:          { label: Examinar, action: examinar }
+      new:     
+        title:             Nueva noticia

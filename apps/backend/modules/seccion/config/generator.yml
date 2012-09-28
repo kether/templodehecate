@@ -1,0 +1,46 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           tdhSeccion
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tdh_seccion
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: 
+        show:               { label: Examinar, action: examinar }
+        _delete:            { credentials: superadministrator }
+      fields:  
+        estado_activa:      { label: '¿Activa?' }
+        nombre_original:    { help: 'Si el título es una traducción, aquí el nombre de origen' }
+        genero:             { label: 'Género' }
+        genero_id:          { label: 'Género', help: 'Clase de variedad al que pertenece' }
+        tablon:             { label: 'Tablón' }
+        tablon_id:          { label: 'Tablón', help: 'El foro conectado a ésta sección' }
+        descripcion:        { label: 'Descripción' }
+        url:                { label: 'URL', help: 'Si tiene una URL diferente a la estándar' }
+        hojas_de_estilo_list: { label: 'Hojas de estilo' }
+      list:    
+        title:              Lista de secciones
+        display:            [estado_activa, =nombre, genero, tipo, tablon]
+        table_method:       retrieveBackendList
+        object_actions:
+          _edit:           ~
+          _delete:         ~
+          show:            ~
+      filter:  ~
+      form:    ~
+      edit:    
+        title:              Editar sección de %%nombre%%
+        actions:  
+          _delete:          ~
+          _list:            ~
+          _save:            ~
+          show:             ~
+      new:     
+        title:              Nueva sección

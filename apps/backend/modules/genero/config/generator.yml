@@ -1,0 +1,26 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           tdhGenero
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tdh_genero
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    
+        title:              Géneros
+        display:            [=nombre]
+      filter:  
+        class:              false
+      form:    ~
+      edit:    
+        title:              Editar género %%nombre%%
+      new:     
+        title:              Nuevo género

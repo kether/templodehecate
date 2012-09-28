@@ -1,0 +1,35 @@
+/**
+ * Hoja de estilo principal para dispositivos móviles
+ *
+ * @author Pablo Floriano
+ * @copyright 2012 Estudio Hécate
+ */
+@CHARSET "UTF-8";
+
+body, html {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  font: normal medium Roboto, arial;
+}
+
+header {
+  color: #fff;
+  background: #1da9da;
+  height: 3em;
+  padding: 0.3em 0.5em 0.3em 0.5em;
+  border-bottom: solid 0.25em #6dcaec;
+}
+
+header img {
+  max-height: 3em;
+}
+
+header #launcher { float: left; }
+
+header #actions { float: right; }
+  header #overflow { width: 3em; }
+  header #overflow:hover, header #overflow:active { background-color: #0099cc; }

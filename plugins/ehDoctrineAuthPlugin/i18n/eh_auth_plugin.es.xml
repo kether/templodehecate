@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XML-INTL XLIFF-XML 1.0//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">    
+<xliff version="1.0">
+  <file original="global" source-language="en" target-language="es" datatype="plaintext">
+    <header>
+    </header>
+    <body>
+      <!--Formulario de login--><trans-unit id="f1">
+        <source>Username</source>
+        <target>Usuario</target>
+      </trans-unit>
+      <trans-unit id="f2">
+        <source>Password</source>
+        <target>Contraseña</target>
+      </trans-unit>
+      <trans-unit  id="f3">
+        <source>Remember</source>
+        <target>Recordarme</target>
+      </trans-unit>
+      
+      <trans-unit id="f4">
+      	<source>Sign in</source>
+      	<target>Autenticar</target>
+      </trans-unit><trans-unit id="f5">
+      	<source>log in</source>
+      	<target>entrar</target>
+      </trans-unit><!--Administrador de usuarios--><trans-unit id="f6">
+    		<source>Password again</source>
+    		<target>Reescribe la contraseña</target>
+    	</trans-unit><trans-unit id="f7">
+    		<source>Permissions</source>
+    		<target>Permisos</target>
+    	</trans-unit><trans-unit id="f8">
+    		<source>Is active</source>
+    		<target>Activo</target>
+    	</trans-unit><trans-unit id="f9">
+    		<source>Is super admin</source>
+    		<target>Super administrador</target>
+    	</trans-unit><trans-unit id="f10">
+    		<source>Last login</source>
+    		<target>Último acceso</target>
+    	</trans-unit><trans-unit id="f11">
+    		<source>Created at</source>
+    		<target>Fecha creación</target>
+    	</trans-unit><trans-unit id="f12">
+    		<source>Last IP</source>
+    		<target>Última IP</target>
+    	</trans-unit><trans-unit id="f13">
+    		<source>User list</source>
+    		<target>Lista de usuarios</target>
+    	</trans-unit><trans-unit id="f14">
+    		<source>New user</source>
+    		<target>Nuevo usuario</target>
+    	</trans-unit><trans-unit id="f15">
+    		<source>Edit user "%%username%%"</source>
+    		<target>Editar usuario "%%username%%"</target>
+    	</trans-unit><!--Administrador de credenciales--><trans-unit id="f16">
+    		<source>Name</source>
+    		<target>Nombre</target>
+</trans-unit><trans-unit id="f17">
+    		<source>Description</source>
+    		<target>Descripción</target>
+    	</trans-unit><trans-unit id="f18">
+    		<source>Permission list</source>
+    		<target>Lista de permisos</target>
+    	</trans-unit><trans-unit id="f19">
+    		<source>Editing permission "%%name%%"</source>
+    		<target>Editando permiso "%%name%%"</target>
+    	</trans-unit><trans-unit id="f20">
+    		<source>New permission</source>
+    		<target>Nuevo permiso</target>
+    	</trans-unit><trans-unit id="f21">
+    	  <source>Updated at</source>
+    	  <target>Actualizado en</target>
+    	</trans-unit><!--Errores--><trans-unit id="e1">
+    		<source>The username and/or password is invalid.</source>
+    		<target>El nombre de usuario o el password no es válido.</target>
+</trans-unit>
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	<trans-unit id="e2">
+    		<source>User pattern is not valid.</source>
+    		<target>El patrón de caracteres para el usuario no es válido.</target>
+    	</trans-unit>
+    	<trans-unit id="e3">
+    		<source>An object with the same username already exist.</source>
+    		<target>Ya existe un registro con el mismo nombre de usuario.</target>
+    	</trans-unit>
+    	<trans-unit id="e4">
+    		<source>The two passwords must be the same.</source>
+    		<target>Las dos contraseñas deben coincidir.</target>
+    	</trans-unit>
+    	<trans-unit id="e5">
+    		<source>Required.</source>
+    		<target>Campo requerido.</target>
+    	</trans-unit>
+    	
+    </body>
+  </file>
+</xliff>

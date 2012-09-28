@@ -1,0 +1,44 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           ehForoHilo
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tdh_evento
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions:
+        _delete:           { credentials: [[superadministrator]] }
+        mostrar:           { label: Examinar, action: examinar }
+      fields:  
+        id:                { label: 'ID' }
+        _asunto:           { label: 'Asunto' }
+        fecha_inicio:      { label: 'Inicio' }
+        fecha_fin:         { label: 'Fin' }
+      list:    
+        title:             Lista de eventos
+        table_method:      retrieveBackendEvento
+        display:           [=id, =_asunto, _fecha_inicio, _fecha_fin]
+        object_actions:
+          _edit:           ~
+          _delete:         ~
+          mostrar:         ~
+      filter:  
+        class:             false
+      form:
+        class:             'tdhAdminEventoForm'
+      edit:    
+        title:             Editar evento
+        actions:  
+          _delete:         ~
+          _list:           ~
+          _save:           ~
+          mostrar:         ~
+      new:     
+        title:             Nuevo evento
+        

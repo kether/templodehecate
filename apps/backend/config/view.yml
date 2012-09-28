@@ -1,0 +1,8 @@
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:          ~
+
+  has_layout:     true
+  layout:         layout

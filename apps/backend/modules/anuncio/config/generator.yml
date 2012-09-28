@@ -1,0 +1,26 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           tdhAnuncio
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tdh_anuncio
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    
+        title:             Lista de anuncios publicitarios
+        display:           [activo, =nombre, vistas, clicks, tipo, desde, hasta]
+        table_method:      retrieveBackendList
+      filter:  ~
+      form:    ~
+      edit:    
+        title:             Editar anuncio %%nombre%%
+      new:     
+        title:             Nuevo anuncio

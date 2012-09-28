@@ -1,0 +1,13 @@
+# Renombra este fichero a "database.yml" para que la aplicación funcione y modifica los parámetros por los
+# de tu conexión a tu base de datos 
+
+# datos generales de la base de datos e información de conexión de la base de datos de desarrollo
+all:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn:        'mysql:dbname=nombrebasededatos;host=localhost'     # nombre y hosting de la base de datos de desarrollo respectivamente (localhost si la bd y la aplicación están en la misma máquina)
+      username:   'nombredeusuario'                                   # nombre de usuario de la base de datos
+      password:   'contraseña'                                        # contraseña para el usuario de la base de datos
+      encoding:   'utf8'
+      persistent: true

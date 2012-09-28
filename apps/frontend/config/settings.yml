@@ -1,0 +1,61 @@
+dev:
+  .settings:
+    error_reporting:        <?php echo (E_ALL | E_STRICT)."\n" ?>
+    web_debug:              true
+    cache:                  false
+    no_script_name:         true
+    etag:                   false
+
+prod:
+  .settings:
+    no_script_name:         true
+    cache:                  true
+    logging_enabled:        false
+
+staging:
+  .settings:
+    no_script_name:         false
+    logging_enabled:        true
+
+cache:
+  .settings:
+    error_reporting:        <?php echo (E_ALL | E_STRICT)."\n" ?>
+    web_debug:              true
+    cache:                  true
+    no_script_name:         false
+    etag:                   false
+
+test:
+  .settings:
+    error_reporting:        <?php echo ((E_ALL | E_STRICT) ^ E_NOTICE)."\n" ?>
+    cache:                  false
+    logging_enabled:        true
+    web_debug:              false
+    no_script_name:         false
+    etag:                   false
+
+all:
+  .settings:    
+    check_lock:             true
+    
+    enabled_modules:        [default, ehAuthLogin, ehForoTablon, ehForoTema, ehForoMensaje, ehForoMensajePrivado, ehForoPerfil, ehForoGrupo, ehSitebarTemplate]
+    standard_helpers:       [Partial, Cache, Templo, ehUtilesRutas]
+
+    login_module:           usuario
+    login_action:           signin
+    
+    error_404_module:       indice
+    error_404_action:       error404
+    
+    secure_module:          usuario
+    secure_action:          seguro
+    
+    module_disabled_module: indice
+    module_disabled_action: deshabilitado
+    
+    # Form security secret (CSRF protection)
+    csrf_secret:            false     # Unique secret to enable CSRF protection or false to disable
+
+    # Output escaping settings
+    escaping_strategy:      false            # Determines how variables are made available to templates. Accepted values: on, off.
+    escaping_method:        ESC_SPECIALCHARS # Function or helper used for escaping. Accepted values: ESC_RAW, ESC_ENTITIES, ESC_JS, ESC_JS_NO_ENTITIES, and ESC_SPECIALCHARS.

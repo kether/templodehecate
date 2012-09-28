@@ -1,0 +1,8 @@
+signin:
+  is_secure: false
+  
+signout:
+  is_secure: false
+  
+vincularServicio:
+  is_secure: true

@@ -1,0 +1,291 @@
+/**
+ * Contenidos del sitio incluyendo ayudas, módulos, eventos y reseñas
+ *
+ * @copyright Pablo Floriano
+ * @file tdh8_contenidos.css
+ */
+@CHARSET "UTF-8";
+@import 'tdh8_layout_c.css';
+@import 'tdh8_textorico.css';
+
+#tdh_extra { 
+  text-align: right;
+  padding-top: 35px;
+}
+
+/* Contenido */
+.tdh_contenido { 
+  font: normal 14px Arial;
+}
+
+.tdh_contenido h1:first-child {
+  font: normal 26px Arial;
+  min-height: 35px;
+  border-bottom: 1px solid #a5a5a5; 
+}
+
+.tdh_contenido .tdh_entradilla {
+  font: bold 100% Arial;
+  color: #000;
+  margin-bottom: 10px;
+  
+}
+
+.tdh_contenido .tdh_imagen_cabecera {
+  background-color: #e6e6e6;
+  padding: 9px;
+  margin-bottom: 10px;
+}
+
+.tdh_contenido .tdh_imagen_cabecera img { border: 1px solid #a5a5a5; }
+
+#tdh_recurso .tdh_otro_formato { display: inline-block; }
+
+#tdh_recurso .tdh_otro_formato a { 
+  display: inline-block;
+  padding: 10px 15px 10px 40px;
+  border-radius: 5px;
+  font-size: 11px;
+  background: #eee no-repeat 10px center;
+}
+
+#tdh_recurso .tdh_otro_formato a:hover, #tdh_recurso .tdh_otro_formato a:active { background-color: #dbdbdb; }
+#tdh_recurso .tdh_pdf a { background-image: url('../images/btns/pdf_med.png'); }
+#tdh_recurso .tdh_epub a { background-image: url('../images/btns/epub_med.png'); }
+
+.tdh_contenido .tdh_cuerpo {
+  margin: 0 0 15px 0;
+}
+
+/* Markdown y BBCode para el contenido */
+.tdh_contenido .tdh_cuerpo p img { margin: 0 auto 0 auto; max-width: 450px; display: block; margin: 0 auto 0 auto; }
+.tdh_contenido .tdh_cuerpo img.bbcode_smiley { display: inline-block; margin: 0; }
+
+.tdh_contenido .tdh_cuerpo iframe { max-width: 450px; display: block; }
+.tdh_contenido .tdh_cuerpo iframe.video { width: 450px; height: 253px; }
+
+.tdh_contenido .tdh_cuerpo img { max-width: 450px; }
+
+.tdh_contenido .tdh_seccion,
+.tdh_contenido .tdh_lugar {
+  font: normal 11px Arial, Verdana;
+  margin-bottom: 10px;
+  color: #555;
+  display: inline-block;
+}
+
+.tdh_contenido .tdh_subtitulo {
+  font: normal 11px Arial, Verdana;
+  color: #555;
+}
+
+.tdh_contenido .tdh_subtitulo .tdh_fecha { float: right; display: inline-block; }
+
+/* Compartir */
+.tdh_compartir { height: 20px; margin-bottom: 15px; }
+
+.tdh_compartir li {
+  padding-left: 20px;
+  margin-right: 10px;
+  float: left;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center left;
+  font: normal 11px Verdana, Arial;
+  line-height: 15px;
+}
+
+.tdh_compartir li a
+{
+  display: block;
+  color: #606060;
+}
+
+.tdh_compartir li.tdh_facebook { background-image: url('../images/btns/share_facebook.png'); }
+.tdh_compartir li.tdh_twitter  { background-image: url('../images/btns/share_twitter.png'); }
+.tdh_compartir li.tdh_meneame  { background-image: url('../images/btns/share_meneame.png'); }
+
+/* Comentarios */
+#tdh_comentarios h2 {
+  padding: 5px 10px 5px 10px;
+  background-color: #6b6b6b;
+  font: bold 14px Arial;
+  color: #fff;
+}
+
+#tdh_comentarios li.tdh_comentario {
+  clear: left;
+  min-height: 50px;
+  background-color: #e6e6e6;
+  padding: 10px 10px 10px 10px;
+  margin: 5px 0 5px 0;
+}
+
+#tdh_comentarios li.tdh_comentario iframe.video { width: 370px; height: 208px; }
+
+.tdh_comentario .tdh_comentario_avatar     { float: left; }
+.tdh_comentario .tdh_comentario_contenido  { margin-left: 60px; }
+.tdh_comentario .tdh_comentario_autor      { font: bold 14px Arial; }
+.tdh_comentario .tdh_comentario_autor a    { color: #ca0a0a; }
+.tdh_comentario .tdh_comentario_fecha      { font: normal 11px Arial; color: #565656; }
+.tdh_comentario .tdh_comentario_cuerpo     { font: normal 12px Arial; margin-top: 2px;  }
+
+.tdh_comentario .tdh_comentario_opciones   { float: right; }
+  .tdh_comentario .tdh_comentario_opciones a { opacity: 0.5; }
+  .tdh_comentario .tdh_comentario_opciones a:hover { opacity: 1.0; }
+
+#tdh_comentarios .tdh_paginacion      { height: 35px; font-weight: bold; }
+#tdh_comentarios .tdh_paginacion li   { float: left; margin-right: 3px; }
+#tdh_comentarios .tdh_paginacion li span.tdh_pagina_actual  { display: block; padding: 4px; }
+#tdh_comentarios .tdh_paginacion li a { display: block; padding: 3px; border: 1px solid #ddd; text-decoration: none; }
+#tdh_comentarios .tdh_paginacion li a:hover { background-color: #ececec; }
+
+.tdh_no_comentarios { 
+  font: bold 16px Arial; 
+  background-color: #e6e6e6; 
+  padding: 10px 10px 10px 10px;
+  margin: 5px 0 5px 0;
+}
+
+/* Agregar comentarios */
+#tdh_agregar_comentario {
+  background-color: #6b6b6b;
+  padding: 10px 10px 5px 10px;
+}   
+
+#tdh_agregar_comentario li { margin-bottom: 5px; }
+#tdh_agregar_comentario li label { font: bold 14px Arial; color: #bfbfbf; }
+#tdh_agregar_comentario #tdh_cargando_comentario { float: right; display: none; }
+
+#tdh_agregar_comentario input#eh_foro_mensaje_nombre_invitado { font: normal 12px Arial; width: 200px; padding: 5px; border: 1px solid #474747; }
+#tdh_agregar_comentario textarea#eh_foro_mensaje_cuerpo { font: normal 12px Arial; width: 418px; height: 75px; padding: 5px; border: 1px solid #474747; }
+
+/* Extra */
+#tdh_extra .tdh_informacion {
+  font: normal 10px Arial, serif;
+  color: #a5a5a5;
+  margin-bottom: 10px;
+}
+
+#tdh_extra .tdh_informacion a   { color: #606060; }
+#tdh_extra .tdh_informacion li  { padding-bottom: 2px; margin-bottom: 2px; border-bottom: 1px dotted #a5a5a5; }
+
+#tdh_extra .tdh_informacion .tdh_cover { margin-bottom: 10px; }
+
+#tdh_extra .tdh_informacion .tdh_donaciones {
+  background: transparent url('../images/btns/bulletcoin.png') no-repeat right center;
+  padding-right: 16px;
+  cursor: pointer;
+  color: #606060;
+}
+
+#tdh_extra .tdh_informacion .tdh_donaciones:hover { text-decoration: underline; }
+
+#tdh_extra #tdh_apuntados { 
+  margin-bottom: 10px;
+  font: normal 10px Verdana, Arial;
+}
+
+#tdh_extra #tdh_apuntados h3  { font: bold 14px Arial; margin-bottom: 5px; }
+#tdh_extra #tdh_apuntados ul  { height: 55px; }
+#tdh_extra #tdh_apuntados li  { float: right; margin-left: 5px; }
+
+#tdh_extra #tdh_apuntados .tdh_cargando_apuntado { display: none; }
+
+#tdh_extra .tdh_entradilla {
+  font: italic 16px Georgia, "Times New Roman", Times, serif, "Trebuchet MS";
+  margin: 0 0 15px 0;
+  color: #6a6a6a;
+}
+
+#tdh_extra .tdh_descargas,
+#tdh_extra .tdh_tiempo_evento {
+  margin-bottom: 10px;
+}
+
+#tdh_extra .tdh_tiempo_evento {
+  height: 35px;
+  margin-bottom: 5px;
+  padding: 5px;
+  background-image: url('../images/bakg/evento.png');
+  font: bold 12px Arial;
+  color: #fff;
+  text-align: center;
+  line-height: 35px;
+}
+
+#tdh_extra #tdh_poster {
+  margin-bottom: 10px;
+}
+
+#tdh_extra #tdh_poster img { border-radius: 10px; }
+
+#tdh_extra .tdh_descargas li {
+  height: 35px;
+  margin-bottom: 5px;
+  padding: 5px;
+  background-image: url('../images/bakg/descarga.png');
+  font: bold 10px Arial;
+  color: #ededed;
+}
+
+#tdh_extra .tdh_descargas li h3 {
+  margin-top: 3px;  
+}
+
+#tdh_extra .tdh_descargas li a {
+  font: bold 11px Arial;
+  color: #fff;
+}
+
+/* Navegación */
+#tdh_navegacion h3 {
+  font: bold 14px Arial, Verdana;
+}
+
+#tdh_navegacion .tdh_evento_detalles
+{
+  background-color: #6b6b6b;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+#tdh_navegacion .tdh_evento_detalles #tdh_gmap {
+  width: 246px;
+  height: 246px;
+  overflow: hidden;
+  border: 1px solid #000;
+}
+
+#tdh_navegacion .tdh_evento_detalles .tdh_informacion {
+  margin-top: 10px;
+  font: normal 14px Arial, Verdana;
+  color: #fff;
+}
+
+#tdh_navegacion .tdh_evento_detalles li span.tdh_tipo     { color: #ccc; font-weight: bold; }
+#tdh_navegacion .tdh_evento_detalles li.tdh_evento_hasta  { margin-bottom: 10px; }
+
+#tdh_navegacion .tdh_donacion {
+  display: none;
+}
+
+/* Donaciones */
+#tdh_navegacion .tdh_donacion {
+  background-color: #6b6b6b;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+#tdh_navegacion .tdh_donacion ul.radio_list li {
+  display: inline-block;
+}
+
+#tdh_navegacion .tdh_donacion li { text-align: center; }
+#tdh_navegacion .tdh_donacion .tdh_boton { margin-top: 5px; text-align: center; }
+#tdh_navegacion .tdh_donacion p { color: #efefef; font: normal 11px Arial, serif; margin-bottom: 5px; }
+
+/* Artículos */
+#tdh_articulo h1 {
+  margin-bottom: 15px; 
+}

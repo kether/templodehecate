@@ -1,0 +1,529 @@
+connection:             doctrine 
+options:                { type: INNODB, collate: utf8_unicode_ci, charset: utf8 }
+
+# Perfil del Templo de Hécate extendido del de el foro
+tdhPerfil:
+  inheritance:
+    type:             simple
+    extends:          ehForoPerfil
+  columns:
+    nombre:           { type: string(128), notnull: true, default: '' }
+    apellidos:        { type: string(128), notnull: true, default: '' }
+    pase_beta:        { type: boolean, notnull: true, default: false }
+    boletines:        { type: boolean, notnull: true, default: false }
+    sin_publi:        { type: boolean, notnull: true, default: false }
+    sin_publi_hasta:  { type: timestamp, notnull: true }
+    botones_sociales: { type: boolean, notnull: true, default: false }
+    foro_a_templo:    { type: boolean, notnull: true, default: true }     # Modifica el comportamiento del foro para que los enlaces vayan al Templo
+    perfil_facebook:  { type: string(255), notnull: true, default: '' }   # URL
+    perfil_twitter:   { type: string(255), notnull: true, default: '' }   # ¿URL?
+    perfil_tuenti:    { type: string(255), notnull: true, default: '' }   # URL
+    perfil_gplus:     { type: string(255), notnull: true, default: '' }   # URL
+    perfil_paypal:    { type: string(128), notnull: true, default: '' }   # eMail
+
+tdhOauth:
+  actAs:
+    Timestampable:      ~
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    uid:                { type: string(255), notnull: true, default: '' }
+    servicio:           { type: enum, notnull: true, values: ['facebook', 'twitter', 'google'], default: 'google' }
+    token:              { type: string(255), notnull: true, default: '' }
+    token_secret:       { type: string(255), notnull: true, default: '' }
+    usuario_id:         { type: integer(4), notnull: true }
+  indexes:
+    propietario:
+      fields:           [usuario_id, servicio]
+      type:             unique
+  relations:
+    Usuario:            { onDelete: CASCADE, class: ehAuthUser, local: usuario_id, foreign: id, foreignAlias: Autentificaciones }
+    
+
+# Menú de la aplicación
+tdhMenu:
+  actAs:
+    Sluggable:          { fields: [nombre], canUpdate: true }
+    ehForoForeignKeyBackBehavior:
+      fields:           [menu_id]
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    estado_portada:     { type: boolean, notnull: true, default: false }
+    nombre:             { type: string(50), notnull: true }
+    ordinal:            { type: integer(4), notnull: true, default: 0 }
+    descripcion:        { type: string(255), notnull: true, default: '' }
+    enlace:             { type: string(255), notnull: true, default: '' }
+    
+tdhGenero:
+  actAs:
+    Sluggable:          { fields: [nombre], canUpdate: true }
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    nombre:             { type: string(255), notnull: true }
+    
+tdhEditor:
+  actAs:
+    Sluggable:          { fields: [nombre], canUpdate: true }
+    Timestampable:      ~
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    nombre:             { type: string(255), notnull: true }
+    web:                { type: string(255), notnull: true, default: '' }
+    
+tdhSeccionTipo:
+  actAs:
+    Sluggable:          { fields: [nombre], canUpdate: true }
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    nombre:             { type: string(255), notnull: true }
+    es_juego:           { type: boolean, notnull: true, default: true }
+    
+tdhSeccion:
+  actAs:
+    Timestampable:      ~
+    Sluggable:          { fields: [nombre], canUpdate: true }
+    ehForoMarkupToHtmlBehavior: ~
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    nombre:             { type: string(255), notnull: true }
+    nombre_original:    { type: string(255), notnull: true, default: '' }
+    estado_activa:      { type: boolean, notnull: true, default: true }
+    favoritos:          { type: integer(3), notnull: true, default: 0 }
+    url:                { type: string(255), notnull: true, default: '' }
+    genero_id:          { type: integer(4), notnull: true }
+    color_menu:         { type: string(32), notnull: true, default: '' }
+    tipo_id:            { type: integer(4), notnull: true }
+    editor_id:          { type: integer(4), notnull: true }
+    tablon_id:          { type: integer(4), notnull: true }
+  relations:
+    Genero:             { onDelete: CASCADE, class: tdhGenero, local: genero_id, foreign: id, foreignAlias: Secciones }
+    Tipo:               { onDelete: CASCADE, class: tdhSeccionTipo, local: tipo_id, foreign: id, foreignAlias: Secciones }
+    Editor:             { onDelete: CASCADE, class: tdhEditor, local: editor_id, foreign: id, foreignAlias: Secciones }
+    Tablon:             { onDelete: CASCADE, class: ehForoTablon, local: tablon_id, foreign: id, foreignAlias: SeccionesDelTemplo }
+    FavoritaDeUsuarios: { onDelete: CASCADE, class: ehAuthUser, refClass: tdhSeccionFavorita, foreignAlias: SeccionesFavoritas, local: seccion_id, foreign: usuario_id }
+ 
+tdhHojaDeEstilo:
+  actAs:
+    Timestampable:      ~
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    title:              { type: string(255), notnull: true }
+    filename:           { type: string(255), notnull: true }
+    media:              { type: string(10), notnull: true, default: 'all' }
+    content:            { type: string(1000), notnull: true }
+  relations:
+    Secciones:          { class: tdhSeccion, refClass: tdhSeccionEstilo, foreignAlias: HojasDeEstilo, local: estilo_id, foreign: seccion_id, onDelete: CASCADE }
+    
+tdhSeccionEstilo:
+  options:
+    symfony:
+      form:             false
+      filter:           false
+  columns:
+    seccion_id:         { type: integer(4), notnull: true, primary: true }
+    estilo_id:          { type: integer(4), notnull: true, primary: true }
+  relations:
+    Seccion:            { class: tdhSeccion, local: seccion_id, foreign: id, onDelete: CASCADE }
+    Estilo:             { class: tdhHojaDeEstilo, local: estilo_id, foreign: id, onDelete: CASCADE }
+
+# Eventos programados sociales pendientes
+tdhEnvioSocialPendiente:
+  actAs:
+    Timestampable:      ~
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    programado_para:    { type: timestamp, notnull: true }
+    servicio:           { type: enum, notnull: true, values: [facebook, twitter], default: twitter }
+    nombre:             { type: string(255), notnull: true, default: '' }
+    descripcion:        { type: string(255), notnull: true, default: '' }
+    url:                { type: string(255), notnull: true, default: '' }
+    imagen:             { type: string(255), notnull: true, default: '' }
+    mensaje:            { type: string(255), notnull: true, default: '' }
+
+# Evento    
+tdhEvento:
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    estado_aprobado:    { type: boolean, notnull: true, default: true }
+    fecha_inicio:       { type: date, notnull: true }
+    fecha_fin:          { type: date, notnull: true }
+    direccion:          { type: string(255), notnull: true, default: '' }
+    localidad:          { type: string(255), notnull: true, default: '' }
+    region:             { type: string(255), notnull: true, default: '' }
+    pais:               { type: string(255), notnull: true, default: '' }
+    latitud:            { type: float, notnull: true, default: 0 }
+    longitud:           { type: float, notnull: true, default: 0 }
+    hilo_id:            { type: integer(4), notnull: true }
+  relations:
+    Hilo:               { onDelete: CASCADE, class: ehForoHilo, local: hilo_id, foreign: id, foreignType: one, foreignAlias: Evento }
+    Apuntados:          { onDelete: CASCADE, onUpdate: CASCADE, refClass: tdhEventoApuntado, class: ehAuthUser, local: evento_id, foreign: usuario_id, foreignAlias: Eventos }
+
+tdhEventoApuntado:
+  options:
+    symfony:
+      form:             false
+      filter:           false
+  columns:
+    usuario_id:         { type: integer(4), notnull: true, primary: true }
+    evento_id:          { type: integer(4), notnull: true, primary: true }
+
+# Artículos
+tdhArticulo:
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    es_aprobado:        { type: boolean, notnull: true, default: true }
+    tipo:               { type: enum, notnull: true, values: [miscelanea, pie, cabecera], default: 'miscelanea' }
+    hilo_id:            { type: integer(4), notnull: true }
+  relations:
+    Hilo:               { onDelete: CASCADE, class: ehForoHilo, local: hilo_id, foreign: id, foreignType: one, foreignAlias: Articulo }
+    
+# Noticias
+tdhNoticia:
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    estado_aprobado:    { type: boolean, notnull: true, default: true }
+    es_destacada:       { type: boolean, notnull: true, default: false }
+    entradilla:         { type: string(255), notnull: true, default: '' }
+    nombre_fuente:      { type: string(255), notnull: true, default: '' }
+    url_fuente:         { type: string(255), notnull: true, default: '' }
+    seccion_id:         { type: integer(4), notnull: true }
+    hilo_id:            { type: integer(4), notnull: true }
+  relations:
+    Hilo:               { onDelete: CASCADE, class: ehForoHilo, local: hilo_id, foreign: id, foreignType: one, foreignAlias: Noticia }
+    Seccion:            { onDelete: CASCADE, class: tdhSeccion, local: seccion_id, foreign: id, foreignAlias: Noticias }
+
+tdhFeedExterno:
+  actAs:
+    Timestampable:      ~
+    Sluggable:          { fields: [nombre], canUpdate: true, unique: true }
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    nombre:             { type: string(128), notnull: true }
+    url_feed:           { type: string(255), notnull: true, default: '' }
+    url_web:            { type: string(255), notnull: true, default: '' }
+
+# Recursos, módulos y ayudas    
+tdhRecurso:
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    estado_aprobado:    { type: boolean, notnull: true, default: true }
+    acepta_donativos:   { type: boolean, notnull: true, default: true }
+    favoritos:          { type: integer(3), notnull: true, default: 0 }
+    paypal:             { type: string(255), notnull: true, default: '' }
+    entradilla:         { type: string(255), notnull: true, default: '' }
+    autor:              { type: string(255), notnull: true, default: '' }
+    contacto_autor:     { type: string(255), notnull: true, default: '' }
+    num_donativos:      { type: integer(3), notnull: true, default: 0 }
+    cantidad_donativos: { type: integer(3), notnull: true, default: 0 }
+    tiene_html:         { type: boolean, notnull: true, default: true }
+    conver_pdf:         { type: boolean, notnull: true, default: true }
+    conver_epub:        { type: boolean, notnull: true, default: true }
+    separar_capitulos:  { type: boolean, notnull: true, default: false }
+    tipo_id:            { type: integer(4), notnull: true }
+    seccion_id:         { type: integer(4), notnull: true }
+    licencia_id:        { type: integer(4), notnull: true }
+    hilo_id:            { type: integer(4), notnull: true }
+  relations:
+    Hilo:               { onDelete: CASCADE, class: ehForoHilo, local: hilo_id, foreign: id, foreignType: one, foreignAlias: Recurso }
+    Seccion:            { onDelete: CASCADE, class: tdhSeccion, local: seccion_id, foreign: id, foreignAlias: Recursos }
+    Tipo:               { onDelete: CASCADE, class: tdhRecursoTipo, local: tipo_id, foreign: id, foreignAlias: Recursos }
+    Licencia:           { onDelete: CASCADE, class: tdhLicencia, local: licencia_id, foreign: id, foreignAlias: Recursos }
+    FavoritoDeUsuarios: { onDelete: CASCADE, class: ehAuthUser, refClass: tdhRecursoFavorito, foreignAlias: RecursosFavoritos, local: recurso_id, foreign: usuario_id }
+    
+tdhRecursoTipo:
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    nombre:             { type: string(255), notnull: true }
+    descripcion:        { type: string(255), notnull: true }
+
+tdhLicencia:
+  actAs:
+    Sluggable:          { fields: [nombre], canUpdate: true }
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    nombre:             { type: string(255), notnull: true }
+    descripcion:        { type: string(255), notnull: true, default: '' }
+    url:                { type: string(255), notnull: true, default: '' }
+
+tdhDonacion:
+  options:
+    symfony:
+      form:             false
+  actAs:
+    Timestampable:      { updated: { disabled: true } }
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    cantidad:           { type: float, notnull: true, default: 0 }
+    hilo_id:            { type: integer(4), notnull: true }
+    usuario_id:         { type: integer(4), notnull: true }  
+  relations:
+    Hilo:               { onDelete: CASCADE, class: ehForoHilo, local: hilo_id, foreign: id, foreignAlias: Donaciones }
+    Donante:            { onDelete: CASCADE, class: ehAuthUser, local: usuario_id, foreign: id, foreignAlias: Donaciones }
+
+# Críticas y reseñas    
+tdhCritica:
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    estado_aprobado:    { type: boolean, notnull: true, default: true }
+    estado_sin_nota:    { type: boolean, notnull: true, default: true }
+    estado_basico:      { type: boolean, notnull: true, default: false }
+    capturas_automaticas: { type: boolean, notnull: true, default: false }
+    fecha_publicacion:  { type: date }
+    autor:              { type: string(255), notnull: true, default: '' }
+    paginas:            { type: integer(2), notnull: true, default: 0 }
+    idioma:             { type: string(255), notnull: true, default: 'es' }
+    precio:             { type: float, notnull: true, default: 0 }
+    moneda:             { type: string(3), notnull: true, default: 'EUR' }
+    nota:               { type: float, notnull: true, default: 0 }
+    nota_media:         { type: float, notnull: true, default: 0 }
+    votos:              { type: integer(2), notnull: true, default: 0 }
+    seccion_id:         { type: integer(4), notnull: true }
+    editor_id:          { type: integer(4), notnull: true }
+    hilo_id:            { type: integer(4), notnull: true }
+  relations:
+    Editor:             { onDelete: CASCADE, class: tdhEditor, local: editor_id, foreign: id, foreignAlias: Criticas }
+    Hilo:               { onDelete: CASCADE, class: ehForoHilo, local: hilo_id, foreign: id, foreignType: one, foreignAlias: Critica }
+    Seccion:            { onDelete: CASCADE, class: tdhSeccion, local: seccion_id, foreign: id, foreignAlias: Criticas }
+    
+tdhCriticaCaptura:
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    comentario:         { type: string(255), notnull: true, default: '' }
+    fichero:            { type: string(255), notnull: true, default: '' }
+    tam_peq:            { type: boolean, notnull: true, default: true }
+    tam_med:            { type: boolean, notnull: true, default: false }
+    tam_gra:            { type: boolean, notnull: true, default: false }
+    critica_id:         { type: integer(4), notnull: true }
+  relations:
+    Critica:            { onDelete: CASCADE, class: tdhCritica, local: critica_id, foreign: id, foreignAlias: Capturas }
+
+tdhCriticaVideo:
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    comentario:         { type: string(255), notnull: true, default: '' }
+    medio:              { type: enum, values: [Youtube, Dailymotion], notnull: true, default: 'Youtube' }
+    url:                { type: string(255), notnull: true, default: '' }
+    critica_id:         { type: integer(4), notnull: true }
+  relations:
+    Critica:            { onDelete: CASCADE, class: tdhCritica, local: critica_id, foreign: id, foreignAlias: Videos }
+    
+tdhCriticaNota:
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    usuario_id:         { type: integer(4), notnull: true }
+    critica_id:         { type: integer(4), notnull: true }
+    nota:               { type: float, notnull: true, default: 0 }
+  relations:
+    Critica:            { onDelete: CASCADE, class: tdhCritica, local: critica_id, foreign: id, foreignAlias: Notas }
+    Usuario:            { onDelete: CASCADE, class: ehAuthUser, local: usuario_id, foreign: id, foreignAlias: Notas }
+
+# Populares y favoritas    
+tdhPopular:
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    visitas:            { type: integer(3), notnull: true, default: 0 }
+    fecha:              { type: date, notnull: true }
+    seccion_id:         { type: integer(4), notnull: true }
+  relations:
+    Seccion:            { onDelete: CASCADE, class: tdhSeccion, local: seccion_id, foreign: id, foreignAlias: RegistrosDePopularidad }
+
+tdhSeccionFavorita:
+  options:
+    symfony:
+      form:             false
+      filter:           false
+  columns:
+    usuario_id:         { type: integer(4), notnull: true, primary: true }
+    seccion_id:         { type: integer(4), notnull: true, primary: true }
+
+tdhRecursoFavorito:
+  options:
+    symfony:
+      form:             false
+      filter:           false
+  columns:
+    usuario_id:         { type: integer(4), notnull: true, primary: true }
+    recurso_id:         { type: integer(4), notnull: true, primary: true }
+
+# Consultas a los administradores
+tdhConsultaTipo:
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    nombre:             { type: string(255), notnull: true, default: '' }
+  relations:
+    Consultores:        { onDelete: CASCADE, class: ehAuthUser, refClass: tdhConsultaTipoUsuario, foreignAlias: ConsultaTipos, local: tipo_id, foreign: usuario_id }
+
+tdhConsultaTipoUsuario:
+  options:
+    symfony:
+      form:             false
+      filter:           false
+  columns:
+    usuario_id:         { type: integer(4), notnull: true, primary: true }
+    tipo_id:            { type: integer(4), notnull: true, primary: true }
+
+tdhConsulta:
+  actAs:
+    Timestampable:      ~
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    codigo:             { type: string(80), notnull: true, default: '' }
+    nombre:             { type: string(255), notnull: true, default: '' }
+    descripcion:        { type: string(4000), notnull: true, default: '' }
+    email:              { type: string(255), notnull: true, default: '' }
+    ip:                 { type: string(255), notnull: true, default: '127.0.0.1' }
+    resuelto:           { type: boolean, notnull: true, default: false }
+    usuario_id:         { type: integer(4), notnull: false }
+    tipo_id:            { type: integer(4), notnull: true }
+  relations:
+    Usuario:            { onDelete: CASCADE, class: ehAuthUser, local: usuario_id, foreign: id, foreignAlias: Consultas }
+    Tipo:               { onDelete: CASCADE, class: tdhConsultaTipo, local: tipo_id, foreign: id, foreignAlias: Consultas }
+
+tdhConsultaRespuesta:
+  actAs:
+    Timestampable:      ~
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }   
+    descripcion:        { type: string(4000), notnull: true, default: '' } 
+    ip:                 { type: string(255), notnull: true, default: '127.0.0.1' }
+    usuario_id:         { type: integer(4), notnull: false }
+    consulta_id:        { type: integer(4), notnull: true }
+  relations:
+    Usuario:            { onDelete: CASCADE, class: ehAuthUser, local: usuario_id, foreign: id, foreignAlias: RespuestasConsultas }
+    Consulta:           { onDelete: CASCADE, class: tdhConsulta, local: consulta_id, foreign: id, foreignAlias: Respuestas }
+
+# Publicidad y anuncios
+tdhAnuncio:
+  actAs:
+    Timestampable:      ~
+    Sluggable:          { fields: [nombre], canUpdate: true, unique: true }
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    activo:             { type: boolean, notnull: true, default: true }
+    nombre:             { type: string(64), notnull: true }
+    descripcion:        { type: string(255), notnull: true }
+    url:                { type: string(255), notnull: true }
+    vistas:             { type: integer(3), notnull: true, default: 0 }
+    clicks:             { type: integer(3), notnull: true, default: 0 }
+    temporal:           { type: boolean, notnull: true, default: false }
+    es_flash:           { type: boolean, notnull: true, default: false }
+    es_codigo:          { type: boolean, notnull: true, default: false }
+    codigo:             { type: string(1000), notnull: true }
+    desde:              { type: timestamp, notnull: true }
+    hasta:              { type: timestamp, notnull: true }
+    tipo_id:            { type: integer(4), notnull: true }
+  relations:
+    Tipo:               { onDelete: CASCADE, class: tdhAnuncioTipo, local: tipo_id, foreign: id, foreignAlias: Anuncios }
+    
+tdhAnuncioTipo:
+  actAs:
+    Sluggable:          { fields: [nombre], canUpdate: true, unique: true }
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    nombre:             { type: string(128), notnull: true }
+    anchura:            { type: integer(3), notnull: true, default: 0 }
+    altura:             { type: integer(3), notnull: true, default: 0 }
+    multiple:           { type: boolean, notnull: true, default: false }
+    rotativo:           { type: boolean, notnull: true, default: false }
+    codigo_alternativo: { type: string(1000), notnull: true }
+
+tdhAnuncioPago:
+  options:
+    symfony:
+      form:             false
+  actAs:
+    Timestampable:      ~
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    cantidad:           { type: float, notnull: true, default: 0 }
+    usuario_id:         { type: integer(4), notnull: true }
+    anuncio_id:         { type: integer(4), notnull: true }
+  relations:
+    Anuncio:            { onDelete: CASCADE, class: tdhAnuncio, local: anuncio_id, foreign: id, foreignType: one, foreignAlias: Pago }
+    Usuario:            { onDelete: CASCADE, class: ehAuthUser, local: usuario_id, foreign: id, foreignAlias: PagosAnuncio }
+    
+# Clubes y asociaciones
+tdhAsociacion:
+  actAs:
+    Timestampable:      ~
+    Sluggable:          { fields: [nombre], canUpdate: true, unique: true }
+    ehUtilesMarkupToHtmlBehavior:
+      field:            'descripcion'
+      target:           'descripcion_html'
+      parsers:
+        html:           false
+        markdown:       true
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    nombre:             { type: string(255), notnull: true, default: '' }
+    num_socios:         { type: integer(3), notnull: true, default: 0 }
+    direccion:          { type: string(255), notnull: true, default: '' }
+    localidad:          { type: string(255), notnull: true, default: '' }
+    region:             { type: string(255), notnull: true, default: '' }
+    pais:               { type: string(50), notnull: true, default: '' }
+    web:                { type: string(255), notnull: true, default: '' }
+    plazas_abiertas:    { type: integer(3), notnull: true, default: 0 }
+    acepta_invitaciones: { type: enum, notnull: true, values: [no, invitaciones, abierto], default: 'no'  }
+    tipo_id:            { type: integer(4), notnull: true }
+  relations:
+    Tipo:               { onDelete: CASCADE, class: tdhAsociacionTipo, local: tipo_id, foreign: id, foreignAlias: Asociaciones }
+    Socios:             { onDelete: CASCADE, onUpdate: CASCADE, refClass: tdhAsociacionUsuario, class: ehAuthUser, local: asociacion_id, foreign: usuario_id, foreignAlias: Asociaciones }
+    
+tdhAsociacionTipo:
+  actAs:
+    Timestampable:      ~
+    Sluggable:          { fields: [nombre], canUpdate: true, unique: true }
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    nombre:             { type: string(255), notnull: true, default: '' }
+    
+tdhAsociacionUsuario:
+  options:
+    symfony:
+      form:             false
+      filter:           false
+  columns:
+    usuario_id:         { type: integer(4), notnull: true, primary: true }
+    asociacion_id:      { type: integer(4), notnull: true, primary: true }
+    rol:                { type: enum, notnull: true, values: [administrador, socio], default: 'socio'  }
+ 
+tdhAsociacionBusqueda:
+  actAs:
+    Timestampable:      ~
+    ehUtilesMarkupToHtmlBehavior:
+      field:            'descripcion'
+      target:           'descripcion_html'
+      parsers:
+        html:           false
+        markdown:       true
+  columns:
+    id:                 { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    usuario_id:         { type: integer(4), notnull: true }
+    localidad:          { type: string(255), notnull: true }
+  relations:
+    Usuario:            { onDelete: CASCADE, class: ehAuthUser, local: usuario_id, foreign: id, foreignType: one, foreignAlias: PeticionGrupo }
+    
+tdhAsociacionInvitacion:
+  actAs:
+    Timestampable:      ~
+  options:
+    symfony:
+      form:             false
+      filter:           false
+  columns:
+    usuario_id:        { type: integer(4), notnull: true, primary: true }
+    asociacion_id:     { type: integer(4), notnull: true, primary: true }
+    es_de_usuario:     { type: boolean, notnull: true, default: false }
+  relations:
+    Usuario:           { onDelete: CASCADE, class: ehAuthUser, local: usuario_id, foreign: id, foreignAlias: InvitacionesAsociacion }
+    Asociacion:        { onDelete: CASCADE, class: tdhAsociacion, local: asociacion_id, foreign: id, foreignAlias: Invitaciones }
+    
+# Emails
+tdhMailMensaje:
+ actAs:
+    Timestampable:      ~
+ options:
+    symfony:
+      form:             false
+      filter:           false
+ columns:
+   mensaje:             { type: blob, notnull: true }

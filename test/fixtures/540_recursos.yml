@@ -1,0 +1,32 @@
+ehForoHilo:
+  tdh_hilo_recurso_1:
+    Tablon:             eh_foro_tablon_generico
+
+ehForoMensaje:
+  tdh_mensaje_recurso_1:
+    asunto:             Un módulo de un juego
+    cuerpo:             Módulo para X jugadores ambientado en Internet.
+    Usuario:            admin
+    Hilo:               tdh_hilo_recurso_1
+
+tdhRecursoTipo:
+  tdh_recurso_tipo_1:
+    nombre:             Módulo
+    descripcion:        Los módulos son muy útiles para aprender a jugar.
+
+tdhRecurso:
+  tdh_recurso_1:
+    estado_aprobado:    true
+    autor:              Kether
+    contacto_autor:     mailto:ketertech@yahoo.com
+    Tipo:               tdh_recurso_tipo_1
+    Seccion:            tdh_seccion_ars_magica
+    Hilo:               tdh_hilo_recurso_1
+    
+tdhNoticia:
+  recurso_destacado_1:
+    nombre_fuente:      Templo de Hécate
+    es_destacada:       true
+    url_fuente:         http://www.templodehecate.com
+    Seccion:            tdh_seccion_ars_magica
+    Hilo:               tdh_hilo_recurso_1

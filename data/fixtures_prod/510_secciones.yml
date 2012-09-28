@@ -1,0 +1,30 @@
+tdhGenero:
+  tdh_genero_fantasia_medieval: { nombre: Fantasía medieval }
+  tdh_genero_terror:            { nombre: Terror contemporáneo }
+  tdh_genero_ciencia_ficcion:   { nombre: Ciencia ficción }
+  tdh_genero_miscelaneo:        { nombre: Misceláneo }
+  tdh_genero_ucronia:           { nombre: Ucronía }
+  tdh_genero_historico:         { nombre: Histórico }
+
+tdhEditor:
+  tdh_editor_desconocido:       { nombre: Desconocido }
+
+tdhSeccionTipo:
+  tdh_seccion_tipo_rol:         { nombre: Rol }
+  tdh_seccion_tipo_estrategia:  { nombre: Estrategia }
+  tdh_seccion_tipo_mesa:        { nombre: Juego de tablero }
+  tdh_seccion_tipo_cartas:      { nombre: Juego de cartas }
+  tdh_seccion_tipo_cartas_coleccionables:      { nombre: Cartas coleccionables }
+  tdh_seccion_tipo_cine:        { nombre: Cine, es_juego: false }
+  tdh_seccion_tipo_videojuego:  { nombre: Videojuego, es_juego: false }
+  tdh_seccion_tipo_miscelanea:  { nombre: Miscelánea, es_juego: false }
+
+tdhSeccion:  
+  tdh_seccion_general:
+    nombre:         "Temas generales"
+    descripcion:    "Cualquier asunto miscelánea."
+    estado_activa:  true
+    Tipo:           tdh_seccion_tipo_miscelanea
+    Genero:         tdh_genero_miscelaneo
+    Editor:         tdh_editor_desconocido
+    Tablon:         eh_foro_tablon_generico

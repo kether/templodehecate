@@ -1,0 +1,61 @@
+inicio:
+  nombre:     'Inicio'
+  uri:        '@homepage'
+  submenus:
+    criticas:   { nombre: 'Reseñas', uri: '@tdh_critica_lista' }
+    eventos:    { nombre: 'Agenda', uri: '@tdh_evento_lista' }
+    recursos:   { nombre: 'Ayudas y módulos', uri: '@tdh_recurso_lista' }
+    promo:      { nombre: 'Anunciate', uri: '@tdh_publicidad_promocion' }
+    contacto:   { nombre: 'Contacto', uri: '@tdh_contacto' }
+  valido:
+    inicio:     'indice/portada'
+    criticas:   'critica/*'
+    recurso:    'recurso/*'
+    articulo:   'articulo/*'
+    seccion:    'seccion/indice'
+    promo:      'publicidad/*'
+    contacto:   'contacto/*'
+
+juegos:
+  nombre:     'Juegos'
+  uri:        '@tdh_seccion_lista'
+  valido:
+    secciones:    'seccion/lista'
+  submenus:
+    rol:              { nombre: Rol, uri: '@tdh_seccion_lista?tipo=rol' }
+    estrategia:       { nombre: Estrategia y tablero, uri: '@tdh_seccion_lista?tipo=estrategia' }
+    wargames:         { nombre: Wargames y figuritas, uri: '@tdh_seccion_lista?tipo=wargames' }
+    coleccionables:   { nombre: Cartas coleccionables, uri: '@tdh_seccion_lista?tipo=cartas-coleccionables' }
+    cartas:           { nombre: Cartas no coleccionables, uri: '@tdh_seccion_lista?tipo=cartas' }
+      
+comunidad:
+  nombre:     'Comunidad'
+  uri:        '@eh_foro'
+  valido:
+    usuarios:   'usuario/*'
+    asociacion: 'asociacion/*'
+    tablones:   'ehForoTablon/*'
+    hilos:      'ehForoTema/*'
+    mensajes:   'ehForoMensaje/*'
+    privados:   'ehForoMensajePrivado/*'
+    perfils:    'ehForoPerfil/*'
+    grupos:     'ehForoGrupo/*'
+    sorteos:    'sorteo/*'
+  submenus:
+    perfiles:      { nombre: 'Perfiles', uri: '@eh_foro_amigos' }
+    sorteos:       { nombre: 'Sorteos', uri: '@tdh_sorteos' }
+
+noticias:
+  nombre:     'Actualidad'
+  uri:        '@tdh_noticia_lista'
+  submenus:
+    todas:        { nombre: 'Todas las noticias', uri: '@tdh_noticia_lista' }
+    destacados:   { nombre: 'Noticias destacadas', uri: '@tdh_noticia_lista?filtro=destacados' }
+    agenda:       { nombre: 'Calendario', uri: '@tdh_evento_agenda_cruda' }
+    eventos:      { nombre: 'Lista de eventos', uri: '@tdh_evento_lista' }
+  valido:
+    noticia:    'noticia/*'
+    agenda:     'agenda/*'
+    eventos:    'eventos/*'
+    evento:     'evento/*'
+    

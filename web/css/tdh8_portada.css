@@ -1,0 +1,163 @@
+/**
+ * Hoja de estilo para la portada de Templo de Hécate v8
+ *
+ * @copyright Pablo Floriano
+ * @file tdh8_portada.css
+ */
+@CHARSET "UTF-8";
+@import 'tdh8_layout_a.css';
+@import 'tdh8_navegador_eventos.css';
+
+#tdh_portada_titulares_graficos {
+  background-color: #6b6b6b;
+  height: 230px;
+  padding-top: 10px;
+}
+
+#tdh_portada_mini_titulares {
+  margin: 5px auto;
+  width: 430px;
+  height: 70px;
+}
+
+#tdh_portada_mini_titulares li {
+  float: left;
+  padding-left: 5px;
+  width: 140px;
+}
+
+#tdh_portada_mini_titulares li:first-child {
+  padding-left: 0px;
+}
+
+#tdh_portada_mini_titulares li a img {
+  border: 1px solid #000;
+}
+
+#tdh_portada_mini_titulares li a:hover img {
+  border: 1px solid #fff;
+}
+
+#tdh_portada_mini_titulares li p {
+  color: #e3e3e3;
+  font: normal 11px Arial;
+}
+
+/* Slider de los titulares */
+#tdh_slider { margin-left: 10px; border: 1px solid #000; width: 428px; height: 150px; overflow: hidden; position: relative;  }
+
+#tdh_slider ul { 
+  position: relative; 
+  overflow: hidden; 
+}
+
+#tdh_slider:hover { border: 1px solid #fff; }
+
+#tdh_slider li { 
+  width: 428px;
+  height: 150px;
+  overflow:hidden;
+  background-color: #000;
+  cursor: pointer;
+}
+
+#tdh_slider h1 a { font: normal 20px Arial; color: #fff; text-decoration: none; }
+
+#tdh_slider .tdh_solapa {
+  background-image: url('../images/bakg/titular_descripcion.png');
+  color: #fff;
+  margin: 100px 0 0 0;
+  height: 45px;
+  padding: 5px 10px 0 10px;
+  font: normal 10px Verdana, Arial;
+}
+
+/* Noticias */
+#tdh_noticias {
+  margin-top: 15px;
+}
+
+#tdh_noticias li {
+  clear: left;
+  margin-bottom: 10px;
+}
+
+#tdh_noticias li h2 {
+  font: bold 16px Arial;
+}
+
+#tdh_noticias li h2 a:hover {
+  text-decoration: none;
+  border-bottom: 1px dotted #000;
+}
+
+#tdh_noticias li p {
+  font: normal 13px Arial;
+}
+
+#tdh_noticias li .info {
+  font: normal 10px Verdana;
+  color: #7b7b7b;
+}
+
+#tdh_noticias li .info a { color:  #7b7b7b; }
+#tdh_noticias li .info:hover a { color:  #4682b4; }
+
+/* Top 10 */
+#tdh_ranking {
+  width: 192px;
+}
+
+#tdh_ranking ul {
+  border: 1px solid #6b6b6b;
+}
+
+#tdh_ranking .tdh_titulo {
+  height: 18px;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #6b6b6b;
+  font: bold 12px Arial;
+  text-align: center;
+  padding: 3px 0 2px 0;
+}
+
+#tdh_ranking .tdh_info {
+  font: normal 10px Arial;
+  color: #7d7d7d;
+  text-align: center;
+}
+
+#tdh_ranking li {
+  height: 40px;
+  padding: 5px;
+  color: #fff;
+  font: normal 10px Verdana, Arial;
+  cursor: pointer;
+}
+
+#tdh_ranking img.cover {
+  float: left;
+  margin-right: 5px;
+}
+
+#tdh_ranking h2 {
+  padding: 5px 0 0 0;
+  font-weight: bold;
+}
+
+#tdh_ranking h2 a { color: #fff; text-decoration: none; }
+#tdh_ranking li:hover a { text-decoration: underline; }
+
+#tdh_ranking .info {
+  color: #8abde2;
+  font: normal 10px Arial;
+}
+
+#tdh_ranking li.impar {
+  background-color: #486da9;
+}
+
+#tdh_ranking li.par {
+  background-color: #3c5f9f;
+}

@@ -1,0 +1,34 @@
+/**
+ * Cuadro de favoritos en Tdh 8.0
+ *
+ * @copyright Pablo Floriano
+ * @file tdh8_favoritos.css
+ */
+@CHARSET "UTF-8";
+
+/* Favoritos */
+#tdh_juegos_favoritos {
+  padding: 5px;
+  background-color: #9d2727;
+  margin-bottom: 10px;
+  padding: 5px;
+  color: #fff;
+  font: bold 10px Verdana;
+}
+
+#tdh_juegos_favoritos a { color: #bebebe; text-decoration: none; }
+#tdh_juegos_favoritos a:hover { color: #fff; }
+
+#tdh_juegos_favoritos li {
+  float: left;
+  background: transparent url('../images/bakg/favorito_icono.png');
+  width: 40px;
+  height: 40px;
+  display: block;
+  padding: 5px;
+  margin-right: 2px;
+}
+
+#tdh_juegos_favoritos .tdh_apartado {
+  margin: 0 5px 3px 5px;
+}

@@ -1,0 +1,17 @@
+# default values
+all:
+  .configuracion:
+    nombre:                          Panel de control
+    lema:                            Panel de control para administrador
+        
+    menu_pie_admin:
+      instrucciones:                 { title: 'Instrucciones de uso', route: '@homepage' }
+      limpiar_cache:                 { title: 'Limpiar la vista caché', route: '@app_limpiar_cache' }
+
+prod:     ~
+    
+dev:      ~
+    
+staging:  ~
+    
+cache:    ~

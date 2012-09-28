@@ -1,0 +1,27 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           tdhMenu
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tdh_menu
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  
+        estado_portada:     { label: '¿Portada?' }
+      list:    
+        title:              Menús
+        display:            [estado_portada, ordinal, =nombre, enlace]
+      filter:  
+        class:              false
+      form:    ~
+      edit:    
+        title:              Editar menú %%nombre%%
+      new:     
+        title:              Nuevo menú

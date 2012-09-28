@@ -1,0 +1,443 @@
+# ehForo
+eh_foro:
+  url:      /foro
+  param:    { module: ehForoTablon, action: lista }
+
+eh_foro_tablon:
+  url:      /foro/:id/temas/pagina.:pagina
+  param:    { module: ehForoTema, action: lista }
+  requirements: { id: \d+ }
+
+eh_foro_leer_tablon:
+  url:      /foro/leer-tablon/:id
+  param:    { module: ehForoTema, action: leerTablon }
+  requirements: { id: \d+ }
+
+eh_foro_tema:
+  url:      /foro/:id/hilo/pagina.:pagina
+  param:    { module: ehForoTema, action: mostrar }
+  requirements: { id: \d+ }
+
+eh_foro_mensaje:
+  url:      /foro/mensaje/:id.:sf_format
+  param:    { module: ehForoMensaje, action: mostrar, sf_format: html }
+  requirements: { id: \d+ }
+
+eh_foro_mensaje_nuevo:
+  url:      /foro/nuevo/tema/:tablon_id
+  param:    { module: ehForoMensaje, action: nuevoTema }
+  requirements: { tablon_id: \d+ }
+
+eh_foro_mensaje_eliminar:
+  url:      /foro/eliminar/mensaje/:mensaje_id
+  param:    { module: ehForoMensaje, action: eliminar }
+  requirements: { mensaje_id: \d+ }
+
+eh_foro_mensaje_editar:
+  url:      /foro/editar/mensaje/:mensaje_id
+  param:    { module: ehForoMensaje, action: editar }
+  requirements: { mensaje_id: \d+ }
+
+eh_foro_mensaje_responder:
+  url:      /foro/responder/tema/:hilo_id
+  param:    { module: ehForoMensaje, action: responderTema }
+  requirements: { hilo_id: \d+ }
+
+eh_foro_cargar_ficheros:
+  url:      /foro/cargar/ficheros/:mensaje_id
+  param:    { module: ehForoMensaje, action: cargarFicheros }
+  requirements: { mensaje_id: \d+ }
+  
+eh_foro_link_adjunto:
+  url:      /foro/fichero/:adjunto_id/:nombre_adjunto.:sf_format
+  param:    { module: ehForoMensaje, action: descargarFichero, sf_format: txt }
+  requirements: { adjunto_id: \d+ }
+
+eh_foro_amigos:
+  url:      /foro/perfiles/:pagina
+  param:    { module: ehForoPerfil, action: amigos, pagina: 1 }
+  requirements: { pagina: \d+ }
+
+# ehForoPlugins Perfil
+eh_foro_perfil_datos:
+  url:      /foro/perfil/:username
+  param:    { module: ehForoPerfil, action: mostrar }
+
+eh_foro_perfil:
+  url:      /perfil/:username
+  param:    { module: usuario, action: perfil }
+
+eh_foro_perfil_crear:
+  url:      /foro/crear-cuenta
+  param:    { module: ehForoPerfil, action: crearCuenta }
+
+eh_foro_perfil_amigar:
+  url:      /foro/amigar/:usuario_id
+  param:    { module: ehForoPerfil, action: amigar }
+
+eh_foro_perfil_editar:
+  url:      /foro/editar/perfil
+  param:    { module: ehForoPerfil, action: editar }
+
+eh_foro_perfil_cambiar_avatar:
+  url:      /foro/cambiar/avatar
+  param:    { module: ehForoPerfil, action: cambiarAvatar }
+
+eh_foro_perfil_cambiar_clave:
+  url:      /foro/cambiar/clave
+  param:    { module: ehForoPerfil, action: cambiarClave }
+
+eh_foro_perfil_regenerar_clave:
+  url:      /foro/regenerar/clave
+  param:    { module: ehForoPerfil, action: regenerarClave }
+
+# Vincular y desvincular servicios externos
+tdh_vincular_servicio:
+  url:      /perfil/vincular/:username/:servicio/:estado
+  param:    { module: usuario, action: vincularServicio }
+
+# ehForoPlugin MensajesPrivados
+eh_foro_privados_escribir:
+  url:      /foro/privados/nuevo/:username
+  param:    { module: ehForoMensajePrivado, action: escribir }
+
+eh_foro_privados_mostrar:
+  url:      /foro/mensaje/privado/:privado_id
+  param:    { module: ehForoMensajePrivado, action: mostrar }
+
+eh_foro_privados_borrar:
+  url:      /foro/mensaje/privado/borrar/:privado_id
+  param:    { module: ehForoMensajePrivado, action: borrar }
+
+eh_foro_privados_enviados:
+  url:      /foro/privados/enviados/:pagina
+  param:    { module: ehForoMensajePrivado, action: listaEnviados, pagina: 1 }
+  requirements: { pagina: \d+ }
+
+eh_foro_privados_recibidos:
+  url:      /foro/privados/recibidos/:pagina
+  param:    { module: ehForoMensajePrivado, action: listaRecibidos, pagina: 1 }
+  requirements: { pagina: \d+ }
+
+# ehForoPlugin Grupos
+eh_foro_grupo:
+  url:      /foro/grupo/:slug
+  param:    { module: ehForoGrupo, action: mostrar }
+  
+eh_foro_grupos:
+  url:      /foro/grupos/:pagina
+  param:    { module: ehForoGrupo, action: lista, pagina: 1 }
+  requirements: { pagina: \d+ }
+
+# ehAuthPlugin
+eh_auth_signin:
+  url:      /usuario/autenticar
+  param:    { module: usuario, action: signin }
+
+eh_auth_signout:
+  url:      /usuario/salir
+  param:    { module: ehAuthLogin, action: signout }
+
+tdh_auth_twitter:
+  url:      /usuario/autenticar/twitter
+  param:    { module: usuario, action: signinTwitter, oauth: twitter }
+  
+tdh_auth_facebook:
+  url:      /usuario/autenticar/facebook
+  param:    { module: usuario, action: signinFacebook, oauth: facebook }
+
+# tdhArticulo
+tdh_articulo:
+  url:      /articulo/:slug.:sf_format
+  param:    { module: articulo, action: mostrar, sf_format: html }
+  requirements: { id: \d+ }
+
+# tdhNoticias
+tdh_noticia:
+  url:      /noticia/:id/:slug.:sf_format
+  param:    { module: noticia, action: mostrar, sf_format: html }
+  requirements: { id: \d+ }
+
+tdh_noticia_lista:
+  url:      /noticias/:pagina
+  param:    { module: noticia, action: lista, pagina: 1 }
+  requirements: { seccion_id: \d+, pagina: \d+ }
+
+# tdhCriticas
+tdh_critica:
+  url:      /critica/:id/:slug.:sf_format
+  param:    { module: critica, action: mostrar, slug: mi-critica-por-defecto, sf_format: html }
+  requirements: { id: \d+ }
+
+tdh_critica_lista:
+  url:      /criticas/:pagina
+  param:    { module: critica, action: lista, pagina: 1 }
+  requirements: { pagina: \d+ }
+
+tdh_critica_capturas:
+  url:      /critica/capturas/:id
+  param:    { module: critica, action: capturas }
+  requirements: { id: \d+ }
+
+tdh_critica_videos:
+  url:      /critica/videos/:id
+  param:    { module: critica, action: videos }
+  requirements: { id: \d+ }
+
+tdh_critica_votar:
+  url:      /critica/votar/:id
+  param:    { module: critica, action: votar }
+  requirements: { id: \d+ }
+
+tdh_editor:
+  url:      /editor/:slug
+  param:    { module: critica, action: editor }
+
+tdh_genero:
+  url:      /genero/:slug
+  param:    { module: critica, action: genero }
+
+# tdhEventos
+tdh_evento:
+  url:      /evento/:id/:slug.:sf_format
+  param:    { module: agenda, action: evento, slug: mi-evento-por-defecto, sf_format: html }
+  requirements: { id: \d+ }
+
+tdh_evento_nuevo:
+  url:      /evento/nuevo
+  param:    { module: agenda, action: nuevoEvento }
+
+tdh_evento_lista:
+  url:      /eventos/:pagina
+  param:    { module: agenda, action: lista, pagina: 1 }
+  requirements: { pagina: \d+ }
+
+tdh_evento_apuntados:
+  url:      /eventos/apuntados
+  param:    { module: agenda, action: apuntados }
+
+tdh_evento_agenda:
+  url:      /agenda/:year/:month.:sf_format
+  param:    { module: agenda, action: calendario, sf_format: html }
+  requirements: 
+    year:   \d+
+    month:  \d+
+    sf_format: (?:html|vcs)
+
+tdh_evento_agenda_cruda:
+  url:      /agenda.:sf_format
+  param:    { module: agenda, action: calendario, sf_format: html }
+  requirements: 
+    sf_format: (?:html|vcs)
+
+# tdhRecursos
+tdh_recurso:
+  url:      /recurso/:id/:slug.:sf_format
+  param:    { module: recurso, action: mostrar, slug: mi-recurso-por-defecto, sf_format: html }
+  requirements: 
+    id:     \d+
+    sf_format: (?:html|pdf|epub)
+
+tdh_recurso_favorito:
+  url:      /favorito/:opcion/recurso/:recurso_id
+  param:    { module: recurso, action: favorito, opcion: 0 }
+  requirements:
+    seccion_id: \d+
+    opcion:   (?:0|1)
+
+tdh_recurso_lista:
+  url:      /descargas/:pagina
+  param:    { module: recurso, action: lista, pagina: 1 }
+  requirements: { pagina: \d+ }
+
+tdh_recurso_donacion_resultado:
+  url:      /recurso/donacion-resultado/:id/:resultado
+  param:    { module: recurso, action: resultadoDonacion }
+  requirements:
+    id:     \d+
+    resultado:   (?:si|no)
+
+tdh_recurso_ipn:
+  url:      /recurso/donacion/ipn
+  param:    { module: recurso, action: ipn }
+
+# tdhCSS
+tdh_css:
+  url:      /css/personales/:fichero.css
+  param:    { module: hojaDeEstilo, action: mostrar, sf_format: css }
+
+# tdhAsociaciones
+tdh_asociacion:
+  url:      /asociacion/:slug
+  param:    { module: asociacion, action: mostrar }
+
+tdh_asociacion_lista:
+  url:      /asociaciones
+  param:    { module: asociacion, action: indice }
+
+tdh_asociacion_solicitud:
+  url:      /asociacion/:id/solicitud
+  param:    { module: asociacion, action: solicitud }
+  
+tdh_asociacion_editar:
+  url:      /asociacion/:id/editar
+  param:    { module: asociacion, action: editar }
+  
+tdh_asociacion_nueva:
+  url:      /asociacion-nueva
+  param:    { module: asociacion, action: nueva }
+
+# tdhContacto
+tdh_contacto:
+  url:      /contacto
+  param:    { module: contacto, action: formulario }
+
+tdh_contacto_guardar_respuesta:
+  url:      /contacto/consulta/:codigo/respuesta
+  param:    { module: contacto, action: guardarRespuesta }
+
+tdh_contacto_eliminar_respuesta:
+  url:      /contacto/consulta/eliminar-respuesta/:id
+  param:    { module: contacto, action: eliminarRespuesta }
+
+tdh_contacto_eliminar_consulta:
+  url:      /contacto/consulta/:codigo/eliminar
+  param:    { module: contacto, action: eliminarConsulta }
+
+tdh_contacto_resolver:
+  url:      /contacto/consulta/:codigo/resolver
+  param:    { module: contacto, action: resolver }
+
+tdh_contacto_consulta:
+  url:      /contacto/consulta/:codigo
+  param:    { module: contacto, action: consulta }
+  
+# tdhOtros
+tdh_buscar:
+  url:      /buscar.:sf_format
+  param:    { module: indice, action: buscar, sf_format: html }
+
+tdh_buscar_js:
+  url:      /js/buscar.js
+  param:    { module: indice, action: buscar, sf_format: js }
+
+tdh_comentarios:
+  url:      /comentarios
+  param:    { module: seccion, action: grabarComentario }
+
+tdh_feed:
+  url:      /feed/:tipo
+  param:    { module: indice, action: feed, sf_format: atom, tipo: general }
+
+# tdhPublicidad
+tdh_publicidad_url:
+  url:      /pub/u/:id
+  param:    { module: publicidad, action: url }
+  requirements: { id: \d+ }
+
+tdh_publicidad_promocion:
+  url:      /pub/promo
+  param:    { module: publicidad, action: promo }
+
+tdh_publicidad_contratar:
+  url:      /pub/promo/contratar
+  param:    { module: publicidad, action: formulario }
+
+tdh_publicidad_ipn:
+  url:      /pub/ipn
+  param:    { module: publicidad, action: ipn }
+
+tdh_publicidad_mostrar:
+  url:      /pub/mostrar/:id
+  param:    { module: publicidad, action: mostrar }
+
+# tdhApi
+tdh_api_usuario:
+  url:      /api/:operacion/usuario
+  param:    { module: usuario, action: api, operacion: get }
+
+# Sorteos
+tdh_sorteos:
+  url:       /sorteos/:pagina
+  param:     { module: sorteo, action: lista, pagina: 1 }
+
+tdh_sorteo:
+  url:       /sorteo/:slug
+  param:     { module: sorteo, action: descripcion }
+
+tdh_sorteo_twitter:
+  url:       /sorteo/:slug/twitter
+  param:     { module: sorteo, action: twitter }
+
+tdh_sorteo_facebook:
+  url:       /sorteo/:slug/facebook
+  param:     { module: sorteo, action: facebook }
+  
+tdh_sorteo_mensaje:
+  url:       /sorteo/:slug/mensaje
+  param:     { module: sorteo, action: mensaje }
+
+# tdhSecciones
+tdh_seccion_lista:
+  url:      /juegos/:tipo
+  param:    { module: seccion, action: lista, tipo: 'todos' }
+
+tdh_seccion_favorita:
+  url:      /favorita/:opcion/seccion/:seccion_id
+  param:    { module: seccion, action: favorito, opcion: 0 }
+  requirements:
+    seccion_id: \d+
+    opcion:   (?:0|1)
+
+tdh_seccion:
+  url:      /:seccion_slug
+  param:    { module: seccion, action: indice }
+
+tdh_seccion_noticia_lista:
+  url:      /:seccion_slug/noticias/:pagina
+  param:    { module: noticia, action: lista, pagina: 1 }
+  requirements: { pagina: \d+ }
+  
+tdh_seccion_noticia:
+  url:      /:seccion_slug/noticia/:id/:slug.:sf_format
+  param:    { module: noticia, action: mostrar, sf_format: html }
+  requirements: { id: \d+ }
+
+tdh_seccion_critica_lista:
+  url:      /:seccion_slug/criticas/:pagina
+  param:    { module: critica, action: lista, pagina: 1 }
+  requirements: { pagina: \d+ }
+  
+tdh_seccion_critica:
+  url:      /:seccion_slug/critica/:id/:slug.:sf_format
+  param:    { module: critica, action: mostrar, slug: mi-critica-por-defecto, sf_format: html }
+  requirements: { id: \d+ }
+
+tdh_seccion_recurso_lista:
+  url:      /:seccion_slug/descargas/:pagina
+  param:    { module: recurso, action: lista, pagina: 1 }
+  requirements: { pagina: \d+ }
+
+tdh_seccion_recurso:
+  url:      /:seccion_slug/recurso/:id/:slug.:sf_format
+  param:    { module: recurso, action: mostrar, slug: mi-recurso-por-defecto, sf_format: html }
+  requirements: { id: \d+ }
+
+# Nuevas noticias, críticas y recursos para usuarios normales
+tdh_seccion_nueva_noticia:
+  url:      /:seccion_slug/nueva/noticia
+  param:    { module: seccion, action: nuevaNoticia }
+
+tdh_seccion_nuevo_recurso:
+  url:      /:seccion_slug/nuevo/recurso
+  param:    { module: seccion, action: nuevoRecurso }
+
+tdh_seccion_nueva_critica:
+  url:      /:seccion_slug/nueva/critica
+  param:    { module: seccion, action: nuevaCritica }
+
+# default rules
+homepage:
+  url:      /
+  class:    tdhRoute
+  param:    { module: indice, action: portada }

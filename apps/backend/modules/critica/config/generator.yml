@@ -1,0 +1,48 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           ehForoHilo
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tdh_critica
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: 
+        _delete:           { credentials: superadministrator }
+      fields:  
+        id:                { label: 'ID' }
+        _asunto:           { label: 'Asunto' }
+        seccion:           { label: 'Sección' }
+      list:    
+        table_method:      retrieveBackendCritica
+        display:           [=id, =_asunto, _seccion, _nota, _capturas, _videos]
+        title:             Listado de reseñas
+        actions:
+          _new:            ~
+        object_actions:
+          _edit:           ~
+          _delete:         ~
+          mostrar:         { label: Examinar, action: examinar }
+          captura:         { label: 'Añadir captura', action: captura }
+          video:           { label: 'Añadir vídeo', action: video }
+      filter:  
+        class:             false
+      form:
+        class:             'tdhAdminCriticaForm'
+      edit:    
+        title:             Editar reseña
+        actions:  
+          _delete:          ~
+          _list:            ~
+          _save:            ~
+          mostrar:          { label: Examinar, action: examinar }
+          noticia:          { label: 'Des/noticia', action: noticia }
+          captura:          { label: 'Añadir captura', action: captura }
+          video:            { label: 'Añadir vídeo', action: video }
+      new:     
+        title:              Nueva crítica/reseña

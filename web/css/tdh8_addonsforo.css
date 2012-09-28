@@ -1,0 +1,20 @@
+/**
+ * Hoja de estilo para los addons de ehDoctrineForoPlugin
+ *
+ * @author Pablo Floriano
+ * @copyright 2012 Estudio Hécate
+ */
+@CHARSET "UTF-8";
+
+.tdh_addon_lista_botones { text-align: right; margin-top: 5px; }
+
+.tdh_addon_lista_botones .tdh_addon_boton { display: inline-block; }
+.tdh_addon_lista_botones .tdh_addon_boton a { display: block; height: 30px; }
+.tdh_addon_lista_botones .tdh_addon_boton span { display: none; }
+
+.tdh_addon_lista_botones #tdh_descargar_pdf a { background: transparent url(../images/btns/foro_descargar_pdf.png) no-repeat center center; width: 102px; }
+.tdh_addon_lista_botones #tdh_descargar_epub a { background: transparent url(../images/btns/foro_descargar_epub.png) no-repeat center center; width: 102px; }
+.tdh_addon_lista_botones #tdh_addon_inicio a { background: transparent url(../images/btns/foro_addon_inicio.png) no-repeat center center; width: 30px; }
+.tdh_addon_lista_botones #tdh_addon_evento a { background: transparent url(../images/btns/foro_addon_evento.png) no-repeat center center; width: 102px; }
+.tdh_addon_lista_botones #tdh_addon_critica a { background: transparent url(../images/btns/foro_addon_critica.png) no-repeat center center; width: 102px; }
+.tdh_addon_lista_botones #tdh_addon_noticia a { background: transparent url(../images/btns/foro_addon_noticia.png) no-repeat center center; width: 102px; }

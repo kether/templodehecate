@@ -1,0 +1,8 @@
+editar:
+  is_secure: true
+  
+cambiarAvatar:
+  is_secure: true
+  
+cambiarClave:
+  is_secure: true

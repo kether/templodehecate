@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XML-INTL XLIFF-XML 1.0//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">    
+<xliff version="1.0">
+  <file original="global" source-language="en" target-language="es" datatype="plaintext">
+    <header>
+    </header>
+    <body>
+      <!--DateHelper-->
+      <trans-unit id="DateHelper1">
+        <source>less than a minute</source>
+        <target>menos de un minuto</target>
+      </trans-unit>
+      <trans-unit id="DateHelper2">
+        <source>1 minute</source>
+        <target>1 minuto</target>
+      </trans-unit>
+      <trans-unit id="DateHelper3">
+        <source>less than 5 seconds</source>
+        <target>menos de 5 segundos</target>
+      </trans-unit>
+      <trans-unit id="DateHelper4">
+        <source>less than 10 seconds</source>
+        <target>menos de 10 segundos</target>
+      </trans-unit>
+      <trans-unit id="DateHelper5">
+        <source>less than 20 seconds</source>
+        <target>menos de 20 segundos</target>
+      </trans-unit>
+      <trans-unit id="DateHelper6">
+        <source>half a minute</source>
+        <target>medio minuto</target>
+      </trans-unit>
+      <trans-unit id="DateHelper7">
+        <source>less than a minute</source>
+        <target>menos de un minuto</target>
+      </trans-unit>
+      <trans-unit id="DateHelper8">
+        <source>1 minute</source>
+        <target>1 minuto</target>
+      </trans-unit>
+      <trans-unit id="DateHelper9">
+        <source>%minutes% minutes</source>
+        <target>%minutes% minutos</target>
+      </trans-unit>
+      <trans-unit id="DateHelper10">
+        <source>about 1 hour</source>
+        <target>sobre 1 hora</target>
+      </trans-unit>
+      <trans-unit id="DateHelper11">
+        <source>about %hours% hours</source>
+        <target>sobre %hours% horas</target>
+      </trans-unit>
+      <trans-unit id="DateHelper12">
+        <source>1 day</source>
+        <target>1 día</target>
+      </trans-unit>
+      <trans-unit id="DateHelper13">
+        <source>%days% days</source>
+        <target>%days% días</target>
+      </trans-unit>
+      <trans-unit id="DateHelper14">
+        <source>about 1 month</source>
+        <target>sobre 1 mes</target>
+      </trans-unit>
+      <trans-unit id="DateHelper15">
+        <source>%months% months</source>
+        <target>%months% meses</target>
+      </trans-unit>
+      <trans-unit id="DateHelper16">
+        <source>about 1 year</source>
+        <target>sobre 1 año</target>
+      </trans-unit>
+      <trans-unit id="DateHelper17">
+        <source>over %years% years</source>
+        <target>sobre %years% años</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

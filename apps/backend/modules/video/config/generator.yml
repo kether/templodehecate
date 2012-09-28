@@ -1,0 +1,36 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           tdhCriticaVideo
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tdh_critica_video
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: 
+        _delete:           { credentials: [[superadministrator, administrador, criticas]] }
+      fields:  ~
+      list:    
+        title:             Lista de vídeos para críticas
+        display:           [medio, url]
+        actions:           []
+        object_actions:
+          _edit:           ~
+          _delete:         ~
+          critica:         { label: Editar crítica, action: critica }
+      filter:  ~
+      form:    ~
+      edit:    
+        title:             Editar vídeo
+        actions:
+          _delete:         ~
+          _list:           ~
+          _save:           ~
+          critica:         { label: Editar crítica, action: critica }
+      new:     
+        title:             Nuevo vídeo para crítica

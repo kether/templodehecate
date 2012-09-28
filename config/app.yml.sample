@@ -1,0 +1,136 @@
+all:
+  .configuracion:
+    # Básico
+    nombre:                           'Generador de Templo de Hécate'
+    lema:                             'Lema del generador de Templo de Hécate'
+    copyright:                        'Creative Commons'
+    palabras_clave:                   'generador, php, symfony, templo de hécate, juegos'
+    
+    # Paginación de contenidos
+    contenidos_por_pagina:            15
+    contenidos_links_por_pagina:      10
+    
+    # eMail
+    email:                            'correo@midominio.com'            # Correo electrónico de contacto
+    mailer_desde_nombre:              'Generador de Templo de Hécate'   # Nombre del remitente de los correos-e automáticos de la web
+    mailer_desde_email:               'bot@midominio.com'                 # Correo-e de respuesta del remitente de los correos automáticos (puedes poner un remitente falso como noresponder@ejemplo.es para evitar el spam o respuestas no deseadas) 
+    
+    # Boletín
+    nombre_boletin:                   'Generador de Templo de Hécate'
+    asunto_boletin:                   'Boletín'
+    
+    # Dominios del interfaz de los usuarios y del panel del administrador
+    route_frontend_absolute:          'http://www.midominio.com'       # usuarios/clientes (dominio principal)
+    route_backend_absolute:           'http://admin.midominio.com'     # administrador
+        
+    # Culturas (¿vale para algo?)
+    cultures:
+      es:               { name: 'Español', symbol: 'es' }
+      en:               { name: 'English', symbol: 'en' }
+    
+    # Países donde se podrían celebrar actividades http://es.wikipedia.org/wiki/ISO_3166-1
+    countries:          ['ES', 'DE', 'FR', 'GB', 'PT', 'IT', 'CL', 'CO', 'MX', 'AR', 'EC', 'CU', 'PE', 'PT', 'BR', 'VE', 'US']
+    
+    # Slugs de las secciones y los foros mínimos 
+    seccion_slug_generico:            'temas-genericos'
+    foro_slug_generico:               'temas-genericos'
+    foro_slug_generico_eventos:       'eventos'
+    
+    # Menús al pie de la web
+    menu_pie:
+      rss:                            { title: 'Feed de actualizaciones', route: '@tdh_feed', toerror: false }
+      # facebook:                       { title: 'Nuestra página en Facebook', route: 'http://www.facebook.com/templodehecate', toerror: true }
+      # googleplus:                     { title: 'Nuestra página en Google+', route: 'https://plus.google.com/b/109403501792356941433/', toerror: true }
+      # twitter:                        { title: 'Síguenos en Twitter', route: 'http://twitter.com/templodehecate', toerror: true }
+      # youtube:                        { title: 'Nuestro canal de YouTube', route: 'http://www.youtube.com/user/templodehecate', toerror: true }
+      contacto:                       { title: 'Contáctanos', route: '@tdh_contacto', toerror: false }
+    
+    # Configuración miscelánea
+    entornos_sociales:                []          # Entornos donde se lanzaran los mensajes a las redes sociales 
+    seg_visible_desde:                43200       # La hora en segundos pasados desde las 00:00 de medianoche que es visible un contenido, p.e.: 43200 = 12:00
+    user_admin_default:               'admin'
+       
+    # Tamaño en píxeles imágenes recursos (ayudas, módulos, etc.)
+    sizes_recursos:
+      med:      { x: 150, y: 150 }
+      peq:      { x: 40, y: 40 }
+      secmed:   { x: 138, y: 48 }
+      covgra:   { x: 600, y: 900 }
+      covmed:   { x: 120, y: 180 }
+      covpeq:   { x: 30, y: 40 }
+    
+    # Tamaño en píxeles de las portadas de los productos de las críticas
+    sizes_criticas:
+      covgra:   { x: 350, y: 350, ajuste: 'mejor' }
+      covmed:   { x: 120, y: 160, ajuste: 'mejor' }
+      covpeq:   { x: 30, y: 40 }
+    
+    # Tamaño en píxeles de los pósters de los eventos
+    sizes_eventos:
+      gra:      { x: 430, y: 600 }
+      med:      { x: 192, y: 275 }
+      peq:      { x: 128, y: 128 }
+    
+    # Tamaño en píxeles de los artículos de noticias
+    sizes_noticias:
+      med:      { x: 430, y: 150 }
+      peq:      { x: 138, y: 48 }
+  
+  # ehPaypalPlugin settings
+  eh_paypal_ipn:
+    url:                            'https://www.paypal.com/cgi-bin/webscr'
+    fields:
+      cmd:                          '_cart'
+      rm:                           2
+      upload:                       1
+      currency_code:                'EUR'
+      lc:                           'ES'
+      no_shipping:                  1
+      no_note:                      1
+      bn:                           'PP-BuyNowBF'
+      business:                     'micuentapaypal@midominio.com'
+  
+  # ehAuthPlugin settings
+  eh_auth_plugin:
+    remember_cookie_name:           'gtdh_remember'
+    signin_form:                    'tdhSigninForm'
+    remember_cookie_domain:         '.midominio.com'
+    max_length:                     20
+
+  # ehUtilesPlugin settings
+  eh_utiles_plugin:  
+    zend_dir:               '%SF_LIB_DIR%/vendor/zendframework'   # Zend Framework
+    
+    # cadenas
+    smileys_url:            '/images/smileys'
+        
+    # google analytics https://www.google.com/analytics/
+    # ga_id:                  'UA-00000-0'                          # Identificador de Google Analytics
+
+  # ehForoPlugin settings
+  eh_foro_plugin:    
+    nombre:                         'Foro de GTdH'
+    permiso_post_invitados:         false
+    permiso_new_thread_invitados:   false
+    permiso_cargar_ficheros:        true
+    jquery:                         true
+    
+    uri_autenticar:                 '@eh_auth_signin'             # NO TOCAR
+    
+    temas_por_pagina:               20                            # Defecto: 20
+    posts_por_pagina:               10                            # Defecto: 10
+    
+    links_temas_por_pagina:         10
+    links_posts_por_pagina:         10
+    
+    path_avatar_default:            '/images/avatars/default.png'
+    path_avatar_mini_default:       '/images/avatars/default.png'
+    
+    # Datos de seguridad de reCaptcha http://www.google.com/recaptcha
+    recaptcha_key_public:           ''  # Clave pública
+    recaptcha_key_private:          ''  # Clave privada
+    
+    form_cliente_perfil:            'tdhClientePerfilForm'
+    
+    addons:                         ['temploRecurso']             # NO TOCAR
+    

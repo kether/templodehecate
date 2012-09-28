@@ -1,0 +1,82 @@
+/**
+ * Hoja de estilo para el formulario del cliente de nuevos eventos
+ *
+ * @author Pablo Floriano
+ * @copyright 2012 Estudio Hécate
+ */
+@CHARSET "UTF-8";
+@import "blitzer/jquery-ui.css";
+
+#tdh_add_recurso {
+  font: bold 12px Arial, Verdana;
+  background-color: #6b6b6b;
+  padding: 5px 10px 5px 10px;
+  color: #fff;
+}
+
+#tdh_add_recurso a {
+  color: #fff;
+}
+
+.tdh_add_loader { 
+  background: transparent url('../images/loader_evento.gif') no-repeat 0 0; 
+  width: 16px; 
+  height: 16px; 
+  float: right;
+  display: none;
+}
+
+/* Formulario */
+#tdh_formulario_recurso { 
+  background-color: #eee;
+  padding: 15px;
+  display: none;
+}
+
+#tdh_formulario_recurso .tdh_form_nota { font: normal 11.5px Arial; margin-bottom: 5px; color: #555555; }
+
+#tdh_formulario_recurso form fieldset { padding: 15px; /*margin: 10px 5px 10px 5px;*/ border: 1px solid #cbcbcb; }
+
+#tdh_formulario_recurso form legend {
+  margin-top: 5px;
+  font: bold 16px Arial;
+}
+
+#tdh_formulario_recurso form label {
+  display: block;
+  font: bold 11px Arial;
+  color: #777777;
+}
+
+#tdh_formulario_recurso form div.tdh_form {
+  padding: 7px 0 2px 0;
+}
+
+#tdh_formulario_recurso form input[type=text] {
+  width: 500px;
+  border: 1px solid #cbcbcb;
+  padding: 2px;
+  font: normal 14px Arial;
+}
+
+#tdh_formulario_recurso form textarea {
+  width: 500px;
+  height: 200px;
+  border: 1px solid #cbcbcb;
+  padding: 2px;
+}
+
+#tdh_formulario_recurso form select {
+  border: 1px solid #cbcbcb;
+  padding: 2px;
+  font: normal 11px Arial; 
+}
+
+#tdh_formulario_recurso .tdh_submit {
+  padding-top: 10px;
+}
+
+#tdh_form_fechas img,
+#tdh_form_visible_desde img { 
+  vertical-align: middle; 
+}

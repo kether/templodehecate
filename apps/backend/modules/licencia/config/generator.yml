@@ -1,0 +1,29 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           tdhLicencia
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tdh_licencia
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: 
+        _delete:           [superadministrator]
+      fields:  
+        url:               
+          label: URL                
+      list:    
+        title:             Lista de licencias
+        display:           [=nombre, url]
+      filter:  
+        display:           [nombre]
+      form:    ~
+      edit:    
+        title:             Editar licencia «%%nombre%%»
+      new:     
+        title:             Nueva licencia

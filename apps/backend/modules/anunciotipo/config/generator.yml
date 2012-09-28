@@ -1,0 +1,25 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           tdhAnuncioTipo
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tdh_anuncio_tipo
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    
+        title:             Lista de tipos de anuncios
+        display:           [=nombre, =slug, anchura, altura, multiple, rotativo]
+      filter:  ~
+      form:    ~
+      edit:    
+        title:             Editar tipo %%nombre%%
+      new:     
+        title:             Nuevo tipo de anuncio

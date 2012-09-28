@@ -1,0 +1,29 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           tdhSorteo
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tdh_sorteo
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  
+        participantes_num:  { label: 'Número de participantes' }
+        estado_abierto:     { label: '¿Aprobado?' }
+        estado_visible:     { label: '¿Visible?' }
+      list:    
+        title:        'Lista de sorteos'
+        display:      [=nombre, desde, hasta, participantes_num]
+      filter:  
+        display:      [estado_visible, estado_abierto, nombre]
+      form:    ~
+      edit:    
+        title:        'Editar sorteo %%nombre%%'      
+      new:     
+        title:        'Nuevo sorteo'

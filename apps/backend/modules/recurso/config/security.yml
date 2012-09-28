@@ -1,0 +1,3 @@
+default:
+  credentials: [['contenidos', 'superadministrator', 'administrador']]
+  

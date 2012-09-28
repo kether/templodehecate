@@ -1,0 +1,270 @@
+/**
+ * Hoja de estilo principal del panel de control de Templo de Hécate v8
+ *
+ * @copyright Pablo Floriano
+ * @file tdh8_principal.css
+ */
+@CHARSET "UTF-8";
+
+@import "tdh8_notificaciones.css";
+@import "blitzer/jquery-ui.css";
+
+#ui-datepicker-div { display: none; } /* Arreglo para el datepicker */
+
+body {
+  background: #0b1421 url('../images/bakg/principal.png') no-repeat top center;
+  font: normal 13px Arial;
+}
+
+a {
+  color: #4682b4;
+  text-decoration: none;
+}
+
+h1 a, h2 a, h3 a
+{
+  color: #2c5172;
+}
+
+h1 { font: bold 24px Arial; }
+
+a:hover {
+  text-decoration: underline;
+}
+
+div#tdh_contenedor {
+  margin: 20px;
+}
+
+div#tdh_cabecera {
+  margin-bottom: 10px;
+}
+
+div#tdh_pagina {
+  background-color: #fff;
+  padding: 20px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+div#tdh_contenido table td,
+div#tdh_contenido table th {
+  padding: 5px;
+}
+
+.tdh_fix {
+  clear: both;
+}
+
+/* Menú de la cabecera */
+#tdh_menu_principal {
+  border-top: 1px solid #adadad;
+  border-left: 1px solid #adadad;
+  border-right: 1px solid #adadad;
+  height: 31px;
+  background-color: #d9d9d9;
+}
+
+#tdh_menu_principal li {
+  float: left;
+  list-style: none;
+}
+
+#tdh_menu_principal li a {
+  display: block;
+  padding: 7px 7px 7px 7px;
+  font: bold 12px Arial;
+  color: #5b5b5b;
+  text-decoration: none;
+  background-image: url('../images/bakg/menu_prin_claro.png');
+  
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #cfcfcf;
+  border-right: 1px solid #cfcfcf;
+}
+
+#tdh_menu_principal li.tdh_foco a {
+  background-image: none;
+  background-color: #dc0b0b;
+  color: #fff;
+  
+  border-top: 1px solid #d79f9f;
+  border-left: 1px solid #d79f9f;
+  border-bottom: 1px solid #dc0b0b;
+  border-right: 1px solid #600707;
+}
+
+#tdh_menu_principal li.tdh_especial a
+{
+  background-image: url('../images/bakg/menu_prin_oscuro.png');
+  color: #fff;
+  background-color: #444;
+  border-top: 1px solid #6e6e6e;
+  border-left: 1px solid #868686;
+  border-bottom: 1px solid #575757;
+  border-right: 1px solid #545454;
+}
+
+#tdh_menu_principal li a:hover {
+  text-decoration: underline;
+}
+
+#tdh_submenu_principal {
+  color: #fff;
+  background: #dc0b0b url('../images/bakg/submenu_prin_rojo.png');
+  height: 20px;
+  border-left: 1px solid #d79f9f;
+  border-right: 1px solid #600707;
+  border-bottom: 1px solid #d79f9f;
+  margin-bottom: 15px;
+}
+
+#tdh_submenu_principal li {
+  float: left;
+  list-style: none;
+}
+
+#tdh_submenu_principal li a {
+  color: #fff;
+  text-decoration: none;
+  font: normal 10px Verdana;
+  padding: 5px 5px 5px 9px;
+}
+
+#tdh_submenu_principal li a:hover {
+  text-decoration: underline;
+}
+
+/* Pie página */
+#tdh_pie {
+  margin: 10px 0 10px 0;
+}
+  
+  #tdh_pie .tdh_wrapper { float: right; width: 100%; margin-left: -460px; }
+  
+  #tdh_pie a { color: #b1c4df; text-decoration: none; }
+  #tdh_pie a:hover { color: #fff; }
+
+#tdh_pie_logo {
+  float: right;
+  width: 120px;
+}
+
+#tdh_pie_contenido {
+  font: normal 11px Arial;
+  padding-top: 10px;
+  color: #dcdcdc;
+  float: right;
+  text-align: left;
+  width: 300px;
+  margin-left: 40px;
+}
+  
+  #tdh_pie_contenido h2 {
+    font: bold 12px Arial, Verdana;
+    height: 22px;
+    line-height: 22px;
+    background: transparent url('../images/btns/gear.png') no-repeat 0 0;
+    padding-left: 25px; 
+  }
+  
+  #tdh_pie_contenido li {
+    height: 18px;
+    line-height: 18px;
+    padding-left: 25px;
+    background-repeat: no-repeat;
+    background-position: 4px 2px;
+    list-style: none;
+  }
+  
+  #tdh_pie_contenido li.tdh_conectado      { background-image: url('../images/btns/bulletgreen.png'); }
+  #tdh_pie_contenido li.tdh_desconectado   { background-image: url('../images/btns/bulletgray.png'); }
+
+#tdh_pie_copyright {
+  font: normal 10px Verdana, Arial;
+  padding-top: 10px;
+  text-align: right;
+  float: right;
+  margin-left: 500px;
+  color: #dcdcdc;
+}
+
+/* Menús de gestión */
+.tdh_descripcion_gestion {
+  font: normal 14px Arial, Verdana;
+  margin: 5px 0 5px 0;
+}
+
+.tdh_menu_gestion ul {
+  margin: 10px 15px 10px 15px;
+}
+
+.tdh_menu_gestion li {
+  height: 32px;
+  padding-left: 40px;
+  margin-top: 5px;
+  background: transparent url('../images/btns/tools32.png') no-repeat 0 0;
+}
+
+  .tdh_menu_gestion li.tdh_menu_gestion_menu      { background-image: url('../images/panel/menu.png'); }
+  .tdh_menu_gestion li.tdh_menu_gestion_popular   { background-image: url('../images/panel/popular.png'); }
+  .tdh_menu_gestion li.tdh_menu_gestion_secciones, .tdh_menu_gestion li.tdh_menu_gestion_seccion_tipos
+    { background-image: url('../images/panel/seccion.png'); }
+
+.tdh_menu_gestion li h2 {
+  font: normal 16px Arial, Verdana; 
+}
+
+.tdh_menu_gestion li .tdh_descripcion {
+  color: #434343;
+  font-size: 11px;
+}
+
+
+/* sfAdministrator */
+#sf_admin_container table td li {
+  list-style: none;
+}
+
+#sf_admin_content input[type=text],
+#sf_admin_content input[type=password],
+#sf_admin_content select,
+#sf_admin_content textarea {
+  padding: 3px;
+}
+
+#sf_admin_content input[type=text],
+#sf_admin_content input[type=password] {
+  width: 500px;
+}
+
+#sf_admin_content textarea {
+  width: 500px;
+  height: 200px;
+  font: normal 12px Courier; 
+}
+
+#sf_admin_content input[type=submit] {
+  padding: 2px 5px 2px 5px;
+}
+
+#sf_admin_content .help {
+  font-size: 11px;
+  padding-left: 117px;
+}
+
+#sf_admin_content .content td {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.sf_admin_filter .help {
+  font-size: 11px;
+}
+
+#sf_admin_container ul li.sf_admin_action_mostrar a,
+#sf_admin_container ul li.sf_admin_action_show a {
+  background-image: url("../images/backend/examinar.png");
+}

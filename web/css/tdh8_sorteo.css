@@ -1,0 +1,74 @@
+/**
+ * Hoja de estilo para sorteos para la aplicación de Templo de Hécate.
+ *
+ * @author Pablo Floriano
+ * @copyright 2012 Estudio Hécate
+ */
+@CHARSET "UTF-8";
+
+@import 'tdh8_textorico.css';
+
+#tdh_sorteo h1 {
+  font: normal 22px Arial, Verdana;
+  background-color: #3c5f9f;
+  line-height: 58px;
+  padding: 0 10px 0 10px;
+  color: #fff;
+}
+
+#tdh_sorteo .tdh_descripcion {
+  margin: 20px 35px 20px 35px;
+  font: normal 16px Arial;
+}
+
+.tdh_opcion_social h2 { 
+  color: #7b7b7b;
+  font: normal 16px Arial;
+  text-transform: uppercase;
+  border-bottom: 1px dotted #7b7b7b;
+  width: 50%;
+  padding-bottom: 5px;
+  margin: 0 auto 5px auto;
+}
+
+.tdh_opcion_social h3 {
+  color: #7b7b7b;
+  font: normal 12px Arial;
+  padding-bottom: 15px;
+}
+
+.tdh_opcion_social { 
+  text-align: center;
+}
+
+.tdh_opcion_social .tdh_opcion { 
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+}
+
+.tdh_opcion_social .tdh_opcion a span { 
+  display: none;
+}
+
+.tdh_opcion_social .tdh_opcion a { 
+  width: 100px; 
+  height: 100px; 
+  display: block; 
+  background: transparent no-repeat; 
+}
+
+  #tdh_opcion_facebook { background-image: url(../images/btns/draw_facebook.png); }
+  #tdh_opcion_twitter { background-image: url(../images/btns/draw_twitter.png); }
+  
+#tdh_sorteo .tdh_ganador {
+  padding: 150px 0 25px 0;
+  background: transparent url(../images/btns/draw_winner.png) no-repeat top center;
+  text-align: center;
+  font: bold 18px Arial;
+}
+  
+  #tdh_sorteo .tdh_ganador p.tdh_nota { font: normal 12px Arial; color: #7b7b7b; }
+  
+/* Markdown */
+.tdh_cuerpo p img { margin: 0 auto 0 auto; max-width: 650px; display: block; margin: 0 auto 0 auto; }

@@ -1,0 +1,2 @@
+all:
+  layout:         <?php echo ehForoConfig::getStatic('layout') ?>

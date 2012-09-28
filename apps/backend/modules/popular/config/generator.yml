@@ -1,0 +1,29 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           tdhPopular
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tdh_popular
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  
+        fecha:              { help: 'Fecha de la muestra' }
+      list:    
+        title:              Secciones populares
+        table_method:       retrieveBackendList
+        display:            [=seccion, visitas, fecha]
+        sort:               [fecha, desc]
+        actions:            []
+      filter:  
+        display:            [seccion_id, fecha]
+      form:    ~
+      edit:    
+        title:              Popularidad de %%seccion%%
+      new:     ~

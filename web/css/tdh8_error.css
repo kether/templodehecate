@@ -1,0 +1,14 @@
+/**
+ * Hoja de estilo
+ *
+ * @author Pablo Floriano
+ * @copyright 2012 Estudio Hécate
+ */
+@CHARSET "UTF-8";
+
+body { background-image: url('../images/bakg/principal.png'); color: #fff; }
+
+#cabecera { width: 450px; margin: 30px auto 0 auto; border-bottom: 1px dotted #fff; text-align: center; padding-bottom: 5px; }
+#cuerpo { width: 450px; margin: 15px auto 0 auto; color: #fff; }
+#cuerpo h2 { font: bold 16px Arial; text-align: center; }
+#tdh_pie_contenido { width: 450px; margin: 15px auto 0 auto; float: none; border-top: 1px dotted #fff; }

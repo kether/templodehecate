@@ -1,0 +1,37 @@
+connection:           <?php echo sfConfig::get('app_eh_auth_plugin_connection', 'doctrine') ?> 
+
+options:
+  type:               INNODB
+  collate:            utf8_unicode_ci
+  charset:            utf8 
+  
+ehAuthUser: 
+  actAs:              [Timestampable]
+  columns:
+    id:               { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    username:         { type: string(128), notnull: true, unique: true }
+    salt:             { type: string(128), notnull: true }
+    password:         { type: string(128), notnull: true }
+    last_login:       { type: timestamp }
+    last_ip_address:  { type: string(128), notnull: true, default: '127.0.0.1' }
+    is_active:        { type: boolean, notnull: true, default: true }
+    is_super_admin:   { type: boolean, notnull: true, default: false }
+    remember_key:     { type: string(128), notnull: true, default: '' }
+  relations:
+    Credentials:      { class: ehAuthCredential, local: user_id, foreign: credential_id, refClass: ehAuthCredentialUser, foreignAlias: Users }
+  
+ehAuthCredential: 
+  actAs:              [Timestampable]
+  columns:
+    id:               { type: integer(4), primary: true, autoincrement: true, notnull: true }
+    name:             { type: string(128), notnull: true, unique: true }
+    description:      { type: string(1000), notnull: true }
+  
+ehAuthCredentialUser: 
+  columns:
+    user_id:          { type: integer(4), primary: true, notnull: true }
+    credential_id:    { type: integer(4), primary: true, notnull: true }
+  relations:
+    User:             { class: ehAuthUser, onDelete: CASCADE, local: user_id, foreign: id }
+    Credential:       { class: ehAuthCredential, onDelete: CASCADE, local: credential_id, foreign: id }
+    

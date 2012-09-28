@@ -1,0 +1,13 @@
+tdhMenu:
+  menu_especiales:
+    nombre:         Especiales
+    descripcion:    Artículos y secciones especiales únicas en la web.
+    
+  menu_especiales_noticias:
+    estado_portada: true
+    nombre:         Jornadas de Hécate 2009
+    descripcion:    Informate en todo momento de las Jornadas de Hécate 2009 
+    ordinal:        0
+    enlace:         http://www.templodehecate.com
+    tdhMenu:        menu_especiales
+    

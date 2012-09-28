@@ -1,0 +1,35 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           ehForoTablon
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          eh_foro_tablon
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: 
+        _delete:            { credentials: superadministrator }
+      fields:  
+        ordinal:            { label: Orden }
+        estado_oculto:      { label: ¿Oculto? }
+        estado_restringido_hilos: { label: ¿No hilos? }
+        estado_restringido_respuestas: { label: ¿No respuestas? }
+        tablon_id:          { label: Tablón padre }
+        seccion_id:         { label: Sección }
+        seccion:            { label: Sección }
+      list:    
+        title:              Lista de tablones
+        display:            [ordinal, estado_oculto, estado_restringido_hilos, estado_restringido_respuestas, =nombre, seccion]
+        table_method:       retrieveBackendList
+      filter:  
+        display:            [nombre, estado_oculto, estado_restringido_hilos, estado_restringido_respuestas, seccion_id, tablon_id]
+      form:    ~
+      edit:    
+        title:              Editar tablón «%%nombre%%»
+      new:     
+        title:              Nuevo tablón

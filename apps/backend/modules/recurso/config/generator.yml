@@ -1,0 +1,45 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           ehForoHilo
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tdh_recurso
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: 
+        _delete:           { credentials: superadministrator }
+        show:              { label: Examinar, action: examinar }
+        noticia:           { label: 'Des/noticia', action: noticia }
+      fields:  
+        id:                { label: 'ID' }
+        _asunto:           { label: 'Asunto' }
+        seccion:           { label: 'Sección' }
+      list:    
+        title:             'Listado de ayudas, módulos y otros recursos'
+        table_method:      retrieveBackendRecurso
+        display:           [=id, =_asunto, _seccion]
+        object_actions:
+          _edit:           ~
+          _delete:         ~
+          show:            ~
+          noticia:         ~
+      filter:  
+        class:             false
+      form:    
+        class:             tdhAdminRecursoForm
+      edit:    
+        title:             Editar recurso
+        actions:
+          _delete:          ~
+          _list:            ~
+          _save:            ~
+          show:             ~
+          noticia:          ~
+      new:     
+        title:             Nuevo recurso

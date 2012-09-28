@@ -1,0 +1,19 @@
+ehAuthCredential:
+  admin_credential:
+    name:           administrador
+    description:    Credencial de administrador del sistema
+    
+ehAuthUser:
+  admin:
+    username:       admin
+    password:       admin
+    is_super_admin: true
+    Credentials:    [admin_credential]
+    Perfil:
+      sexo:               Varón
+      nick:               Administrador
+      uri_avatar:         '/images/avatars/staff.png'
+      email:              'correo@dominio.com'
+      fecha_nacimiento:   '1998-02-06'
+      firma:              Esta es la firma del administrador
+      sin_publi:          true

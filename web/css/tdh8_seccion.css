@@ -1,0 +1,218 @@
+/**
+ * Hoja de estilo de las secciones/juegos de Templo de Hécate v8
+ *
+ * @copyright Pablo Floriano
+ * @file tdh8_seccion.css
+ */
+@CHARSET "UTF-8";
+@import 'tdh8_layout_c.css';
+@import 'tdh8_valoracion.css';
+@import 'tdh8_favorito.css';
+@import "blitzer/jquery-ui.css";
+
+/* Sección */
+#tdh_ficha_tecnica {
+  font: normal 11px Arial;
+}
+
+#tdh_ficha_tecnica h1 {
+  font: bold 14px Arial;
+  color: #727272;
+  border-bottom: 1px dotted #727272;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+#tdh_ficha_tecnica h2 {
+  text-align: center;
+  color: #727272;
+  margin-bottom: 5px;
+  font: normal 11px Arial;
+}
+
+#tdh_ficha_tecnica .tdh_portada {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#tdh_ficha_tecnica .tdh_portada img {
+  border: 1px solid #000;
+}
+
+/* Catálogo */
+#tdh_catalogo {
+  margin-top: 10px;
+}
+
+#tdh_catalogo h2 {
+  font: bold 12px Arial, serif;
+  color: #727272;
+  border-bottom: 1px dotted #727272;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+#tdh_catalogo li { clear: left; }
+
+#tdh_catalogo .tdh_cubierta,
+#tdh_catalogo .tdh_detalles {
+  float: left;
+}
+
+#tdh_catalogo .tdh_cubierta {
+  width: 35px;
+}
+
+#tdh_catalogo .tdh_detalles {
+  width: 157px;
+  font: normal 11px Arial, serif;
+  color: #606060;
+}
+
+#tdh_catalogo .tdh_detalles h3 { font: bold 11px Arial, serif; }
+
+/* Contenidos */
+#tdh_contenido h2 {
+  font: normal 20px Arial, serif;
+  /*margin-bottom: 10px;*/
+  background-color: #6b6b6b;
+  padding: 0 10px 0 10px;
+  color: #fff;
+  clear: left;
+  height: 40px;
+  line-height: 40px;
+}
+
+#tdh_contenido li {
+  padding: 5px 10px 5px 10px;
+  font-size: 14px;
+  border-top: 1px solid #fefefe;
+  border-bottom: 1px solid #cccccc;
+  background-color: #eee;
+}
+
+#tdh_contenido li:first-child { border-top: none; }
+
+#tdh_contenido .tdh_imagen {
+  float: right;
+  margin: 0 0 5px 5px;
+}
+
+#tdh_contenido h3 {
+  font: bold 16px Arial, Verdana;
+  vertical-align: bottom;
+}
+
+#tdh_contenido .tdh_autor {
+  font: normal 10px Verdana, Arial, serif;
+}
+
+#tdh_contenido .tdh_colaboradores {
+  font: normal 11px Arial, serif;
+  background: #eee url(../images/btns/gearmenu.png) no-repeat 10px 3px;
+  padding-left: 30px;
+}
+
+/* Colaboradores */
+#tdh_contenido .tdh_contenido_por_aprobar {
+  background: #d0d0d0;
+  font-size: 11px;
+  color: #494949;
+  border-top: 1px solid #d8d8d8;
+  border-bottom: 1px solid #959595;
+}
+
+#tdh_contenido .tdh_contenido_por_aprobar a { color: #494949; }
+
+/* Noticias */
+#tdh_noticias h2 {
+  height: 40px;
+  line-height: 40px;
+  padding: 160px 10px 0 10px;
+  background: #6b6b6b no-repeat 10px 10px;
+}
+
+/* Favoritos */
+#tdh_favorito_seccion {
+  position: absolute;
+  float: right;
+  margin-top: 15px;
+  margin-left: 410px;
+}
+
+/* Colaboradores */
+#tdh_colaboradores li {
+  margin-left: 9px;
+  margin-right: 1px;
+  height: 52px;
+  width: 52px;
+  display: inline-block;
+}
+
+#tdh_colaboradores h2 {
+  margin: 5px 0 5px 0;
+  padding: 5px 10px 5px 10px;
+  background-color: #6b6b6b;
+  font: bold 14px Arial;
+  color: #fff;
+}
+
+#tdh_colaboradores li a { text-decoration: none; }
+#tdh_colaboradores li a img { border: 1px solid #ececec; background-color: #fff; }
+
+#tdh_catalogo .tdh_opciones_colaborador { display: inline-block; }
+.tdh_contenido li .tdh_opciones_colaborador { font: normal 11px Arial; } 
+
+/* Formularios */
+#tdh_form_nota { font: normal 11.5px Arial; margin-bottom: 5px; color: #555555; }
+
+#tdh_contenido li .tdh_add_loader { 
+  background: transparent url('../images/loader_contenido.gif') no-repeat 0 0; 
+  width: 16px; 
+  height: 16px; 
+  float: right;
+  display: none;
+}
+
+#tdh_contenido li form fieldset { padding: 15px; margin: 10px 5px 10px 5px; border: 1px solid #cbcbcb; }
+
+#tdh_contenido li form legend {
+  font: bold 16px Arial;
+}
+
+#tdh_contenido li form label {
+  display: block;
+  font: bold 11px Arial;
+  color: #777777;
+}
+
+#tdh_contenido li form div.tdh_form {
+  padding: 7px 0 2px 0;
+}
+
+#tdh_contenido li form input[type=text] {
+  width: 375px;
+  border: 1px solid #cbcbcb;
+  padding: 2px;
+  font: normal 14px Arial;
+}
+
+#tdh_contenido li form textarea {
+  width: 375px;
+  height: 200px;
+  border: 1px solid #cbcbcb;
+  padding: 2px;
+}
+
+#tdh_contenido li form select {
+  border: 1px solid #cbcbcb;
+  padding: 2px;
+  font: normal 14px Arial; 
+}
+
+#tdh_contenido .tdh_submit {
+  text-align: center;
+  padding-bottom: 10px;
+}

@@ -1,0 +1,86 @@
+ehForoPerfil:
+  eh_foro_perfil_admin:
+    sexo:               Varón
+    nick:               Administrador
+    uri_avatar:         '/images/avatars/staff.png'
+    email:              'ketertech@yahoo.com'
+    fecha_nacimiento:   '1998-02-06'
+    web:                'http://pokipsi.es'
+    residencia:         Madrid
+    firma:              Esta es la firma del administrador
+    Usuario:            admin
+  
+  eh_foro_perfil_formuser:
+    sexo:               Mujer
+    email:              'femina@forera.com'
+    Usuario:            eh_foro_forumuser
+    
+ehForoSeccion:
+  eh_foro_seccion_general:
+    nombre:             General
+    descripcion:        Esta es la sección general de los foros
+    ordinal:            100
+    
+  eh_foro_seccion_otras_cosas:
+    nombre:             Otras cosas
+    descripcion:        Para hablar de cualquier otra cosa
+    ordinal:            50
+    
+ehForoTablon:
+  eh_foro_tablon_generico:
+    nombre:             Temas genéricos
+    descripcion:        Para debatir sobre temas genéricos del foro
+    Seccion:            eh_foro_seccion_general
+    
+  eh_foro_tablon_off_topic:
+    nombre:             Off topic
+    descripcion:        Para debatir sobre cualquier cosa
+    Seccion:            eh_foro_seccion_otras_cosas
+
+ehForoAdjuntoTipo:
+  adjunto_tipo_1:
+    nombre:             Imagen
+    dir:                assets/forum/images/
+    url:                assets/forum/images/
+
+ehForoGrupo:
+  eh_foro_grupo_1:
+    nombre:             ehDoctrineForoPlugin Staff
+    descripcion:        El grupo del staff de ehDoctrineForoPlugin
+    es_restringido:     true
+    Perfiles:           [eh_foro_perfil_admin]
+    Tablones:           [eh_foro_tablon_generico]
+  
+  eh_foro_grupo_2:
+    nombre:             Mi grupo
+    descripcion:        Este es mi grupo personal
+    es_restringido:     false
+    Perfiles:           [eh_foro_perfil_admin, eh_foro_perfil_formuser]
+    Tablones:           [eh_foro_tablon_generico]
+
+ehForoHilo:
+  eh_foro_hilo_1:
+    Tablon:             eh_foro_tablon_generico
+    
+  eh_foro_hilo_2:
+    Tablon:             eh_foro_tablon_generico
+    
+ehForoMensaje:
+  eh_foro_mensaje_hilo_1:
+    asunto:             Asunto para tablón genérico
+    cuerpo:             Este es el cuerpo para el mensaje del tablón genérico.
+    Usuario:            eh_foro_forumuser
+    Hilo:               eh_foro_hilo_1
+    
+  eh_foro_mensaje_hilo_2:
+    asunto:             Asunto del administrador
+    cuerpo:             Este es un mensaje del administrador
+    Usuario:            admin
+    Hilo:               eh_foro_hilo_2
+    
+<?php for($i = 1; $i <= 20; $i++): ?>
+  eh_foro_mensaje_respuesta_<?php echo $i ?>:
+    cuerpo:             Esta es la respuesta <?php echo $i ?> de 20.             
+    Usuario:            eh_foro_forumuser
+    Hilo:               eh_foro_hilo_1
+<?php endfor ?>

@@ -1,0 +1,47 @@
+ehForoHilo:
+<?php for($i = 1; $i <= 5; $i++): ?>
+  tdh_hilo_noticia_<?php echo $i ?>:
+    Tablon:             eh_foro_tablon_generico
+<?php endfor ?>
+
+ehForoMensaje:
+<?php for($i = 1; $i <= 4; $i++): ?>
+  tdh_mensaje_noticia_<?php echo $i ?>:
+    asunto:             Noticia número <?php echo $i ?> de muchas otras
+    cuerpo:             Este es el cuerpo de la noticia número <?php echo $i ?> para que compruebes que todo funciona correctamente.
+    Usuario:            admin
+    Hilo:               tdh_hilo_noticia_<?php echo $i."\n" ?>
+<?php endfor ?>
+
+  tdh_mensaje_noticia_5:
+    asunto:             Dados de orco
+    cuerpo:             |
+      Mi afición por los dados está lejos del fetichismo tan común en los jugadores de hoy en día. Como casi todos, desarrollé una fascinación
+      intensa por los dados transparentes, que llenaban la bolsa de dados como las valiosas gemas de colores que llenaban la bolsa al cinto del 
+      misterioso mago barbudo que te daba misones en la posada. Desde entonces hasta hoy la industria del dado ha dado bandazos en todas 
+      direcciones y tampoco ha avanzado demasiado. Hace pocos meses hice una buena compra de dados de 12 y, de la inmensa variedad disponible, 
+      acabé con un surtido de dados transparentes de colores.
+      
+      Es raro que un lanzamiento de dados nuevos al mercado me llame verdaderamente la atención, pero desde que comenzó la relación de la web con 
+      **Q-Workshop** la cosa ha cambiado un poco. En este caso en particular, me han sorprendido mucho; los dados de orco que acaban de lanzar son llamativos, 
+      divertidos, y fáciles de leer. Aunque parezcan atributos esenciales, la mayoría de los dados del mercado no cumplen con todos.
+    bbcode:             false
+    markdown:           true
+    Usuario:            eh_foro_forumuser
+    Hilo:               tdh_hilo_noticia_5
+
+tdhNoticia:
+<?php for($i = 1; $i <= 4; $i++): ?>
+  noticia_<?php echo $i ?>:
+    nombre_fuente:      Templo de Hécate
+    url_fuente:         http://www.templodehecate.com
+    Seccion:            tdh_seccion_ars_magica
+    Hilo:               tdh_hilo_noticia_<?php echo $i."\n" ?>
+<?php endfor ?>
+
+  noticia_<?php echo $i ?>:
+    nombre_fuente:      Q-workshop.com
+    url_fuente:         http://q-workshop.com/products.php?lang=EN&sell_type=DETAL&category=Fantasy
+    es_destacada:       true
+    Seccion:            tdh_seccion_ars_magica
+    Hilo:               tdh_hilo_noticia_<?php echo $i."\n" ?>

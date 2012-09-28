@@ -1,0 +1,74 @@
+/**
+ * Caja del navegador para los eventos
+ *
+ * @author Pablo Floriano
+ * @copyright 2011 Estudio Hécate
+ */
+@CHARSET "UTF-8";
+
+/* Eventos */
+#tdh_navegador_eventos {
+  background-color: #6b6b6b;
+  padding: 10px 5px 5px 10px;
+  color: #fff;
+  background-repeat: no-repeat;
+  background-position: top right;
+  margin-bottom: 10px;
+}
+  
+  #tdh_navegador_eventos .tdh_lista li {
+    height: 45px;
+    margin-bottom: 5px;
+  }
+
+#tdh_navegador_eventos .tdh_fecha {
+  background-color: #fff;
+  width: 45px;
+  height: 43px;
+  text-align: center;
+  float: left;
+  font-weight: bold;
+  color: #000;
+  border: 1px solid #000;
+}
+
+  #tdh_navegador_eventos .tdh_fecha .tdh_mes { background-color: #9d2727; color: #fff; padding: 2px 0 2px 0; height: 16px; }
+  #tdh_navegador_eventos .tdh_fecha .tdh_dia { font-size: 16px; height: 15px; }
+
+#tdh_navegador_eventos .tdh_descripcion {
+  float: left;
+  padding: 6px 5px 5px 5px;
+  background-color: #e0e0e0;
+  height: 32px;
+  width: 190px;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+}
+
+#tdh_navegador_eventos .tdh_descripcion h3 a { color: #1d1d1d; font-weight: normal; font-size: 13px; } /* Título */
+#tdh_navegador_eventos .tdh_descripcion .tdh_lugar { color: #606060; font: normal 11px Arial; }
+
+/* Opciones al pie de los recuadros */
+#tdh_navegador_eventos .tdh_opciones_pie { 
+  height: 16px;
+  font: normal 10px Verdana;
+  padding-right: 5px;
+}
+
+#tdh_navegador_eventos .tdh_opciones_pie .tdh_apartado { 
+  float: left;
+  height: 16px;
+  line-height: 16px;
+  font-weight: bold;
+  
+}
+
+#tdh_navegador_eventos .tdh_opciones_pie .tdh_apartado a       { color: #bebebe; text-decoration: none; }
+#tdh_navegador_eventos .tdh_opciones_pie .tdh_apartado a:hover { color: #fff; }
+
+#tdh_navegador_eventos .tdh_opciones_pie li            { float: right; height: 16px; line-height: 16px; margin-left: 10px; }
+#tdh_navegador_eventos .tdh_opciones_pie li.tdh_rss    { background: url(../images/btns/rss.png) no-repeat left top; padding-left: 20px; }
+#tdh_navegador_eventos .tdh_opciones_pie li.tdh_rss a  { color: #f4cb81; }
+#tdh_navegador_eventos .tdh_opciones_pie li.tdh_calender { background: url(../images/btns/calender.png) no-repeat left top; padding-left: 20px; }
+#tdh_navegador_eventos .tdh_opciones_pie li.tdh_calender a { color: #ffc0c0; }

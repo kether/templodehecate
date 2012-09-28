@@ -1,0 +1,32 @@
+/**
+ * Estilo para mostar el contenido de forma clásica: columna grande (480px), columna pequeña (192px), columna mediana (268px)
+ *
+ * @copyright Pablo Floriano
+ * @file tdh8_layout_a.css
+ */
+@CHARSET "UTF-8";
+
+/* Contenido principal, columna grande */
+#tdh_contenido {
+  margin-right: 930px;
+  width: 450px;
+  min-height: 5px; /* Si no tiene contenido evitamos que las otras columnas floten a la izquierda */
+}
+
+#tdh_contenido_total {
+  margin-right: 480px;
+}
+
+/* Contenido de la navegación, columna tamaño intermedio */
+#tdh_navegacion {
+  float: left;
+  width: 268px;
+  margin-left: -470px;
+}
+
+/* Contenido extra, columna pequeña */
+#tdh_extra {
+  float: left;
+  width: 192px;
+  margin-left: -192px;
+}

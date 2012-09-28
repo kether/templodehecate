@@ -1,0 +1,31 @@
+rendering: ~
+security:
+  class:  ehAuthBasicSecurityFilter
+  
+# insert your own filters here
+ehAuthPluginRemember:
+  class:  ehAuthBasicFilter
+
+ehForoPluginUsuarioActivo:
+  class:  ehForoUsuariosActivosFilter
+  param:
+    excluir:    { indiceBuscar: 'indice/buscar' }
+    
+tdhRanking:
+  class: tdhRankingFilter
+
+tdhForoAddonsFilter:
+  class: tdhForoAddonsFilter
+
+ehUtilesGooglePlus:
+  class:  ehUtilesGooglePlusFilter
+
+ehUtilesGoogleAnalytics:
+  class:  ehUtilesGoogleAnalyticsFilter
+  param:
+    google_id:  %APP_EH_UTILES_PLUGIN_GA_ID%
+
+cache:     ~
+common:
+  class: sfCommonFilter
+execution: ~

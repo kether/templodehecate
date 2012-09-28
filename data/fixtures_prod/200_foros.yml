@@ -1,0 +1,71 @@
+ehForoSeccion:
+  eh_foro_seccion_general:
+    nombre:             General
+    descripcion:        Esta es la sección general de los foros
+    ordinal:            100
+  
+  eh_foro_seccion_juegos:
+    nombre:             Juegos de rol
+    descripcion:        Sección para los juegos de rol
+    ordinal:            75
+  
+  eh_foro_seccion_mesa:
+    nombre:             Juegos de mesa y cartas
+    descripcion:        Sección para los juegos de mesa y de cartas
+    ordinal:            85
+    
+  eh_foro_seccion_otras_cosas:
+    nombre:             Otras cosas
+    descripcion:        Para hablar de cualquier otra cosa
+    ordinal:            50
+    
+ehForoTablon:
+  # General
+  eh_foro_tablon_generico:
+    nombre:             Temas genéricos
+    descripcion:        Para debatir sobre temas genéricos del foro
+    ordinal:            100
+    Seccion:            eh_foro_seccion_general
+  eh_foro_tablon_agenda:
+    nombre:             Agenda
+    descripcion:        Para conversar sobre todo lo relacionado con eventos del mundo fan
+    ordinal:            75
+    Seccion:            eh_foro_seccion_general
+  eh_foro_tablon_moderadores:
+    nombre:             Moderadores
+    descripcion:        Tablón privado para moderadores y administradores
+    estado_oculto:      true
+    Seccion:            eh_foro_seccion_general
+  
+  # Juegos de rol
+  eh_foro_tablon_juegos_rol:
+    nombre:             'Otros juegos de rol'
+    descripcion:        'Debate sobre cualquier otro juego de rol que no tenga su foro propio'
+    Seccion:            eh_foro_seccion_juegos
+  
+  # Juegos de mesa
+  eh_foro_tablon_juegos_mesa:
+    nombre:             'Otros juegos de mesa'
+    descripcion:        'Debate sobre cualquier juego de mesa que no tenga foro propio'
+    Seccion:            eh_foro_seccion_mesa
+  eh_foro_tablon_juegos_cartas:
+    nombre:             'Otros juegos de cartas'
+    descripcion:        'Debate sobre cualquier juego de cartas que no tenga foro propio'
+    Seccion:            eh_foro_seccion_mesa
+  
+  # Otras cosas
+  eh_foro_tablon_off_topic:
+    nombre:             La Encrucijada
+    descripcion:        Para debatir sobre cualquier tema aunque no esté relacionado con la temática de la web
+    Seccion:            eh_foro_seccion_otras_cosas
+
+ehForoAdjuntoTipo:
+  adjunto_tipo_imagen:
+    nombre:             Imagen
+    dir:                assets/forum/images/
+    url:                assets/forum/images/
+  adjunto_tipo_documento:
+    nombre:             Documento
+    dir:                assets/forum/docs/
+    url:                assets/forum/docs/
+    
